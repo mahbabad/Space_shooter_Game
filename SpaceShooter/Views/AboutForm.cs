@@ -8,7 +8,7 @@ using System.Windows.Forms;
 
 namespace SpaceShooter.Views
 {
-    public partial class AboutForm : Form
+    public partial class AboutForm : Form1
     {
         public AboutForm()
         {
