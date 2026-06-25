@@ -6,5 +6,16 @@ namespace SpaceShooter
         {
             InitializeComponent();
         }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            MainForm();
+        }
+        public void MainForm()
+        {
+            MaximizeBox = false;
+            StartPosition = FormStartPosition.CenterScreen;
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+        }
     }
 }
