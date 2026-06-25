@@ -1,3 +1,4 @@
+
 namespace SpaceShooter
 {
     internal static class Program
