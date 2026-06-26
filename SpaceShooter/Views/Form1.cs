@@ -20,8 +20,13 @@ namespace SpaceShooter
 
             try
             {
-                ClientSize = Properties.Resources.background2.Size;
+                int width = Properties.Resources.background2.Width + 50;
+                int height = Properties.Resources.background2.Height + 200;
+
+                ClientSize = new Size(width, height);
+
                 BackgroundImage = Properties.Resources.background2;
+                BackgroundImageLayout = ImageLayout.Stretch;
             }
             catch (Exception ex)
             {

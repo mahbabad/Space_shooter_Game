@@ -12,7 +12,7 @@ namespace SpaceShooter.Views
     {
         System.Windows.Forms.Timer timer;
 
-        
+
 
         public MainMenuForm()
         {
@@ -35,7 +35,7 @@ namespace SpaceShooter.Views
 
         private void MainMenuForm_Load(object sender, EventArgs e)
         {
-           
+
         }
 
         void TimerTick(object sender, EventArgs e)
@@ -64,7 +64,7 @@ namespace SpaceShooter.Views
                 Hide();
                 OptionForm optionForm = new OptionForm();
                 optionForm.ShowIcon = false;
-                optionForm.ShowInTaskbar= false;
+                optionForm.ShowInTaskbar = false;
                 optionForm.ShowDialog();
                 Show();
             };
@@ -86,6 +86,11 @@ namespace SpaceShooter.Views
                 aboutForm.ShowDialog();
                 Show();
             };
+        }
+
+        private void labelWelcome_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

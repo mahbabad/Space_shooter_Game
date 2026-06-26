@@ -41,18 +41,19 @@
             labelWelcome.BackColor = Color.Transparent;
             labelWelcome.Font = new Font("Forte", 22.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             labelWelcome.ForeColor = Color.Cyan;
-            labelWelcome.Location = new Point(48, 171);
+            labelWelcome.Location = new Point(75, 189);
             labelWelcome.Name = "labelWelcome";
             labelWelcome.Size = new Size(271, 123);
             labelWelcome.TabIndex = 0;
             labelWelcome.Text = "Welcome To \r\n    \U0001f6f8Space\r\n        Shooter🚀";
+            labelWelcome.Click += labelWelcome_Click;
             // 
             // buttonPlay
             // 
             buttonPlay.BackColor = Color.DarkOliveGreen;
             buttonPlay.Font = new Font("Showcard Gothic", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point, 0);
             buttonPlay.ForeColor = Color.Black;
-            buttonPlay.Location = new Point(75, 35);
+            buttonPlay.Location = new Point(99, 33);
             buttonPlay.Name = "buttonPlay";
             buttonPlay.Size = new Size(220, 80);
             buttonPlay.TabIndex = 1;
@@ -63,7 +64,7 @@
             // 
             buttonShop.BackColor = Color.Gold;
             buttonShop.Font = new Font("Showcard Gothic", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            buttonShop.Location = new Point(75, 150);
+            buttonShop.Location = new Point(99, 168);
             buttonShop.Name = "buttonShop";
             buttonShop.Size = new Size(220, 80);
             buttonShop.TabIndex = 2;
@@ -74,7 +75,7 @@
             // 
             buttonOption.BackColor = Color.CadetBlue;
             buttonOption.Font = new Font("Showcard Gothic", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            buttonOption.Location = new Point(75, 261);
+            buttonOption.Location = new Point(99, 294);
             buttonOption.Name = "buttonOption";
             buttonOption.Size = new Size(220, 80);
             buttonOption.TabIndex = 3;
@@ -86,7 +87,7 @@
             buttonAbout.AllowDrop = true;
             buttonAbout.BackColor = Color.IndianRed;
             buttonAbout.Font = new Font("Showcard Gothic", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            buttonAbout.Location = new Point(75, 378);
+            buttonAbout.Location = new Point(99, 422);
             buttonAbout.Name = "buttonAbout";
             buttonAbout.Size = new Size(220, 80);
             buttonAbout.TabIndex = 4;
@@ -97,7 +98,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(356, 710);
+            ClientSize = new Size(398, 710);
             Controls.Add(buttonAbout);
             Controls.Add(buttonOption);
             Controls.Add(buttonShop);
