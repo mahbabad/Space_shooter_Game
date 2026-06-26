@@ -28,128 +28,199 @@
         /// </summary>
         private void InitializeComponent()
         {
-            label1 = new Label();
-            button1 = new Button();
-            button2 = new Button();
-            pictureBox1 = new PictureBox();
-            label2 = new Label();
-            label3 = new Label();
-            progressBar1 = new ProgressBar();
-            progressBar2 = new ProgressBar();
-            button3 = new Button();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            nameLabel = new Label();
+            PreviosButton = new Button();
+            NextButton = new Button();
+            pictureShip = new PictureBox();
+            Speedlabel = new Label();
+            damagelabel = new Label();
+            progressBarSpeed = new ProgressBar();
+            buyOrSelectButton = new Button();
+            label4 = new Label();
+            progressBarDamage = new ProgressBar();
+            amountLabel = new Label();
+            ((System.ComponentModel.ISupportInitialize)pictureShip).BeginInit();
             SuspendLayout();
             // 
-            // label1
+            // nameLabel
             // 
-            label1.AutoSize = true;
-            label1.Location = new Point(178, 38);
-            label1.Name = "label1";
-            label1.Size = new Size(50, 20);
-            label1.TabIndex = 0;
-            label1.Text = "label1";
+            nameLabel.AutoSize = true;
+            nameLabel.BackColor = Color.Transparent;
+            nameLabel.Font = new Font("Stencil", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            nameLabel.ForeColor = Color.Blue;
+            nameLabel.Location = new Point(113, 124);
+            nameLabel.Name = "nameLabel";
+            nameLabel.Size = new Size(63, 24);
+            nameLabel.TabIndex = 0;
+            nameLabel.Text = "Name";
+            nameLabel.TextAlign = ContentAlignment.MiddleCenter;
             // 
-            // button1
+            // PreviosButton
             // 
-            button1.Location = new Point(0, 192);
-            button1.Name = "button1";
-            button1.Size = new Size(94, 29);
-            button1.TabIndex = 1;
-            button1.Text = "button1";
-            button1.UseVisualStyleBackColor = true;
+            PreviosButton.BackColor = Color.Transparent;
+            PreviosButton.FlatAppearance.BorderSize = 0;
+            PreviosButton.FlatStyle = FlatStyle.Flat;
+            PreviosButton.Font = new Font("Showcard Gothic", 72F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            PreviosButton.ForeColor = Color.Lime;
+            PreviosButton.Location = new Point(0, 236);
+            PreviosButton.Name = "PreviosButton";
+            PreviosButton.Size = new Size(94, 142);
+            PreviosButton.TabIndex = 1;
+            PreviosButton.Text = "<";
+            PreviosButton.UseVisualStyleBackColor = false;
+            PreviosButton.Click += PreviosButton_Click;
             // 
-            // button2
+            // NextButton
             // 
-            button2.Location = new Point(316, 192);
-            button2.Name = "button2";
-            button2.Size = new Size(94, 29);
-            button2.TabIndex = 2;
-            button2.Text = "button2";
-            button2.UseVisualStyleBackColor = true;
-            button2.Click += button2_Click;
+            NextButton.BackColor = Color.Transparent;
+            NextButton.FlatAppearance.BorderColor = Color.FromArgb(255, 192, 192);
+            NextButton.FlatAppearance.BorderSize = 0;
+            NextButton.FlatStyle = FlatStyle.Flat;
+            NextButton.Font = new Font("Showcard Gothic", 72F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            NextButton.ForeColor = Color.Lime;
+            NextButton.Location = new Point(333, 236);
+            NextButton.Name = "NextButton";
+            NextButton.Size = new Size(94, 141);
+            NextButton.TabIndex = 2;
+            NextButton.Text = ">";
+            NextButton.UseVisualStyleBackColor = false;
+            NextButton.Click += button2_Click;
             // 
-            // pictureBox1
+            // pictureShip
             // 
-            pictureBox1.Location = new Point(100, 77);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(210, 289);
-            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox1.TabIndex = 3;
-            pictureBox1.TabStop = false;
+            pictureShip.BackColor = Color.Transparent;
+            pictureShip.Location = new Point(90, 151);
+            pictureShip.Name = "pictureShip";
+            pictureShip.Size = new Size(227, 289);
+            pictureShip.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureShip.TabIndex = 3;
+            pictureShip.TabStop = false;
             // 
-            // label2
+            // Speedlabel
             // 
-            label2.AutoSize = true;
-            label2.Location = new Point(100, 379);
-            label2.Name = "label2";
-            label2.Size = new Size(50, 20);
-            label2.TabIndex = 4;
-            label2.Text = "label2";
-            label2.Click += label2_Click;
+            Speedlabel.AutoSize = true;
+            Speedlabel.BackColor = Color.Transparent;
+            Speedlabel.Font = new Font("Stencil", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            Speedlabel.ForeColor = Color.FromArgb(0, 192, 192);
+            Speedlabel.Location = new Point(54, 517);
+            Speedlabel.Name = "Speedlabel";
+            Speedlabel.Size = new Size(122, 35);
+            Speedlabel.TabIndex = 4;
+            Speedlabel.Text = "Speed:";
+            Speedlabel.Click += label2_Click;
             // 
-            // label3
+            // damagelabel
             // 
-            label3.AutoSize = true;
-            label3.Location = new Point(100, 409);
-            label3.Name = "label3";
-            label3.Size = new Size(50, 20);
-            label3.TabIndex = 5;
-            label3.Text = "label3";
+            damagelabel.AutoSize = true;
+            damagelabel.BackColor = Color.Transparent;
+            damagelabel.Font = new Font("Stencil", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            damagelabel.ForeColor = Color.FromArgb(0, 192, 192);
+            damagelabel.Location = new Point(37, 558);
+            damagelabel.Name = "damagelabel";
+            damagelabel.Size = new Size(149, 35);
+            damagelabel.TabIndex = 5;
+            damagelabel.Text = "Damage:";
             // 
-            // progressBar1
+            // progressBarSpeed
             // 
-            progressBar1.Location = new Point(156, 379);
-            progressBar1.Name = "progressBar1";
-            progressBar1.Size = new Size(125, 22);
-            progressBar1.TabIndex = 6;
+            progressBarSpeed.ForeColor = Color.Lime;
+            progressBarSpeed.Location = new Point(192, 517);
+            progressBarSpeed.Name = "progressBarSpeed";
+            progressBarSpeed.Size = new Size(184, 35);
+            progressBarSpeed.TabIndex = 6;
             // 
-            // progressBar2
+            // buyOrSelectButton
             // 
-            progressBar2.Location = new Point(156, 408);
-            progressBar2.Name = "progressBar2";
-            progressBar2.Size = new Size(125, 21);
-            progressBar2.TabIndex = 7;
+            buyOrSelectButton.BackColor = Color.Black;
+            buyOrSelectButton.Font = new Font("Stencil", 31.8000011F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            buyOrSelectButton.ForeColor = Color.Gold;
+            buyOrSelectButton.Location = new Point(54, 599);
+            buyOrSelectButton.Name = "buyOrSelectButton";
+            buyOrSelectButton.Size = new Size(313, 94);
+            buyOrSelectButton.TabIndex = 8;
+            buyOrSelectButton.Text = "button3";
+            buyOrSelectButton.UseVisualStyleBackColor = false;
+            buyOrSelectButton.Click += buyOrSelectButton_Click;
             // 
-            // button3
+            // label4
             // 
-            button3.Location = new Point(156, 449);
-            button3.Name = "button3";
-            button3.Size = new Size(94, 29);
-            button3.TabIndex = 8;
-            button3.Text = "button3";
-            button3.UseVisualStyleBackColor = true;
+            label4.AutoSize = true;
+            label4.BackColor = Color.Transparent;
+            label4.Font = new Font("Stencil", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label4.ForeColor = Color.Yellow;
+            label4.Location = new Point(12, 9);
+            label4.Name = "label4";
+            label4.Size = new Size(61, 35);
+            label4.TabIndex = 9;
+            label4.Text = "💰:";
+            // 
+            // progressBarDamage
+            // 
+            progressBarDamage.ForeColor = Color.Red;
+            progressBarDamage.Location = new Point(192, 558);
+            progressBarDamage.Name = "progressBarDamage";
+            progressBarDamage.Size = new Size(184, 35);
+            progressBarDamage.TabIndex = 11;
+            // 
+            // amountLabel
+            // 
+            amountLabel.AutoSize = true;
+            amountLabel.BackColor = Color.Transparent;
+            amountLabel.Font = new Font("Sylfaen", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            amountLabel.ForeColor = Color.Gold;
+            amountLabel.Location = new Point(68, 9);
+            amountLabel.Name = "amountLabel";
+            amountLabel.Size = new Size(99, 39);
+            amountLabel.TabIndex = 13;
+            amountLabel.Text = "label2";
             // 
             // ShopForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(409, 502);
-            Controls.Add(button3);
-            Controls.Add(progressBar2);
-            Controls.Add(progressBar1);
-            Controls.Add(label3);
-            Controls.Add(label2);
-            Controls.Add(pictureBox1);
-            Controls.Add(button2);
-            Controls.Add(button1);
-            Controls.Add(label1);
+            BackgroundImage = Properties.Resources.backgroundShop1;
+            ClientSize = new Size(428, 722);
+            Controls.Add(amountLabel);
+            Controls.Add(progressBarDamage);
+            Controls.Add(label4);
+            Controls.Add(buyOrSelectButton);
+            Controls.Add(progressBarSpeed);
+            Controls.Add(damagelabel);
+            Controls.Add(Speedlabel);
+            Controls.Add(pictureShip);
+            Controls.Add(NextButton);
+            Controls.Add(PreviosButton);
+            Controls.Add(nameLabel);
             Name = "ShopForm";
             Text = "ShopForm";
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            Load += ShopForm_Load;
+            ((System.ComponentModel.ISupportInitialize)pictureShip).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
 
-        private Label label1;
-        private Button button1;
-        private Button button2;
-        private PictureBox pictureBox1;
-        private Label label2;
-        private Label label3;
-        private ProgressBar progressBar1;
-        private ProgressBar progressBar2;
-        private Button button3;
+        private Label nameLabel;
+        private Button PreviosButton;
+        private Button NextButton;
+        private PictureBox pictureShip;
+        private Label Speedlabel;
+        private Label damagelabel;
+        private ProgressBar progressBarSpeed;
+        private Button buyOrSelectButton;
+        private Label label4;
+        private ProgressBar progressBarDamage;
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ShopForm_Load(object sender, EventArgs e)
+        {
+
+        }
+        private Label amountLabel;
     }
 }

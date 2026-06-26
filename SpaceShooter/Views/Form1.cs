@@ -18,22 +18,13 @@ namespace SpaceShooter
         public void MainForm()
         {
 
-            try
-            {
-                int width = Properties.Resources.background2.Width + 50;
-                int height = Properties.Resources.background2.Height + 200;
+            int width = Properties.Resources.background2.Width + 50;
+            int height = Properties.Resources.background2.Height + 200;
 
-                ClientSize = new Size(width, height);
+            ClientSize = new Size(width, height);
 
-                BackgroundImage = Properties.Resources.background2;
-                BackgroundImageLayout = ImageLayout.Stretch;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex + "ERROR: backgound not found!");
-                Size = new Size(600, 800);
-                BackColor = Color.Red;
-            }
+            BackgroundImage = Properties.Resources.background2;
+            BackgroundImageLayout = ImageLayout.Stretch;
 
             DoubleBuffered = true;
         }

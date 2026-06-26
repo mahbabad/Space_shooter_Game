@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Text;
 using System.Windows.Forms;
 
@@ -11,49 +12,107 @@ namespace SpaceShooter.Views
     public partial class ShopForm : Form1
     {
         List<SpaceShipData> spaceShips;
-        int currentIndexShip = 0;
+        int currentIndexShip = 0; 
+        int coins = 650;
         public ShopForm()
         {
             InitializeComponent();
 
+            MaximizeBox = false;
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+            StartPosition = FormStartPosition.CenterScreen;
+            DoubleBuffered = true;
+
+            int width = Properties.Resources.background2.Width + 50;
+            int height = Properties.Resources.background2.Height + 200;
+            ClientSize = new Size(width, height);
+
+            BackgroundImage = Properties.Resources.backgroundShop1;
+            BackgroundImageLayout = ImageLayout.Stretch;
+
             spaceShips = new List<SpaceShipData>
             {
-                new SpaceShipData { Name = "Fantasy SpaceShip", Image = Properties.Resources.spaceShip1_2, Price = 0, Speed = 60, IsOwned = true },
-                new SpaceShipData { Name = "Shahed drone", Image = Properties.Resources.spaceShip4_2, Price = 700, Speed = 70, IsOwned = false},
-                new SpaceShipData { Name = "Iranian Missile", Image = Properties.Resources.spaceShip3_2, Price = 1700, Speed = 90 },
-                new SpaceShipData { Name = "Russian SuKhoi su-57", Image = Properties.Resources.spaceShip5_2, Price = 2000, Speed = 95, IsOwned = false },
-                new SpaceShipData { Name = "American F-35", Image = Properties.Resources.spaceShip2_2, Price = 2500, Speed = 100, IsOwned = false }
+                new SpaceShipData { Name = "Fantasy SpaceShip", Image = Properties.Resources.spaceShip1_2, Price = 0, Speed = 60, Damage = 50, IsOwned = true },
+                new SpaceShipData { Name = "Shahed drone", Image = Properties.Resources.spaceShip4_2, Price = 700, Speed = 60, Damage = 70, IsOwned = false},
+                new SpaceShipData { Name = "Russian SuKhoi-57", Image = Properties.Resources.spaceShip5_2, Price = 1700, Speed = 85,Damage = 75, IsOwned = false },
+                new SpaceShipData { Name = "American F-35", Image = Properties.Resources.spaceShip2_2, Price = 2000, Speed = 90, Damage = 80, IsOwned = false },
+                new SpaceShipData { Name = "Iranian Missile", Image = Properties.Resources.spaceShip3_2, Price = 2500, Speed = 90, Damage = 100, IsOwned = false }
             };
-        }
 
+            UpdateShop();
+        }
         public void UpdateShop()
         {
             SpaceShipData spaceShip = spaceShips[currentIndexShip];
 
-
+            pictureShip.Image = spaceShip.Image;
+            nameLabel.Text = spaceShip.Name;
+            progressBarSpeed.Value = spaceShip.Speed;
+            progressBarDamage.Value = spaceShip.Damage;
+          
+            amountLabel.Text = $"{coins}";
             if (spaceShip.IsOwned)
             {
-
+                buyOrSelectButton.Text = "EQUIP SHIP";
+                buyOrSelectButton.ForeColor = Color.Green;
+            }
+            else
+            {
+                buyOrSelectButton.Text = $"BUY - {spaceShip.Price}";
+                buyOrSelectButton.ForeColor = Color.Red;
             }
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-
+            currentIndexShip = ((currentIndexShip + 1) % spaceShips.Count);
+            UpdateShop();
         }
 
-        private void label2_Click(object sender, EventArgs e)
+
+        private void PreviosButton_Click(object sender, EventArgs e)
         {
-
+            currentIndexShip--;
+            if (currentIndexShip < 0)
+            {
+                currentIndexShip = spaceShips.Count - 1;
+            }
+            UpdateShop();
         }
+
+        private void buyOrSelectButton_Click(object sender, EventArgs e)
+        {
+            SpaceShipData spaceShip = spaceShips[currentIndexShip];
+            if (!spaceShip.IsOwned)
+            {
+                // TODO
+                // event equip
+                if (coins >= spaceShip.Price)
+                {
+                    coins -= spaceShip.Price;
+                    spaceShip.IsOwned = true;
+                    MessageBox.Show($"Buy spaceShip {spaceShip.Name} was succusfully! ");
+                }
+                else
+                {
+                    MessageBox.Show($"You don't have enough coin! ");
+                }
+            }
+            else
+            {
+                MessageBox.Show($"Equip spaceShip {spaceShip.Name} was succusfully! ");
+            }
+            UpdateShop();
+        }
+
     }
+}
     public class SpaceShipData
     {
         public string Name { get; set; }
         public Image Image { get; set; }
         public int Price { get; set; }
         public int Speed { get; set; }
-
+        public int Damage { get; set; }
         public bool IsOwned { get; set; }
     }
-}
