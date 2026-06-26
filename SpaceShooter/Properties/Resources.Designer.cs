@@ -213,6 +213,16 @@ namespace SpaceShooter.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap spaceShip1_2 {
+            get {
+                object obj = ResourceManager.GetObject("spaceShip1_2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap spaceShip2 {
             get {
                 object obj = ResourceManager.GetObject("spaceShip2", resourceCulture);
@@ -223,9 +233,29 @@ namespace SpaceShooter.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap spaceShip3 {
+        internal static System.Drawing.Bitmap spaceShip2_2 {
             get {
-                object obj = ResourceManager.GetObject("spaceShip3", resourceCulture);
+                object obj = ResourceManager.GetObject("spaceShip2_2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap spaceship3 {
+            get {
+                object obj = ResourceManager.GetObject("spaceship3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap spaceShip3_2 {
+            get {
+                object obj = ResourceManager.GetObject("spaceShip3_2", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -243,9 +273,29 @@ namespace SpaceShooter.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap spaceShip4_2 {
+            get {
+                object obj = ResourceManager.GetObject("spaceShip4_2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap spaceShip5 {
             get {
                 object obj = ResourceManager.GetObject("spaceShip5", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap spaceShip5_2 {
+            get {
+                object obj = ResourceManager.GetObject("spaceShip5_2", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

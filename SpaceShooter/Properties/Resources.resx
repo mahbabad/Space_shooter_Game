@@ -163,17 +163,32 @@
   <data name="spaceShip1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\spaceShip1.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="spaceShip1_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\spaceShip1_2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="spaceShip2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\spaceShip2.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="spaceShip3" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\spaceShip3.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="spaceShip2_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\spaceShip2_2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="spaceship3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\spaceship3.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="spaceShip3_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\spaceShip3_2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="spaceShip4" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\spaceShip4.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="spaceShip4_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\spaceShip4_2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="spaceShip5" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\spaceShip5.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="spaceShip5_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\spaceShip5_2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="zigzagEnumy" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\zigzagEnumy.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
