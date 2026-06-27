@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Media;
 using System.Text;
 using System.Windows.Forms;
+using System.Media;
 
 namespace SpaceShooter.Views
 {
@@ -16,6 +18,7 @@ namespace SpaceShooter.Views
         
         System.Windows.Forms.Timer timer;
 
+        SoundPlayer player;
         public GameForm()
         {
             InitializeComponent();
@@ -38,6 +41,9 @@ namespace SpaceShooter.Views
             y2 = -ClientSize.Height;
 
             Paint += GameFormPaint;
+
+            StartMusic();
+            FormClosing += GameFormClosing;
         }
 
         void GameLoop(Object sender, EventArgs e)
@@ -63,7 +69,19 @@ namespace SpaceShooter.Views
             e.Graphics.DrawImage(backgroundGame, 0, y1, ClientSize.Width, ClientSize.Height);
             e.Graphics.DrawImage(backgroundGame, 0, y2, ClientSize.Width, ClientSize.Height);
         }
-    
+
+        void StartMusic()
+        {
+            player = new SoundPlayer(Properties.Resources.GameMusic);
+            player.PlayLooping();
+        }
+
+        void GameFormClosing(Object sender, FormClosingEventArgs e)
+        {
+            player.Stop();
+            player.Dispose();
+        }
     }
+
 }
 
