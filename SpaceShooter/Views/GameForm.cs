@@ -6,7 +6,7 @@ using System.Drawing;
 using System.Media;
 using System.Text;
 using System.Windows.Forms;
-using System.Media;
+
 
 namespace SpaceShooter.Views
 {
@@ -18,7 +18,6 @@ namespace SpaceShooter.Views
         
         System.Windows.Forms.Timer timer;
 
-        SoundPlayer player;
         public GameForm()
         {
             InitializeComponent();
@@ -72,14 +71,12 @@ namespace SpaceShooter.Views
 
         void StartMusic()
         {
-            player = new SoundPlayer(Properties.Resources.GameMusic);
-            player.PlayLooping();
+            AudioManager.PlayBackMusic(Properties.Resources.GameMusic, "GameMusic.wav");
         }
 
         void GameFormClosing(Object sender, FormClosingEventArgs e)
         {
-            player.Stop();
-            player.Dispose();
+            AudioManager.StopBackMusic();
         }
     }
 

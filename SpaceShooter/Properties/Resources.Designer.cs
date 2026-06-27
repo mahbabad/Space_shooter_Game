@@ -61,15 +61,6 @@ namespace SpaceShooter.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
-        /// </summary>
-        internal static System.IO.UnmanagedMemoryStream AboutMusic {
-            get {
-                return ResourceManager.GetStream("AboutMusic", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap background1 {
@@ -154,6 +145,16 @@ namespace SpaceShooter.Properties {
         internal static System.IO.UnmanagedMemoryStream MainMenuMusic {
             get {
                 return ResourceManager.GetStream("MainMenuMusic", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap OptionBackground2 {
+            get {
+                object obj = ResourceManager.GetObject("OptionBackground2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
         

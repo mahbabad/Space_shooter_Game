@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Media;
 using System.Text;
 using System.Windows.Forms;
 
@@ -11,9 +12,7 @@ namespace SpaceShooter.Views
     public partial class MainMenuForm : Form1
     {
         System.Windows.Forms.Timer timer;
-
-
-
+        
         public MainMenuForm()
         {
             InitializeComponent();
@@ -24,6 +23,9 @@ namespace SpaceShooter.Views
             buttonAbout.Visible = false;
             SayWelcome();
             MenuButten();
+
+            StartMusic();
+            
         }
         void SayWelcome()
         {
@@ -52,13 +54,17 @@ namespace SpaceShooter.Views
         {
             buttonPlay.Click += (s, e) =>
             {
+                AudioManager.StopBackMusic();
                 Hide();
                 GameForm gameForm = new GameForm();
                 gameForm.ShowIcon = false;
                 gameForm.ShowInTaskbar = false;
                 gameForm.ShowDialog();
                 Show();
+                StartMusic();
+
             };
+
             buttonOption.Click += (s, e) =>
             {
                 Hide();
@@ -67,30 +73,41 @@ namespace SpaceShooter.Views
                 optionForm.ShowInTaskbar = false;
                 optionForm.ShowDialog();
                 Show();
+
             };
             buttonShop.Click += (s, e) =>
             {
+                AudioManager.StopBackMusic();
                 Hide();
                 ShopForm shopForm = new ShopForm();
                 shopForm.ShowIcon = false;
                 shopForm.ShowInTaskbar = false;
                 shopForm.ShowDialog();
                 Show();
+                StartMusic();
+
             };
             buttonAbout.Click += (s, e) =>
             {
+                AudioManager.StopBackMusic();
                 Hide();
                 AboutForm aboutForm = new AboutForm();
                 aboutForm.ShowIcon = false;
                 aboutForm.ShowInTaskbar = false;
                 aboutForm.ShowDialog();
                 Show();
+                StartMusic();
             };
         }
 
         private void labelWelcome_Click(object sender, EventArgs e)
         {
 
+        }
+
+        void StartMusic()
+        {
+            AudioManager.PlayBackMusic(Properties.Resources.MainMenuMusic, "MainMenuMusic.wav");
         }
     }
 }

@@ -13,6 +13,25 @@ namespace SpaceShooter.Views
         public OptionForm()
         {
             InitializeComponent();
+            MaximizeBox = false;
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+            StartPosition = FormStartPosition.CenterScreen;
+            DoubleBuffered = true;
+
+            int width = Properties.Resources.background2.Width + 50;
+            int height = Properties.Resources.background2.Height + 200;
+
+            ClientSize = new Size(width, height);
+
+            BackgroundImage = Properties.Resources.OptionBackground2;
+            BackgroundImageLayout = ImageLayout.Stretch;
+
+
+        }
+
+        private void OptionForm_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
