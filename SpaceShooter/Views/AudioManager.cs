@@ -11,27 +11,63 @@ namespace SpaceShooter.Views
     {
         static MediaPlayer backMusic;
         static MediaPlayer boombMusic;
-        static bool IsMusicMuted { get; set; }
-        static bool IsSfxMuted { get; set; }
+        static SoundPlayer soundplayer;
+        
+        static bool _isMusicMuted;
+        static bool _isSfxMuted;
+        public static bool IsMusicMuted
+        {
+            get { return _isMusicMuted; }
+            set 
+            { 
+                _isMusicMuted = value;
+                if (backMusic != null)
+                {
+                    backMusic.IsMuted = value;
+                }
+            }
+        }
+        public static bool IsSfxMuted
+        { 
+            get { return _isSfxMuted; } 
+            set 
+            {
+                _isSfxMuted = value;
+                if (boombMusic != null)
+                {
+                    boombMusic.IsMuted = value;
+                }
+                if (value && soundplayer != null)
+                {
+                    soundplayer.Stop(); 
+                }
+            } 
+        }
         static AudioManager()
         {
             IsMusicMuted = false;
             IsSfxMuted = false;
             backMusic = new MediaPlayer();
             boombMusic = new MediaPlayer();
+            soundplayer = new SoundPlayer();
         }
         public static void PlayBackMusic(Stream music, string filename)
         {
-            if (IsMusicMuted)
-                return;
+            //if (IsMusicMuted)
+            //    return;
+
             backMusic.Close();
             string tempPath = Path.Combine(Path.GetTempPath(), filename);
-            using (FileStream file = new FileStream(tempPath, FileMode.Create, FileAccess.Write))
+            if (!File.Exists(tempPath))
             {
-                music.CopyTo(file);
+                using (FileStream file = new FileStream(tempPath, FileMode.Create, FileAccess.Write))
+                {
+                    music.CopyTo(file);
+                }
             }
 
             backMusic.Open(new Uri(tempPath));
+            backMusic.IsMuted = IsMusicMuted;
             backMusic.Play();
 
             backMusic.MediaEnded += (s, e) =>
@@ -51,11 +87,13 @@ namespace SpaceShooter.Views
                 return;
 
             string tempPath = Path.Combine(Path.GetTempPath(), fileName);
-            using (FileStream file = new FileStream(tempPath, FileMode.Create, FileAccess.Write))
+            if (!File.Exists(tempPath))
             {
-                music.CopyTo(file);
+                using (FileStream file = new FileStream(tempPath, FileMode.Create, FileAccess.Write))
+                {
+                    music.CopyTo(file);
+                }
             }
-
             boombMusic.Open(new Uri(tempPath));
             boombMusic.Play();
         }
@@ -64,8 +102,8 @@ namespace SpaceShooter.Views
             if (IsSfxMuted)
                 return;
 
-            SoundPlayer sp = new SoundPlayer(sfx);
-            sp.Play();
+            soundplayer.Stream = sfx;
+            soundplayer.Play();
         }
     }
 }

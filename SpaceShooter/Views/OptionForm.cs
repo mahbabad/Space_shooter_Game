@@ -26,12 +26,51 @@ namespace SpaceShooter.Views
             BackgroundImage = Properties.Resources.OptionBackground2;
             BackgroundImageLayout = ImageLayout.Stretch;
 
-
+            pictureBox1.Image = AudioManager.IsMusicMuted ? Properties.Resources.sound2 : Properties.Resources.sound1;
+            pictureBox2.Image = AudioManager.IsSfxMuted ? Properties.Resources.sound2 : Properties.Resources.sound1;
         }
 
         private void OptionForm_Load(object sender, EventArgs e)
         {
 
         }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            AudioManager.IsMusicMuted = !AudioManager.IsMusicMuted;
+            if (AudioManager.IsMusicMuted)
+            {
+                pictureBox1.Image = Properties.Resources.sound2;
+            }
+            else
+            {
+                pictureBox1.Image = Properties.Resources.sound1;
+            }
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+            AudioManager.IsSfxMuted = !AudioManager.IsSfxMuted;
+
+            if (AudioManager.IsSfxMuted)
+            {
+                pictureBox2.Image = Properties.Resources.sound2;
+            }
+            else
+            {
+                pictureBox2.Image = Properties.Resources.sound1;
+            }
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
     }
 }
+
