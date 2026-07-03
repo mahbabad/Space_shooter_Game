@@ -52,9 +52,7 @@ namespace SpaceShooter.Data
             string createShopItemTable = @"
                CREATE TABLE IF NOT EXIST shopItem (
                Id INTEGER PRIMARY KEY AUTOINCREMENT ,
-               ItemKey TEXT NOT NULL UNIQUE,
                DisplayName TEXT NOT NULL,
-               Category TEXT NOT NULL,
                Price INTEGER NOT NULL,
                IsPurchased INTEGER NOT NULL,
                IsEquipped INTEGER NOT NULL
@@ -67,7 +65,7 @@ namespace SpaceShooter.Data
 
         private void initialDatabaseIfNotExsit()
         {
-            using var connection =GetConection();
+            using var connection = GetConection();
             connection.Open();
 
             string insertDefaultGameStats = @"
@@ -78,8 +76,17 @@ namespace SpaceShooter.Data
                 );
             ";
 
+            string insertDefaultShopItems = @"
+                INSERT INTO shopItem (DisplayName , Price , IsPurchased , IsEquipped )
+                VALUES 
+                ('FANTASY SPACESHIP' , 0 , 1 , 1),
+                ('SHAHED DRONE' , 700 , 0 , 0),
+                ('RUSSIAN SUKHOI-57' , 1700 , 0 , 0),
+                ('IRANIAN MISSILE' , 2500 , 0 , 0),
+                ('AMERICAN-F35' , 2000 , 0 , 0);";
+
             using var command = connection.CreateCommand();
-            command.CommandText = insertDefaultGameStats;
+            command.CommandText = insertDefaultGameStats + insertDefaultShopItems;
             command.ExecuteNonQuery();
         }
 
