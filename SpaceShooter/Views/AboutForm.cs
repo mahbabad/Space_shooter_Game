@@ -27,11 +27,22 @@ namespace SpaceShooter.Views
             BackgroundImageLayout = ImageLayout.Stretch;
 
             DoubleBuffered = true;
+
+            StartMusic();
+            FormClosing += CloseAboutForm;
         }
 
         private void AboutForm_Load(object sender, EventArgs e)
         {
 
+        }
+        void StartMusic()
+        {
+            AudioManager.PlayBackMusic(Properties.Resources.about, "aboutMusic.wav");
+        }
+        void CloseAboutForm(object sender, EventArgs e)
+        {
+            AudioManager.StopBackMusic();
         }
     }
 }

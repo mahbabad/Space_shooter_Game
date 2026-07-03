@@ -54,7 +54,6 @@ namespace SpaceShooter.Views
         {
             buttonPlay.Click += (s, e) =>
             {
-                AudioManager.StopBackMusic();
                 Hide();
                 GameForm gameForm = new GameForm();
                 gameForm.ShowIcon = false;
@@ -62,7 +61,6 @@ namespace SpaceShooter.Views
                 gameForm.ShowDialog();
                 Show();
                 StartMusic();
-
             };
 
             buttonOption.Click += (s, e) =>
@@ -75,9 +73,9 @@ namespace SpaceShooter.Views
                 Show();
 
             };
+
             buttonShop.Click += (s, e) =>
             {
-                AudioManager.StopBackMusic();
                 Hide();
                 ShopForm shopForm = new ShopForm();
                 shopForm.ShowIcon = false;
@@ -87,9 +85,9 @@ namespace SpaceShooter.Views
                 StartMusic();
 
             };
+
             buttonAbout.Click += (s, e) =>
             {
-                AudioManager.StopBackMusic();
                 Hide();
                 AboutForm aboutForm = new AboutForm();
                 aboutForm.ShowIcon = false;

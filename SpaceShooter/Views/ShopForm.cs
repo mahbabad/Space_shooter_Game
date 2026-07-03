@@ -40,6 +40,8 @@ namespace SpaceShooter.Views
             };
 
             UpdateShop();
+            StartMusic();
+            FormClosing += CloseShopMusic;
         }
         public void UpdateShop()
         {
@@ -105,8 +107,16 @@ namespace SpaceShooter.Views
             UpdateShop();
         }
 
+        void StartMusic()
+        {
+            AudioManager.PlayBackMusic(Properties.Resources.Shop, "ShopMusic.wav");
+        }
+
+        void CloseShopMusic(Object sender, FormClosingEventArgs e)
+        {
+            AudioManager.StopBackMusic();
+        }
     }
-}
     public class SpaceShipData
     {
         public string Name { get; set; }
@@ -116,3 +126,5 @@ namespace SpaceShooter.Views
         public int Damage { get; set; }
         public bool IsOwned { get; set; }
     }
+}
+    
