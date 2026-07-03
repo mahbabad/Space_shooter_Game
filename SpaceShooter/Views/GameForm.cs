@@ -15,7 +15,7 @@ namespace SpaceShooter.Views
         int y1, y2;
         int scrollSpeed = 4;
         Image backgroundGame = Properties.Resources.background1;
-        
+
         System.Windows.Forms.Timer timer;
 
         public GameForm()
@@ -50,15 +50,16 @@ namespace SpaceShooter.Views
             y1 += scrollSpeed;
             y2 += scrollSpeed;
 
-            if (y1 >= ClientSize.Height) 
+            if (y1 >= ClientSize.Height)
             {
-                y1 = y2 -ClientSize.Height ;
+                y1 = y2 - ClientSize.Height;
             }
 
             if (y2 >= ClientSize.Height)
             {
-                y2 = y1 -ClientSize.Height;
+                y2 = y1 - ClientSize.Height;
             }
+            Update();
 
             Invalidate();
         }
@@ -78,7 +79,49 @@ namespace SpaceShooter.Views
         {
             AudioManager.StopBackMusic();
         }
-    }
 
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+
+
+        }
+
+        void Update()
+        {
+            coinLabel.Text = $"🪙Coin: {GameData.Coin}";
+            scoreLabel.Text = $"🏆Score: {GameData.Score}";
+            waveLabel.Text = $"Wave: {GameData.CurrentLevel}/10";
+
+            if (GameData.Health >= 1)
+            {
+                pictureHeart1.Visible = true;
+                if (GameData.Health >= 2)
+                {
+                    pictureHeart2.Visible = true;
+                    if(GameData.Health >= 3)
+                    {
+                        pictureHeart3.Visible = true;
+                        if (GameData.Health >= 4)
+                        {
+                            pictureHeart4.Visible = true;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    public static class GameData
+    {
+        public static int Coin = 0;
+        public static int Score = 0;
+        public static int Health = 3;
+        public static int CurrentLevel = 1;
+    }
 }
 

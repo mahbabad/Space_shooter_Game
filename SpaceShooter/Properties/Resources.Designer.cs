@@ -63,6 +63,26 @@ namespace SpaceShooter.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _1sevvom_Heart {
+            get {
+                object obj = ResourceManager.GetObject("1sevvom_Heart", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _2sevvom_heart {
+            get {
+                object obj = ResourceManager.GetObject("2sevvom_heart", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap aboutBackground3 {
             get {
                 object obj = ResourceManager.GetObject("aboutBackground3", resourceCulture);
@@ -113,6 +133,36 @@ namespace SpaceShooter.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Coin {
+            get {
+                object obj = ResourceManager.GetObject("Coin", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Coin1 {
+            get {
+                object obj = ResourceManager.GetObject("Coin1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Coin2 {
+            get {
+                object obj = ResourceManager.GetObject("Coin2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap entehari {
             get {
                 object obj = ResourceManager.GetObject("entehari", resourceCulture);
@@ -126,6 +176,16 @@ namespace SpaceShooter.Properties {
         internal static System.Drawing.Bitmap estandardEnumy {
             get {
                 object obj = ResourceManager.GetObject("estandardEnumy", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Full_Heart {
+            get {
+                object obj = ResourceManager.GetObject("Full_Heart", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -234,6 +294,16 @@ namespace SpaceShooter.Properties {
         internal static System.Drawing.Bitmap shelik_gololeh_zaeef {
             get {
                 object obj = ResourceManager.GetObject("shelik_gololeh_zaeef", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Shelik_golooleh_enumy {
+            get {
+                object obj = ResourceManager.GetObject("Shelik_golooleh_enumy", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

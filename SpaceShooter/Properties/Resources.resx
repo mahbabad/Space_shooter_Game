@@ -118,6 +118,12 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="1sevvom_Heart" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1sevvom_Heart.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="2sevvom_heart" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\2sevvom_heart.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="aboutBackground3" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\aboutBackground3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -133,11 +139,23 @@
   <data name="boomb" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\boomb.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Coin" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Coin.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Coin1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Coin1.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Coin2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Coin2.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="entehari" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\entehari.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="estandardEnumy" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\estandardEnumy.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Full_Heart" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Full_Heart.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="GameMusic" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\GameMusic.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -171,6 +189,9 @@
   </data>
   <data name="shelik_gololeh_zaeef" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\shelik_gololeh_zaeef.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Shelik_golooleh_enumy" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Shelik_golooleh_enumy.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="shooter" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\shooter.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
