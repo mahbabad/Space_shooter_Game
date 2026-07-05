@@ -69,6 +69,7 @@ namespace SpaceShooter.Views
 
         private void button1_Click(object sender, EventArgs e)
         {
+            AudioManager.PlaySfx(Properties.Resources.click);
             Close();
         }
     }

@@ -40,6 +40,7 @@
             label8 = new Label();
             label9 = new Label();
             label10 = new Label();
+            button1 = new Button();
             SuspendLayout();
             // 
             // developerLabel
@@ -187,12 +188,28 @@
             label10.TabIndex = 11;
             label10.Text = "from IUST";
             // 
+            // button1
+            // 
+            button1.BackColor = Color.Transparent;
+            button1.FlatAppearance.BorderSize = 0;
+            button1.FlatStyle = FlatStyle.Flat;
+            button1.Font = new Font("B Nazanin", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 178);
+            button1.ForeColor = Color.DarkMagenta;
+            button1.Location = new Point(256, 23);
+            button1.Name = "button1";
+            button1.Size = new Size(131, 38);
+            button1.TabIndex = 12;
+            button1.Text = "back>";
+            button1.UseVisualStyleBackColor = false;
+            button1.Click += button1_Click;
+            // 
             // AboutForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = Properties.Resources.aboutBackground3;
             ClientSize = new Size(418, 730);
+            Controls.Add(button1);
             Controls.Add(label10);
             Controls.Add(label9);
             Controls.Add(label8);
@@ -226,5 +243,6 @@
         private Label label8;
         private Label label9;
         private Label label10;
+        private Button button1;
     }
 }

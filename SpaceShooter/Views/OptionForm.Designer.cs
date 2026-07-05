@@ -66,13 +66,13 @@
             button1.BackColor = Color.Transparent;
             button1.FlatAppearance.BorderSize = 0;
             button1.FlatStyle = FlatStyle.Flat;
-            button1.Font = new Font("Sina", 22.2F, FontStyle.Bold, GraphicsUnit.Point, 178);
-            button1.ForeColor = Color.FromArgb(128, 128, 255);
-            button1.Location = new Point(29, 54);
+            button1.Font = new Font("B Nazanin", 18F, FontStyle.Bold, GraphicsUnit.Point, 178);
+            button1.ForeColor = Color.DodgerBlue;
+            button1.Location = new Point(231, 49);
             button1.Name = "button1";
             button1.Size = new Size(156, 60);
             button1.TabIndex = 2;
-            button1.Text = "<back";
+            button1.Text = "back>";
             button1.UseVisualStyleBackColor = false;
             button1.Click += button1_Click;
             // 
