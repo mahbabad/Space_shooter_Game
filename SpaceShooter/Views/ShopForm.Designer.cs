@@ -39,6 +39,7 @@
             label4 = new Label();
             progressBarDamage = new ProgressBar();
             amountLabel = new Label();
+            button1 = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureShip).BeginInit();
             SuspendLayout();
             // 
@@ -132,11 +133,11 @@
             // buyOrSelectButton
             // 
             buyOrSelectButton.BackColor = Color.Black;
-            buyOrSelectButton.Font = new Font("Stencil", 31.8000011F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            buyOrSelectButton.Font = new Font("Stencil", 31.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             buyOrSelectButton.ForeColor = Color.Gold;
-            buyOrSelectButton.Location = new Point(54, 599);
+            buyOrSelectButton.Location = new Point(37, 599);
             buyOrSelectButton.Name = "buyOrSelectButton";
-            buyOrSelectButton.Size = new Size(313, 94);
+            buyOrSelectButton.Size = new Size(339, 148);
             buyOrSelectButton.TabIndex = 8;
             buyOrSelectButton.Text = "button3";
             buyOrSelectButton.UseVisualStyleBackColor = false;
@@ -148,11 +149,12 @@
             label4.BackColor = Color.Transparent;
             label4.Font = new Font("Stencil", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label4.ForeColor = Color.Yellow;
-            label4.Location = new Point(12, 9);
+            label4.Location = new Point(0, 6);
             label4.Name = "label4";
             label4.Size = new Size(61, 35);
             label4.TabIndex = 9;
             label4.Text = "💰:";
+            label4.Click += label4_Click;
             // 
             // progressBarDamage
             // 
@@ -168,18 +170,34 @@
             amountLabel.BackColor = Color.Transparent;
             amountLabel.Font = new Font("Sylfaen", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
             amountLabel.ForeColor = Color.Gold;
-            amountLabel.Location = new Point(68, 9);
+            amountLabel.Location = new Point(54, 6);
             amountLabel.Name = "amountLabel";
-            amountLabel.Size = new Size(99, 39);
+            amountLabel.Size = new Size(35, 39);
             amountLabel.TabIndex = 13;
-            amountLabel.Text = "label2";
+            amountLabel.Text = "n";
+            // 
+            // button1
+            // 
+            button1.BackColor = Color.Transparent;
+            button1.FlatAppearance.BorderSize = 0;
+            button1.FlatStyle = FlatStyle.Flat;
+            button1.Font = new Font("Stencil", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            button1.ForeColor = SystemColors.Highlight;
+            button1.Location = new Point(322, 6);
+            button1.Name = "button1";
+            button1.Size = new Size(94, 29);
+            button1.TabIndex = 14;
+            button1.Text = "back>";
+            button1.UseVisualStyleBackColor = false;
+            button1.Click += button1_Click;
             // 
             // ShopForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = Properties.Resources.backgroundShop1;
-            ClientSize = new Size(428, 722);
+            ClientSize = new Size(428, 923);
+            Controls.Add(button1);
             Controls.Add(amountLabel);
             Controls.Add(progressBarDamage);
             Controls.Add(label4);
@@ -222,5 +240,6 @@
 
         }
         private Label amountLabel;
+        private Button button1;
     }
 }

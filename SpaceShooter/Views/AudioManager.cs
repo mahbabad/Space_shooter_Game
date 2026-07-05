@@ -11,6 +11,7 @@ namespace SpaceShooter.Views
     {
         static MediaPlayer backMusic;
         static MediaPlayer boombMusic;
+        static MediaPlayer coinMusic;
         static SoundPlayer soundplayer;
         
         static bool _isMusicMuted;
@@ -50,6 +51,7 @@ namespace SpaceShooter.Views
             backMusic = new MediaPlayer();
             boombMusic = new MediaPlayer();
             soundplayer = new SoundPlayer();
+            coinMusic = new MediaPlayer();
         }
         public static void PlayBackMusic(Stream music, string filename)
         {
@@ -97,6 +99,24 @@ namespace SpaceShooter.Views
             boombMusic.Open(new Uri(tempPath));
             boombMusic.Play();
         }
+        public static void CoinPlayer(Stream music, string filename)
+        {
+            if (IsSfxMuted)
+                return;
+
+            string tempPath = Path.Combine(Path.GetTempPath(), filename);
+            if (!File.Exists(tempPath))
+            {
+                using (FileStream file = new FileStream(tempPath, FileMode.Create, FileAccess.Write))
+                {
+                    music.CopyTo(file);
+                }
+            }
+            coinMusic.Open(new Uri(tempPath));
+            coinMusic.Play();
+        }
+        
+        
         public static void PlaySfx(Stream sfx)
         {
             if (IsSfxMuted)

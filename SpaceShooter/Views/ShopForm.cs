@@ -12,8 +12,8 @@ namespace SpaceShooter.Views
     public partial class ShopForm : Form1
     {
         List<SpaceShipData> spaceShips;
-        int currentIndexShip = 0; 
-        int coins = 650;
+        int currentIndexShip = 0;
+        int coins = 5000;
         public ShopForm()
         {
             InitializeComponent();
@@ -51,9 +51,16 @@ namespace SpaceShooter.Views
             nameLabel.Text = spaceShip.Name;
             progressBarSpeed.Value = spaceShip.Speed;
             progressBarDamage.Value = spaceShip.Damage;
-          
+
             amountLabel.Text = $"{coins}";
-            if (spaceShip.IsOwned)
+
+            if (spaceShip.IsOwned && currentIndexShip == SpaceShipData.EquipedShipIndex)
+            {
+                nameLabel.Text = $"★ {spaceShip.Name} ★";
+                buyOrSelectButton.Text = "CURRENTLY EQUIPPED";
+                buyOrSelectButton.ForeColor = Color.Gold;
+            }
+            else if (spaceShip.IsOwned)
             {
                 buyOrSelectButton.Text = "EQUIP SHIP";
                 buyOrSelectButton.ForeColor = Color.Green;
@@ -67,6 +74,8 @@ namespace SpaceShooter.Views
 
         private void button2_Click(object sender, EventArgs e)
         {
+            AudioManager.PlaySfx(Properties.Resources.click);
+
             currentIndexShip = ((currentIndexShip + 1) % spaceShips.Count);
             UpdateShop();
         }
@@ -74,6 +83,8 @@ namespace SpaceShooter.Views
 
         private void PreviosButton_Click(object sender, EventArgs e)
         {
+            AudioManager.PlaySfx(Properties.Resources.click);
+
             currentIndexShip--;
             if (currentIndexShip < 0)
             {
@@ -87,24 +98,37 @@ namespace SpaceShooter.Views
             SpaceShipData spaceShip = spaceShips[currentIndexShip];
             if (!spaceShip.IsOwned)
             {
-                // TODO
-                // event equip
                 if (coins >= spaceShip.Price)
                 {
                     coins -= spaceShip.Price;
+                    AudioManager.CoinPlayer(Properties.Resources.CoinMusic, "coinMusic.wav");
                     spaceShip.IsOwned = true;
+                    UpdateShop();
                     MessageBox.Show($"Buy spaceShip {spaceShip.Name} was succusfully! ");
                 }
                 else
                 {
+                    AudioManager.PlaySfx(Properties.Resources.error1);
                     MessageBox.Show($"You don't have enough coin! ");
                 }
             }
             else
             {
-                MessageBox.Show($"Equip spaceShip {spaceShip.Name} was succusfully! ");
+
+                if (currentIndexShip == SpaceShipData.EquipedShipIndex)
+                {
+                    AudioManager.PlaySfx(Properties.Resources.errorShop);
+                    MessageBox.Show($"{spaceShip.Name} had been equipped! ");
+                }
+                else
+                {
+                    AudioManager.PlaySfx(Properties.Resources.equipedClick);
+                    MessageBox.Show($"Equip spaceShip {spaceShip.Name} was succusfully! ");
+                    SpaceShipData.EquipedShipIndex = currentIndexShip;
+                }
+
+                UpdateShop();
             }
-            UpdateShop();
         }
 
         void StartMusic()
@@ -116,9 +140,21 @@ namespace SpaceShooter.Views
         {
             AudioManager.StopBackMusic();
         }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            AudioManager.PlaySfx(Properties.Resources.click);
+            Close();
+        }
     }
     public class SpaceShipData
     {
+        static public int EquipedShipIndex { get; set; } = 0;
         public string Name { get; set; }
         public Image Image { get; set; }
         public int Price { get; set; }
