@@ -132,7 +132,8 @@
             pauseButton.BackgroundImage = Properties.Resources.resume;
             pauseButton.BackgroundImageLayout = ImageLayout.Zoom;
             pauseButton.FlatAppearance.BorderSize = 0;
-            pauseButton.FlatAppearance.MouseDownBackColor = Color.Silver;
+            pauseButton.FlatAppearance.MouseDownBackColor = Color.Teal;
+            pauseButton.FlatAppearance.MouseOverBackColor = Color.FromArgb(0, 64, 64);
             pauseButton.FlatStyle = FlatStyle.Flat;
             pauseButton.ForeColor = Color.BurlyWood;
             pauseButton.Location = new Point(352, 46);
@@ -144,67 +145,71 @@
             // 
             // pausePanel
             // 
-            pausePanel.BackColor = Color.Transparent;
+            pausePanel.BackColor = Color.Gray;
             pausePanel.Controls.Add(exitButton);
             pausePanel.Controls.Add(resumeButton);
             pausePanel.Controls.Add(menuButton);
-            pausePanel.Location = new Point(69, 167);
+            pausePanel.Location = new Point(67, 204);
             pausePanel.Name = "pausePanel";
-            pausePanel.Size = new Size(285, 211);
+            pausePanel.Size = new Size(285, 162);
             pausePanel.TabIndex = 8;
             pausePanel.Paint += panel1_Paint_1;
             // 
             // exitButton
             // 
-            exitButton.BackColor = Color.Maroon;
+            exitButton.BackColor = Color.Transparent;
+            exitButton.BackgroundImage = Properties.Resources.exit;
+            exitButton.BackgroundImageLayout = ImageLayout.Zoom;
             exitButton.FlatAppearance.BorderColor = Color.SpringGreen;
-            exitButton.FlatAppearance.BorderSize = 2;
+            exitButton.FlatAppearance.BorderSize = 0;
             exitButton.FlatAppearance.MouseDownBackColor = Color.Teal;
             exitButton.FlatAppearance.MouseOverBackColor = Color.FromArgb(0, 64, 64);
             exitButton.FlatStyle = FlatStyle.Flat;
             exitButton.Font = new Font("B Nazanin", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 178);
             exitButton.ForeColor = Color.Lime;
-            exitButton.Location = new Point(83, 130);
+            exitButton.Location = new Point(3, 42);
             exitButton.Name = "exitButton";
-            exitButton.Size = new Size(94, 39);
+            exitButton.Size = new Size(94, 77);
             exitButton.TabIndex = 11;
-            exitButton.Text = "EXIT";
             exitButton.UseVisualStyleBackColor = false;
             exitButton.Click += exitButton_Click;
             // 
             // resumeButton
             // 
-            resumeButton.BackColor = Color.Navy;
+            resumeButton.BackColor = Color.Transparent;
+            resumeButton.BackgroundImage = Properties.Resources.Pause;
+            resumeButton.BackgroundImageLayout = ImageLayout.Zoom;
             resumeButton.FlatAppearance.BorderColor = Color.SpringGreen;
-            resumeButton.FlatAppearance.BorderSize = 2;
+            resumeButton.FlatAppearance.BorderSize = 0;
             resumeButton.FlatAppearance.MouseDownBackColor = Color.Teal;
             resumeButton.FlatAppearance.MouseOverBackColor = Color.FromArgb(0, 64, 64);
             resumeButton.FlatStyle = FlatStyle.Flat;
             resumeButton.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             resumeButton.ForeColor = Color.Lime;
-            resumeButton.Location = new Point(83, 21);
+            resumeButton.Location = new Point(204, 42);
             resumeButton.Name = "resumeButton";
-            resumeButton.Size = new Size(94, 39);
+            resumeButton.Size = new Size(78, 77);
             resumeButton.TabIndex = 9;
-            resumeButton.Text = "RESUME";
+            resumeButton.TextAlign = ContentAlignment.BottomCenter;
             resumeButton.UseVisualStyleBackColor = false;
             resumeButton.Click += resumeButton_Click;
             // 
             // menuButton
             // 
-            menuButton.BackColor = Color.Indigo;
+            menuButton.BackColor = Color.Transparent;
+            menuButton.BackgroundImage = Properties.Resources.menu;
+            menuButton.BackgroundImageLayout = ImageLayout.Zoom;
             menuButton.FlatAppearance.BorderColor = Color.SpringGreen;
-            menuButton.FlatAppearance.BorderSize = 2;
+            menuButton.FlatAppearance.BorderSize = 0;
             menuButton.FlatAppearance.MouseDownBackColor = Color.Teal;
             menuButton.FlatAppearance.MouseOverBackColor = Color.FromArgb(0, 64, 64);
             menuButton.FlatStyle = FlatStyle.Flat;
             menuButton.Font = new Font("B Nazanin", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 178);
             menuButton.ForeColor = Color.Lime;
-            menuButton.Location = new Point(83, 76);
+            menuButton.Location = new Point(95, 42);
             menuButton.Name = "menuButton";
-            menuButton.Size = new Size(94, 39);
+            menuButton.Size = new Size(94, 77);
             menuButton.TabIndex = 10;
-            menuButton.Text = "MENU";
             menuButton.UseVisualStyleBackColor = false;
             menuButton.Click += menuButton_Click;
             // 

@@ -21,7 +21,6 @@ namespace SpaceShooter.Views
         public GameForm()
         {
             InitializeComponent();
-            pausePanel.BackColor = Color.FromArgb(150, 0, 0, 0);
             pausePanel.Visible = false;
 
             MaximizeBox = false;
