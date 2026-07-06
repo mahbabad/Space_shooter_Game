@@ -13,7 +13,7 @@ namespace SpaceShooter.Views
     {
         List<SpaceShipData> spaceShips;
         int currentIndexShip = 0;
-        int coins = 5000;
+        int coins = 500;
         public ShopForm()
         {
             InitializeComponent();

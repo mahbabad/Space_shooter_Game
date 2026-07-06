@@ -294,6 +294,16 @@ namespace SpaceShooter.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap resume {
+            get {
+                object obj = ResourceManager.GetObject("resume", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap shelick_gololeh_ghavi {
             get {
                 object obj = ResourceManager.GetObject("shelick_gololeh_ghavi", resourceCulture);

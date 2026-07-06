@@ -35,10 +35,16 @@
             coinLabel = new Label();
             scoreLabel = new Label();
             pictureHeart4 = new PictureBox();
+            pauseButton = new Button();
+            pausePanel = new Panel();
+            exitButton = new Button();
+            resumeButton = new Button();
+            menuButton = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureHeart3).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureHeart1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureHeart2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureHeart4).BeginInit();
+            pausePanel.SuspendLayout();
             SuspendLayout();
             // 
             // pictureHeart3
@@ -80,7 +86,7 @@
             waveLabel.BackColor = Color.Transparent;
             waveLabel.Font = new Font("Stencil", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
             waveLabel.ForeColor = Color.FromArgb(255, 192, 255);
-            waveLabel.Location = new Point(131, 87);
+            waveLabel.Location = new Point(115, 97);
             waveLabel.Name = "waveLabel";
             waveLabel.Size = new Size(126, 35);
             waveLabel.TabIndex = 3;
@@ -120,11 +126,95 @@
             pictureHeart4.TabIndex = 6;
             pictureHeart4.TabStop = false;
             // 
+            // pauseButton
+            // 
+            pauseButton.BackColor = Color.Transparent;
+            pauseButton.BackgroundImage = Properties.Resources.resume;
+            pauseButton.BackgroundImageLayout = ImageLayout.Zoom;
+            pauseButton.FlatAppearance.BorderSize = 0;
+            pauseButton.FlatAppearance.MouseDownBackColor = Color.Silver;
+            pauseButton.FlatStyle = FlatStyle.Flat;
+            pauseButton.ForeColor = Color.BurlyWood;
+            pauseButton.Location = new Point(352, 46);
+            pauseButton.Name = "pauseButton";
+            pauseButton.Size = new Size(60, 58);
+            pauseButton.TabIndex = 7;
+            pauseButton.UseVisualStyleBackColor = false;
+            pauseButton.Click += button1_Click;
+            // 
+            // pausePanel
+            // 
+            pausePanel.BackColor = Color.Transparent;
+            pausePanel.Controls.Add(exitButton);
+            pausePanel.Controls.Add(resumeButton);
+            pausePanel.Controls.Add(menuButton);
+            pausePanel.Location = new Point(69, 167);
+            pausePanel.Name = "pausePanel";
+            pausePanel.Size = new Size(285, 211);
+            pausePanel.TabIndex = 8;
+            pausePanel.Paint += panel1_Paint_1;
+            // 
+            // exitButton
+            // 
+            exitButton.BackColor = Color.Maroon;
+            exitButton.FlatAppearance.BorderColor = Color.SpringGreen;
+            exitButton.FlatAppearance.BorderSize = 2;
+            exitButton.FlatAppearance.MouseDownBackColor = Color.Teal;
+            exitButton.FlatAppearance.MouseOverBackColor = Color.FromArgb(0, 64, 64);
+            exitButton.FlatStyle = FlatStyle.Flat;
+            exitButton.Font = new Font("B Nazanin", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 178);
+            exitButton.ForeColor = Color.Lime;
+            exitButton.Location = new Point(83, 130);
+            exitButton.Name = "exitButton";
+            exitButton.Size = new Size(94, 39);
+            exitButton.TabIndex = 11;
+            exitButton.Text = "EXIT";
+            exitButton.UseVisualStyleBackColor = false;
+            exitButton.Click += exitButton_Click;
+            // 
+            // resumeButton
+            // 
+            resumeButton.BackColor = Color.Navy;
+            resumeButton.FlatAppearance.BorderColor = Color.SpringGreen;
+            resumeButton.FlatAppearance.BorderSize = 2;
+            resumeButton.FlatAppearance.MouseDownBackColor = Color.Teal;
+            resumeButton.FlatAppearance.MouseOverBackColor = Color.FromArgb(0, 64, 64);
+            resumeButton.FlatStyle = FlatStyle.Flat;
+            resumeButton.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            resumeButton.ForeColor = Color.Lime;
+            resumeButton.Location = new Point(83, 21);
+            resumeButton.Name = "resumeButton";
+            resumeButton.Size = new Size(94, 39);
+            resumeButton.TabIndex = 9;
+            resumeButton.Text = "RESUME";
+            resumeButton.UseVisualStyleBackColor = false;
+            resumeButton.Click += resumeButton_Click;
+            // 
+            // menuButton
+            // 
+            menuButton.BackColor = Color.Indigo;
+            menuButton.FlatAppearance.BorderColor = Color.SpringGreen;
+            menuButton.FlatAppearance.BorderSize = 2;
+            menuButton.FlatAppearance.MouseDownBackColor = Color.Teal;
+            menuButton.FlatAppearance.MouseOverBackColor = Color.FromArgb(0, 64, 64);
+            menuButton.FlatStyle = FlatStyle.Flat;
+            menuButton.Font = new Font("B Nazanin", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 178);
+            menuButton.ForeColor = Color.Lime;
+            menuButton.Location = new Point(83, 76);
+            menuButton.Name = "menuButton";
+            menuButton.Size = new Size(94, 39);
+            menuButton.TabIndex = 10;
+            menuButton.Text = "MENU";
+            menuButton.UseVisualStyleBackColor = false;
+            menuButton.Click += menuButton_Click;
+            // 
             // GameForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(411, 603);
+            Controls.Add(pausePanel);
+            Controls.Add(pauseButton);
             Controls.Add(coinLabel);
             Controls.Add(scoreLabel);
             Controls.Add(pictureHeart4);
@@ -138,6 +228,7 @@
             ((System.ComponentModel.ISupportInitialize)pictureHeart1).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureHeart2).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureHeart4).EndInit();
+            pausePanel.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();
         }
@@ -151,5 +242,10 @@
         private Label coinLabel;
         private Label scoreLabel;
         private PictureBox pictureHeart4;
+        private Button pauseButton;
+        private Panel pausePanel;
+        private Button resumeButton;
+        private Button menuButton;
+        private Button exitButton;
     }
 }

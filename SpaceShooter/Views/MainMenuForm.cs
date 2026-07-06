@@ -58,7 +58,12 @@ namespace SpaceShooter.Views
                 GameForm gameForm = new GameForm();
                 gameForm.ShowIcon = false;
                 gameForm.ShowInTaskbar = false;
-                gameForm.ShowDialog();
+                DialogResult result = gameForm.ShowDialog();
+                if (result == DialogResult.Abort)
+                {
+                    Application.Exit();
+                    return;
+                }
                 Show();
                 StartMusic();
             };
