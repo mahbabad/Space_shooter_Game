@@ -9,7 +9,7 @@ namespace SpaceShooter.Models
     {
         private const float ShootInterval = 1.5f; 
         private const float BulletSpeed = 200f;
-        private const int BulletDamage = 10;
+        private const int BulletDamage = 1;
         private float _timeSinceLastShot;
 
         public ShooterEnemy(float x, float y)

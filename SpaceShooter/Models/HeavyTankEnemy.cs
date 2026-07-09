@@ -23,7 +23,7 @@ namespace SpaceShooter.Models
         }
 
 
-        private const int BulletDamage = 25;
+        private const int BulletDamage = 2;
 
         public override List<Bullet> UpdateShooting(float deltaTime)
         {
