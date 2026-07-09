@@ -4,7 +4,7 @@ namespace SpaceShooter.Models
 {
     public class Bullet : BaseEntity
     {
-        public int Damage { get; set; }
+        public int Damage { get;}
 
         public bool IsPlayerBullet { get; }
 

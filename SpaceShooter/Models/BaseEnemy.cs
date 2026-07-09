@@ -53,7 +53,7 @@ namespace SpaceShooter.Models
 
         public abstract override void UpdateMovement(float deltaTime);
 
-        public virtual List<Bullet> UpdateShooting()
+        public virtual List<Bullet> UpdateShooting(float deltaTime)
         {
             return new List<Bullet>();
         }
