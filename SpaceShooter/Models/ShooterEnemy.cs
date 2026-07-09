@@ -24,10 +24,7 @@ namespace SpaceShooter.Models
             VelocityY = 60f;
         }
 
-        public override void UpdateMovement(float deltaTime)
-        {
-            Y += VelocityY * deltaTime;
-        }
+      
 
         public override List<Bullet> UpdateShooting(float deltaTime)
         {

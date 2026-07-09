@@ -51,7 +51,10 @@ namespace SpaceShooter.Models
             return new Coin(X + Width / 2f, Y + Height / 2f, type);
         }
 
-        public abstract override void UpdateMovement(float deltaTime);
+        public virtual void UpdateMovement(float deltaTime)
+        {
+            Y += VelocityY * deltaTime;
+        }
 
         public virtual List<Bullet> UpdateShooting(float deltaTime)
         {
