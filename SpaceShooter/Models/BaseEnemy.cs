@@ -1,5 +1,6 @@
 ﻿using SpaceShooter.Enums;
 using SpaceShooter.Interfaces;
+using System.Collections.Generic;
 
 namespace SpaceShooter.Models
 {
@@ -51,5 +52,10 @@ namespace SpaceShooter.Models
         }
 
         public abstract override void UpdateMovement(float deltaTime);
+
+        public virtual List<Bullet> UpdateShooting()
+        {
+            return new List<Bullet>();
+        }
     }
 }
