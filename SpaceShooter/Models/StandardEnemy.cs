@@ -12,9 +12,6 @@
             VelocityY = 80f; 
         }
 
-        public override void UpdateMovement(float deltaTime)
-        {
-            Y += VelocityY * deltaTime;
-        }
+       
     }
 }
