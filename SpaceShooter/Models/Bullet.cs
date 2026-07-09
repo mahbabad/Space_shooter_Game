@@ -11,6 +11,8 @@ namespace SpaceShooter.Models
         public Bullet(float x, float y, float velocityX, float velocityY,
                       int damage, bool isPlayerBullet):base(x, y , 4f , 12f)
         {
+            VelocityX = velocityX;  
+            VelocityY = velocityY;
             Damage = damage;
             IsPlayerBullet = isPlayerBullet;
         }
