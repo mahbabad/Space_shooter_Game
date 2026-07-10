@@ -22,6 +22,17 @@ namespace SpaceShooter.Core
             }
         }
 
+        public void UpdateEnemyShooting(List<BaseEnemy> enemies, List<Bullet> activeBullets, float deltaTime)
+        {
+            foreach (var enemy in enemies)
+            {
+                if (!enemy.IsActive) continue;
+
+                var newBullets = enemy.UpdateShooting(deltaTime);
+                activeBullets.AddRange(newBullets);
+            }
+        }
+
 
         private void Shoot(PlayerShip player, List<Bullet> activeBullets)
         {
