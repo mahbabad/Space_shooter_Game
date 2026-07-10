@@ -36,6 +36,24 @@ namespace SpaceShooter.Core
             }
         }
 
+        public void UpdateBullets(List<Bullet> bullets, RectangleF gameArea, float deltaTime)
+        {
+            foreach (var bullet in bullets)
+            {
+                if (!bullet.IsActive) continue;
+
+                bullet.UpdateMovement(deltaTime);
+
+                if (bullet.Y + bullet.Height < gameArea.Top ||       
+                    bullet.Y > gameArea.Bottom ||                  
+                    bullet.X + bullet.Width < gameArea.Left ||    
+                    bullet.X > gameArea.Right)                        
+                {
+                    bullet.IsActive = false;
+                }
+            }
+        }
+
         private void ClampToBounds(PlayerShip player, RectangleF gameArea)
         {
             if (player.X < gameArea.Left)
