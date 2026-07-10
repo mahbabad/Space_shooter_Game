@@ -20,12 +20,17 @@ namespace SpaceShooter.Core
 
         
         private RectangleF _gameArea;
+        private GameSession _session;
 
-        public EnemySpawner(RectangleF gameArea)
+        public EnemySpawner(RectangleF gameArea  , GameSession S)
         {
             _random = new Random();
             _gameArea = gameArea;
+            _session = S;
             CurrentWave = 1;
+
+            _session.CurrentWave = this.CurrentWave;
+
 
             StartNewWave();
         }
@@ -51,6 +56,7 @@ namespace SpaceShooter.Core
             else if (activeEnemies.Count == 0 && newlySpawnedEnemies.Count == 0)
             {
                 CurrentWave++;
+                _session.CurrentWave = this.CurrentWave;
                 StartNewWave();
             }
         }
