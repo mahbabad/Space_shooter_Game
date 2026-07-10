@@ -6,6 +6,8 @@ namespace SpaceShooter.Enums
 {
     public enum GameStatus
     {
-
+        playing,
+        pause,
+        gameOver
     }
 }
