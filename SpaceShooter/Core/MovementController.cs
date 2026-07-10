@@ -23,6 +23,19 @@ namespace SpaceShooter.Core
             ClampToBounds(player, gameArea);
         }
 
+        public void UpdateEnemies(List<BaseEnemy> enemies, RectangleF gameArea, float deltaTime)
+        {
+            foreach (var enemy in enemies)
+            {
+                if (!enemy.IsActive) continue;
+
+                enemy.UpdateMovement(deltaTime);
+
+                if (enemy.Y > gameArea.Bottom)
+                    enemy.IsActive = false;
+            }
+        }
+
         private void ClampToBounds(PlayerShip player, RectangleF gameArea)
         {
             if (player.X < gameArea.Left)
