@@ -80,6 +80,8 @@ namespace SpaceShooter.Core
             newEnemy.Y = spawnY;
             newEnemy.Health = newEnemy.Health + (2 * CurrentWave);
             newEnemy.VelocityY = newEnemy.VelocityY * (1f + 0.1f * CurrentWave);
+
+            newlySpawnedEnemies.Add(newEnemy);
         }
 
         private BaseEnemy CreateRandomEnemyForCurrentWave()
