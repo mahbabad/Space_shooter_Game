@@ -1,0 +1,58 @@
+﻿using System.Collections.Generic;
+using SpaceShooter.Models;
+
+namespace SpaceShooter.Core
+{
+    public class ShootingController
+    {
+        private float _playerFireCooldown = 0f;
+
+        public void UpdatePlayerShooting(PlayerShip player, InputState input, List<Bullet> activeBullets, float deltaTime)
+        {
+            if (_playerFireCooldown > 0)
+            {
+                _playerFireCooldown -= deltaTime;
+            }
+
+            if (input.IsShooting && _playerFireCooldown <= 0f)
+            {
+                Shoot(player, activeBullets);
+
+                _playerFireCooldown = GameRules.PlayerFireRate;
+            }
+        }
+
+        public void UpdateEnemyShooting(List<BaseEnemy> enemies, List<Bullet> activeBullets, float deltaTime)
+        {
+            foreach (var enemy in enemies)
+            {
+                if (!enemy.IsActive) continue;
+
+                var newBullets = enemy.UpdateShooting(deltaTime);
+                activeBullets.AddRange(newBullets);
+            }
+        }
+
+
+        private void Shoot(PlayerShip player, List<Bullet> activeBullets)
+        {
+            
+
+            float spawnX = player.X + (player.Width / 2f) - ( GameRules.BulletWidth / 2f);
+            float spawnY = player.Y;
+
+            Bullet newBullet = new Bullet
+            (
+                 spawnX,
+                 spawnY,
+                 0f,
+                 -GameRules.PlayerBulletSpeed,
+                 GameRules.PlayerBulletDamage,
+                 true
+            );
+
+
+            activeBullets.Add(newBullet);
+        }
+    }
+}
