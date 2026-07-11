@@ -34,5 +34,15 @@ namespace SpaceShooter.Models
         {
             return new RectangleF(X, Y, Width, Height);
         }
+        public RectangleF GetCollisionBounds(float shrinkPercent = 0.30f)
+        {
+            float insetX = Width * shrinkPercent / 2f;
+            float insetY = Height * shrinkPercent / 2f;
+            return new RectangleF(
+                X + insetX,
+                Y + insetY,
+                Width - (insetX * 2f),
+                Height - (insetY * 2f));
+        }
     }
 }

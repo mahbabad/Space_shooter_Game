@@ -124,7 +124,7 @@ namespace SpaceShooter.Core
 
         private bool CheckCollision(BaseEntity entityA, BaseEntity entityB)
         {
-            return entityA.GetBounds().IntersectsWith(entityB.GetBounds());
+            return entityA.GetCollisionBounds().IntersectsWith(entityB.GetCollisionBounds());
         }
     }
 }
