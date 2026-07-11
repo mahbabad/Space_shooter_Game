@@ -8,6 +8,7 @@ namespace SpaceShooter.Enums
     {
         playing,
         pause,
-        gameOver
+        gameOver,
+        finish
     }
 }

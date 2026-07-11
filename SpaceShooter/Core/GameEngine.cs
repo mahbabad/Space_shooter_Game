@@ -76,7 +76,8 @@ namespace SpaceShooter.Core
             _collisionManager.HandleAllCollisions(Session.Player, Session.ActiveEnemies, Session.ActiveBullets, Session.ActiveCoins);
 
             CleanupInactiveEntities();
-            CheckGameOver();    
+            CheckGameOver(); 
+            CheckGameFinish();
         }
 
         private void CleanupInactiveEntities()
@@ -93,6 +94,13 @@ namespace SpaceShooter.Core
                 Session.Status = Enums.GameStatus.gameOver;
                 SaveGameData(); 
             }
+        }
+
+        private void CheckGameFinish()
+        {
+            if(Session.CurrentWave > 10)
+                Session.Status = Enums.GameStatus.finish;
+            SaveGameData();
         }
 
         public void SaveGameData()
