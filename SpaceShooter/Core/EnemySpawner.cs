@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Drawing; 
+using System.Drawing;
+using System.Drawing.Text;
+using System.Security.Cryptography.X509Certificates;
 using SpaceShooter.Models;
 
 namespace SpaceShooter.Core
@@ -82,28 +84,40 @@ namespace SpaceShooter.Core
 
             float spawnY = _gameArea.Y - 50f;
 
+            if (newEnemy is ScoutEnemy sc)
+            {
+                spawnX = _gameArea.X + 50f;
+            }
+
             newEnemy.X = spawnX;
             newEnemy.Y = spawnY;
             newEnemy.Health = newEnemy.Health + (2 * CurrentWave);
             newEnemy.VelocityY = newEnemy.VelocityY * (1f + 0.1f * CurrentWave);
 
+           
             newlySpawnedEnemies.Add(newEnemy);
         }
 
+      
         private BaseEnemy CreateRandomEnemyForCurrentWave()
         {
-                BaseEnemy newEnemy;
+      
+            BaseEnemy newEnemy;
             int enemyTypeRate = _random.Next(100);
 
-            if (CurrentWave >= 5 && enemyTypeRate< 15)
+            if (CurrentWave == 10 && enemyTypeRate < 20f)
                 newEnemy = new HeavyTankEnemy(0f, 0f);
-            else if (CurrentWave >= 3 && enemyTypeRate< 40)
+            else if (CurrentWave >= 3 && enemyTypeRate < 40)
                 newEnemy = new ShooterEnemy(0f, 0f);
-            else if (CurrentWave >= 2 && enemyTypeRate< 70)
-                newEnemy = new ScoutEnemy(0f, 0f);
+            else if (CurrentWave >= 2 && enemyTypeRate < 70)
+            {
+                float randomSpawnX = (float)_random.Next(70, 150);
+                newEnemy = new ScoutEnemy(randomSpawnX, 0f);
+            }
+            else if (CurrentWave >= 5 && enemyTypeRate < 45f)
+                newEnemy = new TeroristEnemy(0f, 0f);
             else
                 newEnemy = new StandardEnemy(0f, 0f);
-
             return newEnemy;
         }
     
