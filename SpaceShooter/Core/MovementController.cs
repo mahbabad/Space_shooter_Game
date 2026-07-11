@@ -62,6 +62,18 @@ namespace SpaceShooter.Core
             }
         }
 
+        public void UpdateCoins(List<Coin> coins , RectangleF gameArea, float deltaTime)
+        {
+            foreach(var coin in coins)
+            {
+                coin.UpdateMovement(deltaTime);
+
+
+                if (coin.Y > gameArea.Bottom)
+                    coin.IsActive = false;
+            }
+        }
+
         private void ClampToBounds(PlayerShip player, RectangleF gameArea)
         {
             if (player.X < gameArea.Left)

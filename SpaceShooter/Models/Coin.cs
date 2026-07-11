@@ -15,7 +15,7 @@ namespace SpaceShooter.Models
         public Coin(float x, float y ,CoinType type ):base(x , y, 60f , 60f) 
         {
             VelocityX = 0f;
-            VelocityY = 60f;
+            VelocityY = 80f;
             this.type = type; 
         }
 

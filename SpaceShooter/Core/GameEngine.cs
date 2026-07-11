@@ -74,6 +74,7 @@ namespace SpaceShooter.Core
             _movementController.UpdateEnemies(Session.ActiveEnemies, GameArea, deltatime , Session.Player);
             _shooterController.UpdateEnemyShooting(Session.ActiveEnemies, Session.ActiveBullets, deltatime);
             _movementController.UpdateBullets(Session.ActiveBullets, GameArea, deltatime);
+            _movementController.UpdateCoins(Session.ActiveCoins, GameArea, deltatime);
 
             _collisionManager.HandleAllCollisions(Session.Player, Session.ActiveEnemies, Session.ActiveBullets, Session.ActiveCoins);
 
