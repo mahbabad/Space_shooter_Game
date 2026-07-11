@@ -12,11 +12,11 @@ namespace SpaceShooter.Models
 
         public bool IsCollected { get; private set; }
 
-        public Coin(float x, float y ,CoinType type ):base(x , y, 16f , 16f) 
+        public Coin(float x, float y ,CoinType type ):base(x , y, 60f , 60f) 
         {
             VelocityX = 0f;
             VelocityY = 60f;
-            this.type = type;
+            this.type = type; 
         }
 
         public void Collect()

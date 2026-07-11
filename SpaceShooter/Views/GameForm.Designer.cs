@@ -246,6 +246,7 @@
         private Label waveLabel;
         private Label coinLabel;
         private Label scoreLabel;
+        private Label error;
         private PictureBox pictureHeart4;
         private Button pauseButton;
         private Panel pausePanel;

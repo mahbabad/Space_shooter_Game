@@ -11,10 +11,12 @@ namespace SpaceShooter.Core
         public GameSession Session { get; set; }
         public RectangleF GameArea { get; set; }
 
+      
+
         private EnemySpawner _enemySpawner;
         private MovementController _movementController;
         private ShootingController _shooterController;
-        private CollisionManager _collisionManager;
+        public CollisionManager _collisionManager;
         private CoinManager _coinManager;
         private ScoreManager _scoreManager;
        
@@ -75,10 +77,14 @@ namespace SpaceShooter.Core
 
             _collisionManager.HandleAllCollisions(Session.Player, Session.ActiveEnemies, Session.ActiveBullets, Session.ActiveCoins);
 
+
+
+
             CleanupInactiveEntities();
             CheckGameOver(); 
             CheckGameFinish();
         }
+        
 
         private void CleanupInactiveEntities()
         {

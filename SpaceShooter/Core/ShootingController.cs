@@ -24,14 +24,25 @@ namespace SpaceShooter.Core
 
         public void UpdateEnemyShooting(List<BaseEnemy> enemies, List<Bullet> activeBullets, float deltaTime)
         {
+            List<Bullet> pendingBullets = new List<Bullet>();
+
             foreach (var enemy in enemies)
             {
                 if (!enemy.IsActive) continue;
 
                 var newBullets = enemy.UpdateShooting(deltaTime);
-                activeBullets.AddRange(newBullets);
+                if (newBullets.Count > 0)
+                {
+                    pendingBullets.AddRange(newBullets);
+                }
+            }
+
+            if (pendingBullets.Count > 0)
+            {
+                activeBullets.AddRange(pendingBullets);
             }
         }
+
 
 
         private void Shoot(PlayerShip player, List<Bullet> activeBullets)

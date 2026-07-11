@@ -22,13 +22,13 @@ namespace SpaceShooter.Core
         public List<Bullet> ActiveBullets { get; private set; }
         public List<Coin> ActiveCoins { get; private set; }
 
-        public GameSession(PlayerShip P) 
+        public GameSession(PlayerShip P , RectangleF gameArea) 
         {
+            GameArea = gameArea;
             ActiveEnemies = new List<BaseEnemy>();
             ActiveCoins = new List<Coin>();
             ActiveBullets = new List<Bullet>();
             Player = P;
-
             ResetSession();
         }
 
@@ -43,7 +43,10 @@ namespace SpaceShooter.Core
             ActiveBullets.Clear();
             ActiveCoins.Clear();
 
-            Player = new PlayerShip(GameArea.Width/2 , GameArea.Height);
+            Player = new PlayerShip(
+            GameArea.Width / 2 - 50f,          
+            GameArea.Height - 110f);           
+            Player.IsActive = true;
         }
     }
 }

@@ -13,7 +13,7 @@ namespace SpaceShooter.Models
 
         public HeavyTankEnemy(float x, float y)
             : base(x, y,
-                   width: 64, height: 64,
+                   width: 140, height:140 ,
                    maxHealth: 200,
                    scoreValue: 150,
                    coinDropChance: 0.90f,

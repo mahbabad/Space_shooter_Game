@@ -13,13 +13,13 @@ namespace SpaceShooter.Models
         private const float Frequency = 3f;
 
         public ScoutEnemy(float x , float y) : base(x, y,
-            width : 28 , height : 28,
+            width : 70 , height : 70,
             maxHealth: 20 , scoreValue : 25 , 
             coinDropChance:0.40f , goldCoinChance : 0.20f)
         {
             _baseX = x;
             VelocityY = 130f;
-
+             
         }
 
         public override void UpdateMovement(float deltaTime)

@@ -11,7 +11,7 @@ namespace SpaceShooter.Models
         public bool IsDestroyed { get { return Health <= 0; } }
 
         public PlayerShip(float startX, float startY,
-                          float width = 50f, float height = 50f)
+                          float width = 100f, float height = 100f)
             : base(startX, startY, width, height)
         {
             MaxHealth = Core.GameRules.PlayerMaxHealth;

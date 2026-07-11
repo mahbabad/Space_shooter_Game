@@ -4,14 +4,15 @@ namespace SpaceShooter.Core
 {
     public class ScoreManager
     {
-        
+
 
         private readonly GameSession _session;
 
         public ScoreManager(GameSession session)
         {
-            ResetScore();
+            
             _session = session;
+            ResetScore();
 
         }
 
