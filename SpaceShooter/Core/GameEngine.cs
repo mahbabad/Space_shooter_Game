@@ -11,8 +11,8 @@ namespace SpaceShooter.Core
         public GameSession Session { get; set; }
         public RectangleF GameArea { get; set; }
 
-      
-
+      private bool _isSave = false;
+        
         private EnemySpawner _enemySpawner;
         private MovementController _movementController;
         private ShootingController _shooterController;
@@ -105,12 +105,15 @@ namespace SpaceShooter.Core
         private void CheckGameFinish()
         {
             if(Session.CurrentWave > 10)
+            {
                 Session.Status = Enums.GameStatus.finish;
-            SaveGameData();
+                SaveGameData();
+            }
         }
 
         public void SaveGameData()
         {
+          
             _gameStatsRepository.UpdateHighScore(Session.Score);
             _gameStatsRepository.UpdateTotalCoins(Session.CoinsCollected);
         }

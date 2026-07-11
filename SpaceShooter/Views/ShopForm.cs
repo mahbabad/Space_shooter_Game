@@ -1,7 +1,9 @@
-﻿using System;
+﻿using SpaceShooter.Data;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.Common;
 using System.Drawing;
 using System.Globalization;
 using System.Text;
@@ -12,11 +14,20 @@ namespace SpaceShooter.Views
     public partial class ShopForm : Form1
     {
         List<SpaceShipData> spaceShips;
+        private DatabaseConnection _Db;
+        private GameStatsRepository _gameStats;
+        private ShopItemsRepository _shopItems;
         int currentIndexShip = 0;
-        int coins = 500;
+        int coins;
         public ShopForm()
         {
             InitializeComponent();
+
+            _Db = new DatabaseConnection();
+            _gameStats = new GameStatsRepository(_Db);
+            _shopItems = new ShopItemsRepository(_Db);
+
+            coins = _gameStats.GetTotalCoins();
 
             MaximizeBox = false;
             FormBorderStyle = FormBorderStyle.FixedSingle;
