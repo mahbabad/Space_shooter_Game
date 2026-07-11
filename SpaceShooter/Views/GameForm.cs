@@ -119,6 +119,15 @@ namespace SpaceShooter.Views
                 {
                     y2 = y1 - ClientSize.Height;
                 }
+
+
+
+                GameData.Score = _gameEngine.Session.Score;
+                GameData.Coin = _gameEngine.Session.CoinsCollected;
+                GameData.CurrentLevel = _gameEngine.Session.CurrentWave;
+                GameData.Health = (int)Math.Ceiling((_gameEngine.Session.Player.Health / (float)GameRules.PlayerMaxHealth) * 12);
+
+
                 UpdateUI();
 
                 float deltatime = 0.020f;
@@ -145,10 +154,6 @@ namespace SpaceShooter.Views
 
 
 
-                GameData.Score = _gameEngine.Session.Score;
-                GameData.Coin = _gameEngine.Session.CoinsCollected;
-                GameData.CurrentLevel = _gameEngine.Session.CurrentWave;
-                GameData.Health = (int)Math.Ceiling((_gameEngine.Session.Player.Health / (float)GameRules.PlayerMaxHealth) * 12);
 
 
                 Invalidate();
