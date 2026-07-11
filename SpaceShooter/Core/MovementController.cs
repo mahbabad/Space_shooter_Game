@@ -1,5 +1,6 @@
-﻿using System.Drawing;
-using SpaceShooter.Models;
+﻿using SpaceShooter.Models;
+using System.Drawing;
+using System.Numerics;
 
 namespace SpaceShooter.Core
 {
@@ -23,11 +24,18 @@ namespace SpaceShooter.Core
             ClampToBounds(player, gameArea);
         }
 
-        public void UpdateEnemies(List<BaseEnemy> enemies, RectangleF gameArea, float deltaTime)
+        public void UpdateEnemies(List<BaseEnemy> enemies, RectangleF gameArea, float deltaTime , PlayerShip player)
         {
             foreach (var enemy in enemies)
             {
                 if (!enemy.IsActive) continue;
+
+                if (enemy is TeroristEnemy terorist)
+                {
+                    terorist.SetTarget(
+                    player.X + player.Width / 2 - terorist.Width / 2
+                    ,player.Y);
+                }
 
                 enemy.UpdateMovement(deltaTime);
 

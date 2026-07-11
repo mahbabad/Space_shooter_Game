@@ -23,7 +23,7 @@ namespace SpaceShooter.Core
         public GameEngine(RectangleF initialArea)
         {
             GameArea = initialArea;
-            Session = new GameSession(initializePlayer());
+            Session = new GameSession(initializePlayer() , GameArea);
             _movementController = new MovementController();
             _enemySpawner = new EnemySpawner(GameArea ,Session);
             _shooterController = new ShootingController();
@@ -37,7 +37,7 @@ namespace SpaceShooter.Core
         private PlayerShip initializePlayer()
         {
             float startx = (GameArea.Width / 2) - 25f;
-            float starty = GameArea.Height - 80f;
+            float starty = -(GameArea.Height - 80f);
             PlayerShip initPlayer = new PlayerShip(startx, starty)
             {
                 Health = GameRules.PlayerMaxHealth,
@@ -69,7 +69,7 @@ namespace SpaceShooter.Core
                 Session.ActiveEnemies.AddRange(newlySpawned);
             }
 
-            _movementController.UpdateEnemies(Session.ActiveEnemies, GameArea, deltatime);
+            _movementController.UpdateEnemies(Session.ActiveEnemies, GameArea, deltatime , Session.Player);
             _shooterController.UpdateEnemyShooting(Session.ActiveEnemies, Session.ActiveBullets, deltatime);
             _movementController.UpdateBullets(Session.ActiveBullets, GameArea, deltatime);
 
@@ -81,8 +81,8 @@ namespace SpaceShooter.Core
 
         private void CleanupInactiveEntities()
         {
-            Session.ActiveEnemies.RemoveAll(e => e.Health <= 0 || !e.IsActive);
-            Session.ActiveBullets.RemoveAll(b => !b.IsActive);
+            Session.ActiveEnemies.RemoveAll(e => e.Health <= 0 || !e.IsActive || e.Y > GameArea.Bottom + 100 );
+            Session.ActiveBullets.RemoveAll(b => !b.IsActive || b.Y > GameArea.Bottom + 100 || b.Y < GameArea.Top - 100 );
             Session.ActiveCoins.RemoveAll(c => !c.IsActive);
         }
 
