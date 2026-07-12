@@ -139,6 +139,12 @@
   <data name="backgroundShop1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\photo_2026-06-25_02-37-16.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="blue_bullet" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\blue_bullet.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="blue_rectangle_bullet" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\blue_rectangle_bullet.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="bomb" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\bomb.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
@@ -159,6 +165,18 @@
   </data>
   <data name="CoinMusic" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Coin.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="darkblue_bullet" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\darkblue_bullet.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="darkgreen_bullet" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\darkgreen_bullet.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="darkyellow_bullet" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\darkyellow_bullet.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="daste" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\daste.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="entehari" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\entehari.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -187,17 +205,44 @@
   <data name="giant" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\giant.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="green_bullet" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\green_bullet.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="hot_bullet" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\hot_bullet.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="lightblue_bullet" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\lightblue_bullet.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="MainMenuMusic" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\MainMenuMusic.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="menu" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\menu.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="newPink_bullet" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\newPink_bullet.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="OptionBackground2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\aboutBackground2.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="orange_bullet" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\orange_bullet.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Pause" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\mainPause.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="perple_bullet" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\perple_bullet.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="pink_bullet" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\pink_bullet.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="rangarang_bullet" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\rangarang_bullet.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="red_bullet" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\red_bullet.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="resume" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\resume.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -235,6 +280,9 @@
   <data name="Shop" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Shop.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="silverCoin" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\silverCoin.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="sound1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\sound1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -270,6 +318,9 @@
   </data>
   <data name="spaceShip5_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\spaceShip5_2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="veryLightBlue_bullet" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\veryLightBlue_bullet.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="zigzagEnumy" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\zigzagEnumy.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
