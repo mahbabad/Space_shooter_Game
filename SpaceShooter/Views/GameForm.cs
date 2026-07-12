@@ -16,6 +16,7 @@ namespace SpaceShooter.Views
 {
     public partial class GameForm : Form1
     {
+
         int y1, y2;
         int scrollSpeed = 4;
         Image backgroundGame = Properties.Resources.background1;
@@ -47,6 +48,11 @@ namespace SpaceShooter.Views
         {
             InitializeComponent();
             this.ActiveControl = null;
+
+            GameData.Coin = 0;
+            GameData.Score = 0;
+                GameData.Health = 9;
+            GameData.CurrentLevel = 1;
 
 
             if (ImageAnimator.CanAnimate(playerShooterImg)) ImageAnimator.Animate(playerShooterImg, OnFrameChanged);
@@ -275,6 +281,10 @@ namespace SpaceShooter.Views
             scoreLabel.Text = $"🏆Score: {GameData.Score}";
             waveLabel.Text = $"Wave: {GameData.CurrentLevel}/10";
 
+            pictureHeart1.Visible = true;
+            pictureHeart2.Visible = true;
+            pictureHeart3.Visible = true;
+            pictureHeart4.Visible = false;
 
 
             if (GameData.Health == 0)
@@ -353,6 +363,7 @@ namespace SpaceShooter.Views
                 pictureHeart2.Image = Properties.Resources.Full_Heart;
                 pictureHeart3.Image = Properties.Resources.Full_Heart;
                 pictureHeart4.Image = Properties.Resources._1sevvom_Heart;
+                pictureHeart4.Visible = true;
             }
             else if (GameData.Health == 11)
             {
@@ -360,6 +371,7 @@ namespace SpaceShooter.Views
                 pictureHeart2.Image = Properties.Resources.Full_Heart;
                 pictureHeart3.Image = Properties.Resources.Full_Heart;
                 pictureHeart4.Image = Properties.Resources._2sevvom_heart;
+                pictureHeart4.Visible = true;
             }
             else if (GameData.Health == 12)
             {
@@ -367,6 +379,7 @@ namespace SpaceShooter.Views
                 pictureHeart2.Image = Properties.Resources.Full_Heart;
                 pictureHeart3.Image = Properties.Resources.Full_Heart;
                 pictureHeart4.Image = Properties.Resources.Full_Heart;
+                pictureHeart4.Visible = true;
             }
         }
 
@@ -439,15 +452,18 @@ namespace SpaceShooter.Views
         private void button3_Click(object sender, EventArgs e)
         {
             _gameEngine.Session.Player.Health = 12;
+            GameData.Health = 12;
             FirstPanel.Visible = false;
             pictureHeart4.Visible = true;
+            UpdateUI();
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
             _gameEngine.Session.Player.Health = 9;
+            GameData.Health = 9;
             FirstPanel.Visible = false;
-
+            UpdateUI();
         }
 
         private void button7_Click(object sender, EventArgs e)
@@ -464,8 +480,7 @@ namespace SpaceShooter.Views
         private void button5_Click(object sender, EventArgs e)
         {
             Hide();
-            pictureHeart2.Visible = true;
-            pictureHeart3.Visible = true;
+            
             GameForm newGame = new GameForm();
             newGame.ShowIcon = false;
             newGame.ShowInTaskbar = false;
