@@ -1,4 +1,5 @@
 ﻿using SpaceShooter.Core;
+using SpaceShooter.Data;
 using SpaceShooter.Models;
 using System;
 using System.Collections.Generic;
@@ -26,12 +27,21 @@ namespace SpaceShooter.Views
         Image entehariImg = Properties.Resources.entehari;
         Image giantImg = Properties.Resources.giant;
         Image destroyImage = Properties.Resources.boomb;
+        Image PlayerShahed = Properties.Resources.spaceShip4;
+        Image PLayerF35 = Properties.Resources.spaceShip2;
+        Image PLayerIranianm = Properties.Resources.spaceship3;
+        Image PlayerSokho = Properties.Resources.spaceShip5;
+        Image _playerImg;
 
+
+        
         System.Windows.Forms.Timer timer;
 
 
         private GameEngine _gameEngine;
         private InputState _inputState;
+        private DatabaseConnection _databaseConnection;
+        private ShopItemsRepository _shopItemsRepository;
 
         public GameForm()
         {
@@ -47,10 +57,12 @@ namespace SpaceShooter.Views
             if (ImageAnimator.CanAnimate(giantImg)) ImageAnimator.Animate(giantImg, OnFrameChanged);
             if (ImageAnimator.CanAnimate(CoinImg)) ImageAnimator.Animate(CoinImg, OnFrameChanged);
             if (ImageAnimator.CanAnimate(destroyImage)) ImageAnimator.Animate(destroyImage, OnFrameChanged);
-
+            if (ImageAnimator.CanAnimate(PLayerF35)) ImageAnimator.Animate(PLayerF35, OnFrameChanged);
+            if (ImageAnimator.CanAnimate(PlayerSokho)) ImageAnimator.Animate(PlayerSokho, OnFrameChanged);
+            if (ImageAnimator.CanAnimate(PLayerIranianm)) ImageAnimator.Animate(PLayerIranianm, OnFrameChanged);
+            if (ImageAnimator.CanAnimate(PlayerShahed)) ImageAnimator.Animate(PlayerShahed, OnFrameChanged);
 
             pausePanel.Visible = false;
-
             MaximizeBox = false;
             FormBorderStyle = FormBorderStyle.FixedSingle;
             StartPosition = FormStartPosition.CenterScreen;
@@ -70,6 +82,11 @@ namespace SpaceShooter.Views
 
             _gameEngine = new GameEngine(screenBounds);
             _inputState = new InputState();
+            _databaseConnection = new DatabaseConnection();
+            _shopItemsRepository = new ShopItemsRepository(_databaseConnection);
+
+
+            _playerImg = GetEquippedShipImage();
 
             timer = new System.Windows.Forms.Timer();
             timer.Interval = 20;
@@ -84,6 +101,19 @@ namespace SpaceShooter.Views
 
             StartMusic();
             FormClosing += GameFormClosing;
+        }
+
+        private Image GetEquippedShipImage()
+        {
+            switch (_shopItemsRepository.GetEquippedId()-1)
+            {
+                case 0: return playerShooterImg;
+                case 1: return PlayerShahed;
+                case 2: return PlayerSokho;
+                case 3: return PLayerF35;
+                case 4: return PLayerIranianm;
+                default: return playerShooterImg;
+            }
         }
 
         private void GameForm_KeyDown(object sender, KeyEventArgs e)
@@ -143,7 +173,7 @@ namespace SpaceShooter.Views
                     return;
                 }
 
-                if(_gameEngine.Session.Status == Enums.GameStatus.gameOver)
+                if(_gameEngine.Session.Status == Enums.GameStatus.finish)
                 {
                     timer.Stop();
                     AudioManager.StopBackMusic();
@@ -170,8 +200,10 @@ namespace SpaceShooter.Views
             ImageAnimator.UpdateFrames();
 
             if (_gameEngine != null && _gameEngine.Session != null)
+
+                
             {
-                e.Graphics.DrawImage(playerShooterImg , _gameEngine.Session.Player.GetBounds());
+                e.Graphics.DrawImage(_playerImg , _gameEngine.Session.Player.GetBounds());
 
                 
 

@@ -13,7 +13,7 @@ namespace SpaceShooter.Views
 {
     public partial class ShopForm : Form1
     {
-        List<SpaceShipData> spaceShips;
+        public List<SpaceShipData> spaceShips;
         private DatabaseConnection _Db;
         private GameStatsRepository _gameStats;
         private ShopItemsRepository _shopItems;
