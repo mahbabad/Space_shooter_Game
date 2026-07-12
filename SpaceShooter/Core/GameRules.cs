@@ -19,5 +19,10 @@ namespace SpaceShooter.Core
 
 
         public const float HeavyTankScale = 140f;
+
+
+        public const float MIN_SPAWN_COOLDOWN = 0.4f;
+        public const float BASE_SPAWN_COOLDOWN = 2.5f;
+        public const int BOSS_WAVE = 10;
     }
 }

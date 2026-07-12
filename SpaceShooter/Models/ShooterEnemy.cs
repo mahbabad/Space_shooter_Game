@@ -1,7 +1,8 @@
-﻿using SpaceShooter.Enums;
+﻿using SpaceShooter.Core;
+using SpaceShooter.Enums;
 using System;
 using System.Collections.Generic;
-using System.Text;
+
 
 namespace SpaceShooter.Models
 {
@@ -15,13 +16,14 @@ namespace SpaceShooter.Models
         public ShooterEnemy(float x, float y)
             : base
             (x, y,
-             width: 36, height: 36,
+             width:GameRules.EnemyWidth, height: GameRules.EnemyHeigth,
               maxHealth: 50,
              scoreValue: 50,
              coinDropChance: 0.55f,
              goldCoinChance : 0.35f)
         {
             VelocityY = 60f;
+            VelocityX = 60f;
         }
 
       

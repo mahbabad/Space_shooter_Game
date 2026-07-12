@@ -31,7 +31,7 @@ namespace SpaceShooter.Models
             _targetY = targetY;
         }
 
-        public override void UpdateMovement(float deltaTime)
+        protected override void DefaultMovement(float deltaTime)
         {
             float dx = _targetX - X;
             float dy = _targetY - Y;

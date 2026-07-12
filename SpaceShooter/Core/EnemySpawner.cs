@@ -8,8 +8,7 @@ namespace SpaceShooter.Core
 {
     public class EnemySpawner
     {
-        private const float MIN_SPAWN_COOLDOWN = 0.4f;
-        private const float BASE_SPAWN_COOLDOWN = 2.5f;
+       
 
         private Random _random;
         private float _spawnCooldown;
@@ -19,7 +18,10 @@ namespace SpaceShooter.Core
         private int _enemiesSpawnedInCurrentWave;
         private int _totalEnemiesToSpawnForWave;
 
-        
+        private List<PointF> _formationSlots;
+        private int _nextSlotIndex;
+
+
         private RectangleF _gameArea;
         private GameSession _session;
 
@@ -66,13 +68,32 @@ namespace SpaceShooter.Core
         {
             _enemiesSpawnedInCurrentWave = 0;
             _timeSinceLastSpawn = 0f;
+            _nextSlotIndex = 0;
 
-            _totalEnemiesToSpawnForWave = 5 + (int)(CurrentWave * 2.5f);
+            if (CurrentWave == GameRules.BOSS_WAVE)
+            {
+                _formationSlots = new List<PointF>
+        {
+            new PointF(_gameArea.X + _gameArea.Width / 2f,
+                       _gameArea.Y + _gameArea.Height / 2f)};
+                _totalEnemiesToSpawnForWave = 1;
+                _spawnCooldown = GameRules.MIN_SPAWN_COOLDOWN;
+                return;
+            }
+
+            int rows = Math.Min(2 + CurrentWave / 3, 4);
+            int cols = 6;
+
+            _formationSlots = FormationManager.GenerateFormation(_gameArea, 50f, rows, cols, 200f, 48f, 48f);
+
+            _totalEnemiesToSpawnForWave = _formationSlots.Count;
 
             _spawnCooldown = Math.Max(
-                MIN_SPAWN_COOLDOWN,
-                BASE_SPAWN_COOLDOWN * (float)Math.Pow(0.85, CurrentWave)
+                GameRules.MIN_SPAWN_COOLDOWN,
+                GameRules.BASE_SPAWN_COOLDOWN * (float)Math.Pow(0.85, CurrentWave)
             );
+
+            
         }
 
         private void SpawnEnemy(List<BaseEnemy> newlySpawnedEnemies)
@@ -93,31 +114,41 @@ namespace SpaceShooter.Core
             newEnemy.Health = newEnemy.Health + (2 * CurrentWave);
             newEnemy.VelocityY = newEnemy.VelocityY * (1f + 0.1f * CurrentWave);
 
-           
+            if (newEnemy is HeavyTankEnemy)
+            {
+                PointF center = _formationSlots[0];
+                newEnemy.FormationTarget = new PointF(center.X - newEnemy.Width / 2f,
+                                                      center.Y - newEnemy.Height / 2f);
+            }
+            else if (newEnemy is not TeroristEnemy)       
+            {
+                PointF slot = _formationSlots[_nextSlotIndex];
+                newEnemy.FormationTarget = slot;
+                newEnemy.formationAnchorX = slot.X;
+            }
+
+            _nextSlotIndex++;
+
+
             newlySpawnedEnemies.Add(newEnemy);
         }
 
       
         private BaseEnemy CreateRandomEnemyForCurrentWave()
         {
-      
-            BaseEnemy newEnemy;
             int enemyTypeRate = _random.Next(100);
 
-            if (CurrentWave == 10 && enemyTypeRate < 20f)
-                newEnemy = new HeavyTankEnemy(0f, 0f);
-            else if (CurrentWave >= 3 && enemyTypeRate < 40)
-                newEnemy = new ShooterEnemy(0f, 0f);
-            else if (CurrentWave >= 2 && enemyTypeRate < 70)
-            {
-                float randomSpawnX = (float)_random.Next(70, 150);
-                newEnemy = new ScoutEnemy(randomSpawnX, 0f);
-            }
-            else if (CurrentWave >= 5 && enemyTypeRate < 45f)
-                newEnemy = new TeroristEnemy(0f, 0f);
-            else
-                newEnemy = new StandardEnemy(0f, 0f);
-            return newEnemy;
+            if (CurrentWave == GameRules.BOSS_WAVE)                    
+                return new HeavyTankEnemy(0f, 0f);
+
+
+            if (CurrentWave >= 3 && enemyTypeRate < 25)
+                return new ShooterEnemy(0f, 0f);
+            if (CurrentWave >= 5 && enemyTypeRate < 40)     
+                return new TeroristEnemy(0f, 0f);
+            if (CurrentWave >= 2 && enemyTypeRate < 70)
+                return new ScoutEnemy(0f, 0f);
+            return new StandardEnemy(0f, 0f);
         }
     
     }

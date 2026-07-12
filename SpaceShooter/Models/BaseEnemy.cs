@@ -90,7 +90,6 @@ namespace SpaceShooter.Models
             if (dist < 5f)
             {
                 X = t.X; Y = t.Y;
-                VelocityX = 0; VelocityY = 0;
                 IsInFormation = true;
                 return;
             }
