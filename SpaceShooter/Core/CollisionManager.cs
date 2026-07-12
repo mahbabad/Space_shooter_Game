@@ -91,17 +91,6 @@ namespace SpaceShooter.Core
                     if (enemy.Health <= 0)
                     {
                         enemy.IsActive = false;   
-
-                        if (player.Health > 0)
-                        {
-                            _scoreManager.AddScore(enemy.ScoreValue);
-
-                            var droppedCoins = _coinManager.CheckAndDropCoins(enemy);
-                            if (droppedCoins != null && droppedCoins.Count > 0)
-                            {
-                                coins.AddRange(droppedCoins);
-                            }
-                        }
                     }
                 }
             }
