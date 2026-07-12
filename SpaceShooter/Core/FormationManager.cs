@@ -10,7 +10,7 @@ namespace SpaceShooter.Core
         {
             var points = new List<PointF>();
 
-            float cellWidth = gameArea.Width - (2 * sidePadding) / cols;
+            float cellWidth = (gameArea.Width - 2 * sidePadding) / cols;
             
             for(int i = 0; i < rows; i++)
             {
