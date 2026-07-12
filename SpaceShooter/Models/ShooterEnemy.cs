@@ -8,7 +8,7 @@ namespace SpaceShooter.Models
 {
     public class ShooterEnemy : BaseEnemy
     {
-        private const float ShootInterval = 1.5f; 
+        private const float ShootInterval = 3f; 
         private const float BulletSpeed = 200f;
         private const int BulletDamage = 1;
         private float _timeSinceLastShot;
