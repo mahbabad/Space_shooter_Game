@@ -9,6 +9,9 @@ namespace SpaceShooter.Models
         public int Health { get;  set; }
         public int MaxHealth { get;}
         public bool IsDestroyed { get { return Health <= 0; } }  
+        public PointF? FormationTarget { get; set; }=null;
+        public bool  IsInFormation { get; set; } = false;
+        public PointF formationAnchorX { get; set; }
             
             
 
