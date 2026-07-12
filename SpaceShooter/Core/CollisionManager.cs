@@ -24,8 +24,9 @@ namespace SpaceShooter.Core
             if (player == null || player.Health <= 0) return;
 
             HandleBulletCollisions(player, enemies, activeBullets, coins);
-            HandlePlayerEnemyCollisions(player, enemies, coins);
+            HandlePlayerEnemyCollisions(player, enemies);
             HandleCoinCollections(player, coins);
+            HandleBulletBulletCollision(activeBullets);
         }
 
         private void HandleBulletCollisions(PlayerShip player, List<BaseEnemy> enemies, List<Bullet> activeBullets, List<Coin> coins)
@@ -76,7 +77,7 @@ namespace SpaceShooter.Core
             }
         }
 
-        private void HandlePlayerEnemyCollisions(PlayerShip player, List<BaseEnemy> enemies, List<Coin> coins)
+        private void HandlePlayerEnemyCollisions(PlayerShip player, List<BaseEnemy> enemies)
         {
             for (int i = enemies.Count - 1; i >= 0; i--)
             {
@@ -107,6 +108,33 @@ namespace SpaceShooter.Core
                 {
                     _coinManager.CollectCoin(coin);
 
+                }
+            }
+        }
+
+        private void HandleBulletBulletCollision(List<Bullet> activeBullets)
+        {
+            for(int i =activeBullets.Count-1; i>=0; i--)
+            {
+                var bullet = activeBullets[i];
+
+                if(!bullet.IsActive) continue;
+                if (bullet.IsPlayerBullet)
+                {
+                    for(int j = activeBullets.Count-1 ; j>= 0 ; j--)
+                    {
+                        var enemyBullet = activeBullets[j];
+                        if (!enemyBullet.IsActive) continue;
+                        if (enemyBullet.IsPlayerBullet) continue;
+
+                     
+                        if( CheckCollision(bullet, enemyBullet))
+                        {
+                            bullet.IsActive = false;
+                            enemyBullet.IsActive = false;
+                            break;
+                        }
+                    }
                 }
             }
         }
