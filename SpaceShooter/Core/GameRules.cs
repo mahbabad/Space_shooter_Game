@@ -9,9 +9,15 @@ namespace SpaceShooter.Core
 
         public const float PlayerBulletSpeed = 500f;
         public const int PlayerBulletDamage = 10;
-        public const float PlayerFireRate = 0.25f;
+        public const float PlayerFireRate = 0.35f;
 
         public const float BulletWidth = 20f;
         public const float BulletHeight = 20f;
+
+        public const float EnemyWidth = 50f;
+        public const float EnemyHeigth = 50f;
+
+
+        public const float HeavyTankScale = 140f;
     }
 }
