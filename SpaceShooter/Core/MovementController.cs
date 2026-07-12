@@ -17,8 +17,8 @@ namespace SpaceShooter.Core
             if (input.IsMovingUp) dy -= 1;
             if (input.IsMovingDown) dy += 1;
 
-            player.VelocityX = dx *GameRules.PlayerMoveSpeed ;
-            player.VelocityY = dy * GameRules.PlayerMoveSpeed;
+            player.VelocityX = dx * player.Speed ;
+            player.VelocityY = dy * player.Speed;
 
             player.UpdateMovement(deltaTime);
             ClampToBounds(player, gameArea);

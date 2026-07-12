@@ -8,6 +8,8 @@ namespace SpaceShooter.Models
     {
         public int Health { get;  set; }
         public int MaxHealth { get; }
+        public float Speed { get; set; }          
+        public int BulletDamage { get; set; }
         public bool IsDestroyed { get { return Health <= 0; } }
 
         public PlayerShip(float startX, float startY,
@@ -16,6 +18,8 @@ namespace SpaceShooter.Models
         {
             MaxHealth = Core.GameRules.PlayerMaxHealth;
             Health = Core.GameRules.PlayerMaxHealth;
+            Speed = Core.GameRules.PlayerMoveSpeed;       
+            BulletDamage = Core.GameRules.PlayerBulletDamage;
         }
 
         public void TakeDamage(int amount)

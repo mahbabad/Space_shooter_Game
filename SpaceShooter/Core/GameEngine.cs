@@ -25,7 +25,7 @@ namespace SpaceShooter.Core
         public GameEngine(RectangleF initialArea)
         {
             GameArea = initialArea;
-            Session = new GameSession(initializePlayer() , GameArea);
+            Session = new GameSession(GameArea);
             _movementController = new MovementController();
             _enemySpawner = new EnemySpawner(GameArea ,Session);
             _shooterController = new ShootingController();
@@ -36,18 +36,7 @@ namespace SpaceShooter.Core
             _gameStatsRepository = new GameStatsRepository(_databaseConnection);
         }
 
-        private PlayerShip initializePlayer()
-        {
-            float startx = (GameArea.Width / 2) - 25f;
-            float starty = -(GameArea.Height - 80f);
-            PlayerShip initPlayer = new PlayerShip(startx, starty)
-            {
-                Health = GameRules.PlayerMaxHealth,
-                IsActive = true
-            };
 
-            return initPlayer;
-        }
 
         public void Update(float deltatime, InputState inputState)
         {

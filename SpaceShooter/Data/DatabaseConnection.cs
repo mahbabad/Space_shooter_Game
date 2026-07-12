@@ -52,13 +52,15 @@ namespace SpaceShooter.Data
 
 
             string createShopItemTable = @"
-               CREATE TABLE IF NOT EXISTS  shopItem (
-               Id INTEGER PRIMARY KEY AUTOINCREMENT ,
-               DisplayName TEXT NOT NULL,
-               Price INTEGER NOT NULL,
-               IsPurchased INTEGER NOT NULL,
-               IsEquipped INTEGER NOT NULL
-                );";
+
+            CREATE TABLE IF NOT EXISTS shopItem (
+            Id INTEGER PRIMARY KEY AUTOINCREMENT,
+            DisplayName TEXT NOT NULL,
+            Price INTEGER NOT NULL,
+            Speed REAL NOT NULL,
+            BulletDamage INTEGER NOT NULL,
+            IsPurchased INTEGER NOT NULL,
+            IsEquipped INTEGER NOT NULL);";
 
             using var command = connection.CreateCommand();
             command.CommandText = createGameStatsTable + createShopItemTable;
@@ -79,13 +81,13 @@ namespace SpaceShooter.Data
             ";
 
             string insertDefaultShopItems = @"
-            INSERT OR IGNORE INTO shopItem (Id, DisplayName, Price, IsPurchased, IsEquipped)
-            VALUES
-            (1, 'FANTASY SPACESHIP', 0, 1, 1),
-            (2, 'SHAHED DRONE', 700, 0, 0),
-            (3, 'RUSSIAN SUKHOI-57', 1700, 0, 0),
-            (4, 'IRANIAN MISSILE', 2500, 0, 0),
-            (5, 'AMERICAN-F35', 2000, 0, 0);";
+                INSERT OR IGNORE INTO shopItem (Id, DisplayName, Price, Speed, BulletDamage, IsPurchased, IsEquipped)
+                VALUES
+                (1, 'FANTASY SPACESHIP', 0,    200.0,  10, 1, 1),
+                (2, 'SHAHED DRONE',      700,  180.0,  11, 0, 0),
+                (3, 'RUSSIAN SUKHOI-57', 1700, 450.0,  12, 0, 0),
+                (4, 'IRANIAN MISSILE',   2500, 450.0, 15, 0, 0),
+                (5, 'AMERICAN-F35',      2000, 500.0, 13, 0, 0);";
 
             using var command = connection.CreateCommand();
             command.CommandText = insertDefaultGameStats + insertDefaultShopItems;

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using SpaceShooter.Enums;
 using SpaceShooter.Models;
+using SpaceShooter.Data;
 
 namespace SpaceShooter.Core
 {
@@ -13,6 +14,7 @@ namespace SpaceShooter.Core
        public GameStatus Status { get; set; }
 
         public PlayerShip Player { get; set; }
+        private readonly ShipInfo _equippedShip;
         public RectangleF GameArea { get; set; }
 
 
@@ -22,13 +24,15 @@ namespace SpaceShooter.Core
         public List<Bullet> ActiveBullets { get; private set; }
         public List<Coin> ActiveCoins { get; private set; }
 
-        public GameSession(PlayerShip P , RectangleF gameArea) 
+        public GameSession(RectangleF gameArea) 
         {
             GameArea = gameArea;
             ActiveEnemies = new List<BaseEnemy>();
             ActiveCoins = new List<Coin>();
             ActiveBullets = new List<Bullet>();
-            Player = P;
+            var repo = new Data.ShopItemsRepository(new Data.DatabaseConnection());
+            _equippedShip = repo.GetEquippedShip();
+
             ResetSession();
         }
 
@@ -47,6 +51,12 @@ namespace SpaceShooter.Core
             GameArea.Width / 2 - 50f,          
             GameArea.Height - 110f);           
             Player.IsActive = true;
+
+            if (_equippedShip != null)                       
+            {
+                Player.Speed = _equippedShip.Speed;
+                Player.BulletDamage = _equippedShip.BulletDamage;
+            }
         }
     }
 }

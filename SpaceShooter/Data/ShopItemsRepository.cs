@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using Microsoft.Data.Sqlite;
+using SpaceShooter.Models;
 
 namespace SpaceShooter.Data
 {
@@ -12,54 +13,6 @@ namespace SpaceShooter.Data
         public ShopItemsRepository(DatabaseConnection Database)
         {
             _Database = Database;
-        }
-        public bool IsPurchased(int id)
-        {
-            if (id < 1 || id > 5)
-                return false;
-
-            using (var connection = _Database.GetConection())
-            {
-                connection.Open();
-
-                string query = "SELECT IsPurchased FROM ShopItem WHERE Id = @Id";
-
-                using (var cmd = new SqliteCommand(query, connection))
-                {
-                    cmd.Parameters.AddWithValue("@Id", id);
-
-                    object res = cmd.ExecuteScalar();
-
-                    if (res == null)
-                        return false;
-
-                    return Convert.ToInt32(res) == 1;
-                }
-            }
-        }
-
-        public bool IsEquipped(int id)
-        {
-            if (id < 1 || id > 5)
-                return false;
-
-            using (var connection = _Database.GetConection())
-            {
-                connection.Open();
-
-                string query = "SELECT IsEquipped FROM ShopItem WHERE Id = @Id";
-
-                using (var cmd = new SqliteCommand(query, connection))
-                {
-                    cmd.Parameters.AddWithValue("@Id", id);
-                    object res = cmd.ExecuteScalar();
-
-                    if (res == null)
-                        return false;
-
-                    return Convert.ToInt32(res) == 1;
-                }
-            }
         }
 
         public void SetEquipped(int id)
@@ -99,26 +52,31 @@ namespace SpaceShooter.Data
             return rowCount > 0;
         }
 
-        public int GetItemPrice(int id)
+        public ShipInfo? GetEquippedShip()
         {
-            if (id < 1 || id > 5)
-                return -1;
+                using var connection = _Database.GetConection();
+                connection.Open();
+                string query = "SELECT * FROM shopItem WHERE IsEquipped = 1 LIMIT 1;";
 
-            using var connection = _Database.GetConection();
-            connection.Open();
-
-            string query = "SELECT Price FROM shopItem WHERE Id = @Id;";
-
-            using var command = connection.CreateCommand();
-            command.CommandText = query;
-            command.Parameters.AddWithValue("@Id", id);
-
-            object res = command.ExecuteScalar();
-
-            if (res == null || res == DBNull.Value)
-                return 0;
-
-            return Convert.ToInt32(res);
+                using (var command = new SqliteCommand(query, connection))
+                using (var reader = command.ExecuteReader())
+                {
+                    if (reader.Read())
+                    {
+                        return new ShipInfo
+                        {
+                            Id = Convert.ToInt32(reader["Id"]),
+                            Name = reader["DisplayName"].ToString(),
+                            Price = Convert.ToInt32(reader["Price"]),
+                            Speed = Convert.ToSingle(reader["Speed"]),
+                            BulletDamage = Convert.ToInt32(reader["BulletDamage"]),
+                            IsPurchased = true,
+                            IsActive = true
+                        };
+                    }
+                    return null;
+                }
+            }
         }
-    }
+
 }

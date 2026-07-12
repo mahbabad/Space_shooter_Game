@@ -58,7 +58,7 @@ namespace SpaceShooter.Core
                  spawnY,
                  0f,
                  -GameRules.PlayerBulletSpeed,
-                 GameRules.PlayerBulletDamage,
+                 player.BulletDamage,
                  true
             );
 
