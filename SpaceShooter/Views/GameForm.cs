@@ -150,6 +150,9 @@ namespace SpaceShooter.Views
         {
             if (!pausePanel.Visible && !EndPanel.Visible && !FirstPanel.Visible && !LostPanel.Visible)
             {
+
+                waveLabel.Visible = true;
+
                 y1 += scrollSpeed;
                 y2 += scrollSpeed;
 
