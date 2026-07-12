@@ -160,6 +160,9 @@
   <data name="CoinMusic" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Coin.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="daste" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\daste.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="entehari" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\entehari.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>

@@ -20,7 +20,7 @@ namespace SpaceShooter.Views
         int scrollSpeed = 4;
         Image backgroundGame = Properties.Resources.background1;
         Image CoinImg = Properties.Resources.Coin;
-        Image playerShooterImg = Properties.Resources.spaceShip1; 
+        Image playerShooterImg = Properties.Resources.spaceShip1;
         Image standardImg = Properties.Resources.estandardEnumy;
         Image zigzagImg = Properties.Resources.zigzagEnumy;
         Image shooterImg = Properties.Resources.shooter;
@@ -34,7 +34,7 @@ namespace SpaceShooter.Views
         Image _playerImg;
 
 
-        
+
         System.Windows.Forms.Timer timer;
 
 
@@ -62,7 +62,12 @@ namespace SpaceShooter.Views
             if (ImageAnimator.CanAnimate(PLayerIranianm)) ImageAnimator.Animate(PLayerIranianm, OnFrameChanged);
             if (ImageAnimator.CanAnimate(PlayerShahed)) ImageAnimator.Animate(PlayerShahed, OnFrameChanged);
 
+            pictureHeart4.Visible = false;
+
             pausePanel.Visible = false;
+            FirstPanel.Visible = true;
+            EndPanel.Visible = false;
+            LostPanel.Visible = false;
             MaximizeBox = false;
             FormBorderStyle = FormBorderStyle.FixedSingle;
             StartPosition = FormStartPosition.CenterScreen;
@@ -101,11 +106,13 @@ namespace SpaceShooter.Views
 
             StartMusic();
             FormClosing += GameFormClosing;
+
+            UpdateUI();
         }
 
         private Image GetEquippedShipImage()
         {
-            switch (_shopItemsRepository.GetEquippedId()-1)
+            switch (_shopItemsRepository.GetEquippedId() - 1)
             {
                 case 0: return playerShooterImg;
                 case 1: return PlayerShahed;
@@ -135,7 +142,7 @@ namespace SpaceShooter.Views
         }
         void GameLoop(Object sender, EventArgs e)
         {
-            if (!pausePanel.Visible)
+            if (!pausePanel.Visible && !EndPanel.Visible && !FirstPanel.Visible && !LostPanel.Visible)
             {
                 y1 += scrollSpeed;
                 y2 += scrollSpeed;
@@ -155,39 +162,38 @@ namespace SpaceShooter.Views
                 GameData.Score = _gameEngine.Session.Score;
                 GameData.Coin = _gameEngine.Session.CoinsCollected;
                 GameData.CurrentLevel = _gameEngine.Session.CurrentWave;
-                GameData.Health = (int)Math.Ceiling((_gameEngine.Session.Player.Health / (float)GameRules.PlayerMaxHealth) * 12);
+                GameData.Health = _gameEngine.Session.Player.Health;
 
 
                 UpdateUI();
 
                 float deltatime = 0.020f;
-          
-                 _gameEngine.Update(deltatime, _inputState);
+
+                _gameEngine.Update(deltatime, _inputState);
 
                 if (_gameEngine.Session.Status == Enums.GameStatus.gameOver)
                 {
                     timer.Stop();
                     AudioManager.StopBackMusic();
-                    MessageBox.Show($"Game Over!\nScore: {_gameEngine.Session.Score}", " شما باختید");
-                    Close();
+                    LostPanel.Visible = true;
                     return;
                 }
 
-                if(_gameEngine.Session.Status == Enums.GameStatus.finish)
+                if (_gameEngine.Session.Status == Enums.GameStatus.finish)
                 {
                     timer.Stop();
                     AudioManager.StopBackMusic();
-                    MessageBox.Show($"Game Over!\nScore: {_gameEngine.Session.Score}", "پایان بازی");
-                    Close();
+                    EndPanel.Visible = true;
                     return;
                 }
-
-
-
 
 
                 Invalidate();
 
+            }
+            else if (EndPanel.Visible || FirstPanel.Visible || LostPanel.Visible)
+            {
+                waveLabel.Visible = false;
             }
 
         }
@@ -201,11 +207,11 @@ namespace SpaceShooter.Views
 
             if (_gameEngine != null && _gameEngine.Session != null)
 
-                
-            {
-                e.Graphics.DrawImage(_playerImg , _gameEngine.Session.Player.GetBounds());
 
-                
+            {
+                e.Graphics.DrawImage(_playerImg, _gameEngine.Session.Player.GetBounds());
+
+
 
                 foreach (var enemy in _gameEngine.Session.ActiveEnemies)
                 {
@@ -220,7 +226,7 @@ namespace SpaceShooter.Views
                     else if (enemy is HeavyTankEnemy heavy)
                         e.Graphics.DrawImage(giantImg, heavy.GetBounds());
 
-                  
+
                 }
 
 
@@ -238,7 +244,7 @@ namespace SpaceShooter.Views
 
                 foreach (var coin in _gameEngine.Session.ActiveCoins)
                 {
-                    e.Graphics.DrawImage(CoinImg  , coin.GetBounds());
+                    e.Graphics.DrawImage(CoinImg, coin.GetBounds());
                 }
 
 
@@ -268,7 +274,7 @@ namespace SpaceShooter.Views
             coinLabel.Text = $"🪙Coin: {GameData.Coin}";
             scoreLabel.Text = $"🏆Score: {GameData.Score}";
             waveLabel.Text = $"Wave: {GameData.CurrentLevel}/10";
-            
+
 
 
             if (GameData.Health == 0)
@@ -409,13 +415,76 @@ namespace SpaceShooter.Views
             return base.ProcessCmdKey(ref msg, keyData);
         }
 
+        private void label1_Click_1(object sender, EventArgs e)
+        {
 
+        }
+
+        private void HighAmountScoreabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            DialogResult = DialogResult.Abort;
+            Close();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            _gameEngine.Session.Player.Health = 12;
+            FirstPanel.Visible = false;
+            pictureHeart4.Visible = true;
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            _gameEngine.Session.Player.Health = 9;
+            FirstPanel.Visible = false;
+
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            DialogResult = DialogResult.Abort;
+            Close();
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            Hide();
+            pictureHeart2.Visible = true;
+            pictureHeart3.Visible = true;
+            GameForm newGame = new GameForm();
+            newGame.ShowIcon = false;
+            newGame.ShowInTaskbar = false;
+            DialogResult result = newGame.ShowDialog();
+            if (result == DialogResult.Abort)
+            {
+                Application.Exit();
+                return;
+            }
+            this.Close();
+            
+
+        }
     }
     public static class GameData
     {
         public static int Coin = 0;
         public static int Score = 0;
-        public static int Health = 12;
+        public static int Health = 9;
         public static int CurrentLevel = 1;
     }
 }
