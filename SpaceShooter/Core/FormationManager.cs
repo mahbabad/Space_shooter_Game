@@ -11,14 +11,15 @@ namespace SpaceShooter.Core
             var points = new List<PointF>();
 
             float cellWidth = (gameArea.Width - 2 * sidePadding) / cols;
-            
-            for(int i = 0; i < rows; i++)
+
+
+            for (int i = 0; i < rows; i++)
             {
                 for(int j = 0; j < cols; j++)
                 {
-                    float x = gameArea.X + sidePadding + (j * cellWidth);
-
-                    float y = gameArea.Y + topPadding + i * (EnemyHeight + rowSpace );
+                    float cellCenterX = gameArea.X + sidePadding + (j * cellWidth) + cellWidth / 2f;
+                    float x = cellCenterX - EnemyWidth / 2f;
+                    float y = gameArea.Y + topPadding + i * (EnemyHeight + rowSpace);
 
                     points.Add(new PointF(x, y));
                 }
