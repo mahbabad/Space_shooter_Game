@@ -86,8 +86,8 @@ namespace SpaceShooter.Data
                 (1, 'FANTASY SPACESHIP', 0,    200.0,  10, 1, 1),
                 (2, 'SHAHED DRONE',      700,  180.0,  11, 0, 0),
                 (3, 'RUSSIAN SUKHOI-57', 1700, 450.0,  12, 0, 0),
-                (4, 'IRANIAN MISSILE',   2500, 450.0, 15, 0, 0),
-                (5, 'AMERICAN-F35',      2000, 500.0, 13, 0, 0);";
+                (4, 'AMERICAN-F35',      2000, 500.0, 13, 0, 0),
+                (5, 'IRANIAN MISSILE',   2500, 450.0, 15, 0, 0)";
 
             using var command = connection.CreateCommand();
             command.CommandText = insertDefaultGameStats + insertDefaultShopItems;

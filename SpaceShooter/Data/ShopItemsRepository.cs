@@ -52,6 +52,25 @@ namespace SpaceShooter.Data
             return rowCount > 0;
         }
 
+
+        public int GetEquippedId()
+        {
+            using var connection = _Database.GetConection();
+            connection.Open();
+            string query = "SELECT Id FROM shopItem WHERE IsEquipped  = 1 LIMIT 1";
+
+            using (var command = connection.CreateCommand())
+            {
+
+                command.CommandText = query;
+
+                var res = command.ExecuteScalar();
+
+                return res != DBNull.Value ? Convert.ToInt32(res) : 0;
+
+            }
+        }
+
         public ShipInfo? GetEquippedShip()
         {
                 using var connection = _Database.GetConection();
@@ -66,7 +85,7 @@ namespace SpaceShooter.Data
                         return new ShipInfo
                         {
                             Id = Convert.ToInt32(reader["Id"]),
-                            Name = reader["DisplayName"].ToString(),
+                            Name = reader["DisplayName"].ToString() ?? string.Empty,
                             Price = Convert.ToInt32(reader["Price"]),
                             Speed = Convert.ToSingle(reader["Speed"]),
                             BulletDamage = Convert.ToInt32(reader["BulletDamage"]),
@@ -76,7 +95,32 @@ namespace SpaceShooter.Data
                     }
                     return null;
                 }
-            }
+         }
+
+        public ShipInfo GetShipById(int id)
+        {
+            using var connection = _Database.GetConection();
+            connection.Open();
+            using var command = connection.CreateCommand();
+            command.CommandText = "SELECT * FROM shopItem WHERE Id = @Id LIMIT 1";
+            command.Parameters.AddWithValue("@Id", id);
+            using var reader = command.ExecuteReader();
+            if (!reader.Read()) return null;
+            return new ShipInfo
+            {
+                Id = Convert.ToInt32(reader["Id"]),
+                IsPurchased = Convert.ToBoolean(reader["IsPurchased"]),
+                 IsActive= Convert.ToBoolean(reader["IsEquipped"])
+            };
         }
+
+
+
+
+
+
+
+
+    }
 
 }

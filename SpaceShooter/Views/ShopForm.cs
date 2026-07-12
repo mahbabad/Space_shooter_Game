@@ -50,10 +50,28 @@ namespace SpaceShooter.Views
                 new SpaceShipData { Name = "Iranian Missile", Image = Properties.Resources.spaceShip3_2, Price = 2500, Speed = 90, Damage = 100, IsOwned = false }
             };
 
+            LoadStateFromDb();
+
             UpdateShop();
             StartMusic();
             FormClosing += CloseShopMusic;
         }
+
+
+        private void LoadStateFromDb()
+        {
+            for (int i = 0; i < spaceShips.Count; i++)
+            {
+                var ship = _shopItems.GetShipById(i + 1); 
+                if (ship != null)
+                    spaceShips[i].IsOwned = ship.IsPurchased;
+            }
+
+            int equippedId = _shopItems.GetEquippedId();
+            if (equippedId > 0)
+                SpaceShipData.EquipedShipIndex = equippedId - 1;
+        }
+
         public void UpdateShop()
         {
             SpaceShipData spaceShip = spaceShips[currentIndexShip];
@@ -111,9 +129,12 @@ namespace SpaceShooter.Views
             {
                 if (coins >= spaceShip.Price)
                 {
-                    coins -= spaceShip.Price;
+                    _gameStats.UpdateTotalCoins(-spaceShip.Price);
+
                     AudioManager.CoinPlayer(Properties.Resources.CoinMusic, "coinMusic.wav");
                     spaceShip.IsOwned = true;
+                    _shopItems.SetPurchased(currentIndexShip + 1);
+                    coins = _gameStats.GetTotalCoins();
                     UpdateShop();
                     MessageBox.Show($"Buy spaceShip {spaceShip.Name} was succusfully! ");
                 }
@@ -136,6 +157,7 @@ namespace SpaceShooter.Views
                     AudioManager.PlaySfx(Properties.Resources.equipedClick);
                     MessageBox.Show($"Equip spaceShip {spaceShip.Name} was succusfully! ");
                     SpaceShipData.EquipedShipIndex = currentIndexShip;
+                    _shopItems.SetEquipped(currentIndexShip + 1);
                 }
 
                 UpdateShop();
