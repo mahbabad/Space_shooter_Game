@@ -130,6 +130,26 @@ namespace SpaceShooter.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap blue_bullet {
+            get {
+                object obj = ResourceManager.GetObject("blue_bullet", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap blue_rectangle_bullet {
+            get {
+                object obj = ResourceManager.GetObject("blue_rectangle_bullet", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
         /// </summary>
         internal static System.IO.UnmanagedMemoryStream bomb {
@@ -193,6 +213,36 @@ namespace SpaceShooter.Properties {
         internal static System.IO.UnmanagedMemoryStream CoinMusic {
             get {
                 return ResourceManager.GetStream("CoinMusic", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap darkblue_bullet {
+            get {
+                object obj = ResourceManager.GetObject("darkblue_bullet", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap darkgreen_bullet {
+            get {
+                object obj = ResourceManager.GetObject("darkgreen_bullet", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap darkyellow_bullet {
+            get {
+                object obj = ResourceManager.GetObject("darkyellow_bullet", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
         
@@ -293,6 +343,36 @@ namespace SpaceShooter.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap green_bullet {
+            get {
+                object obj = ResourceManager.GetObject("green_bullet", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap hot_bullet {
+            get {
+                object obj = ResourceManager.GetObject("hot_bullet", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap lightblue_bullet {
+            get {
+                object obj = ResourceManager.GetObject("lightblue_bullet", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
         /// </summary>
         internal static System.IO.UnmanagedMemoryStream MainMenuMusic {
@@ -314,6 +394,16 @@ namespace SpaceShooter.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap newPink_bullet {
+            get {
+                object obj = ResourceManager.GetObject("newPink_bullet", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap OptionBackground2 {
             get {
                 object obj = ResourceManager.GetObject("OptionBackground2", resourceCulture);
@@ -324,9 +414,59 @@ namespace SpaceShooter.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap orange_bullet {
+            get {
+                object obj = ResourceManager.GetObject("orange_bullet", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Pause {
             get {
                 object obj = ResourceManager.GetObject("Pause", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap perple_bullet {
+            get {
+                object obj = ResourceManager.GetObject("perple_bullet", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap pink_bullet {
+            get {
+                object obj = ResourceManager.GetObject("pink_bullet", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap rangarang_bullet {
+            get {
+                object obj = ResourceManager.GetObject("rangarang_bullet", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap red_bullet {
+            get {
+                object obj = ResourceManager.GetObject("red_bullet", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -452,6 +592,16 @@ namespace SpaceShooter.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap silverCoin {
+            get {
+                object obj = ResourceManager.GetObject("silverCoin", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap sound1 {
             get {
                 object obj = ResourceManager.GetObject("sound1", resourceCulture);
@@ -565,6 +715,16 @@ namespace SpaceShooter.Properties {
         internal static System.Drawing.Bitmap spaceShip5_2 {
             get {
                 object obj = ResourceManager.GetObject("spaceShip5_2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap veryLightBlue_bullet {
+            get {
+                object obj = ResourceManager.GetObject("veryLightBlue_bullet", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
