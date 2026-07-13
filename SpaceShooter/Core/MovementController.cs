@@ -74,6 +74,19 @@ namespace SpaceShooter.Core
             }
         }
 
+        public void UpdateShields(List<Shield> shields, RectangleF gameArea, float deltaTime)
+        {
+            foreach (var shield in shields)
+            {
+                if (!shield.IsActive)
+                    continue;
+
+                shield.UpdateMovement(deltaTime);
+
+                if (shield.Y > gameArea.Bottom)
+                    shield.IsActive = false;
+            }
+        }
         private void ClampToBounds(PlayerShip player, RectangleF gameArea)
         {
             if (player.X < gameArea.Left)
