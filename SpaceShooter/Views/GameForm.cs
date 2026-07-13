@@ -44,6 +44,7 @@ namespace SpaceShooter.Views
         private InputState _inputState;
         private DatabaseConnection _databaseConnection;
         private ShopItemsRepository _shopItemsRepository;
+        private GameStatsRepository _gamestats;
 
         public GameForm()
         {
@@ -55,6 +56,7 @@ namespace SpaceShooter.Views
                 GameData.Health = 9;
             GameData.CurrentLevel = 1;
 
+           
 
             if (ImageAnimator.CanAnimate(playerShooterImg)) ImageAnimator.Animate(playerShooterImg, OnFrameChanged);
             if (ImageAnimator.CanAnimate(standardImg)) ImageAnimator.Animate(standardImg, OnFrameChanged);
@@ -96,6 +98,8 @@ namespace SpaceShooter.Views
             _inputState = new InputState();
             _databaseConnection = new DatabaseConnection();
             _shopItemsRepository = new ShopItemsRepository(_databaseConnection);
+            _gamestats = new GameStatsRepository(_databaseConnection);
+
 
 
             _playerImg = GetEquippedShipImage();
@@ -184,6 +188,9 @@ namespace SpaceShooter.Views
                 if (_gameEngine.Session.Status == Enums.GameStatus.gameOver)
                 {
                     timer.Stop();
+                    label8.Text = _gamestats.GetHighScore().ToString();
+                    label4.Text = GameData.Score.ToString();
+                    label6.Text = GameData.Coin.ToString();
                     AudioManager.StopBackMusic();
                     LostPanel.Visible = true;
                     return;
@@ -192,6 +199,9 @@ namespace SpaceShooter.Views
                 if (_gameEngine.Session.Status == Enums.GameStatus.finish)
                 {
                     timer.Stop();
+                    label8.Text = _gamestats.GetHighScore().ToString();
+                    label4.Text = GameData.Score.ToString();
+                    label6.Text = GameData.Coin.ToString();
                     AudioManager.StopBackMusic();
                     EndPanel.Visible = true;
                     return;
