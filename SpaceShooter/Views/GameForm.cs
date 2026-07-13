@@ -150,13 +150,17 @@ namespace SpaceShooter.Views
                     y2 = y1 - ClientSize.Height;
                 }
 
-
+                int oldCoinCount = GameData.Coin;
 
                 GameData.Score = _gameEngine.Session.Score;
                 GameData.Coin = _gameEngine.Session.CoinsCollected;
                 GameData.CurrentLevel = _gameEngine.Session.CurrentWave;
                 GameData.Health = (int)Math.Ceiling((_gameEngine.Session.Player.Health / (float)GameRules.PlayerMaxHealth) * 12);
 
+                if (GameData.Coin > oldCoinCount)
+                {
+                    AudioManager.PlaySfx(Properties.Resources.CoinMusic);
+                }
 
                 UpdateUI();
 

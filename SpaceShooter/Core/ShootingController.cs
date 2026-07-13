@@ -1,5 +1,6 @@
-﻿using System.Collections.Generic;
-using SpaceShooter.Models;
+﻿using SpaceShooter.Models;
+using SpaceShooter.Views;
+using System.Collections.Generic;
 
 namespace SpaceShooter.Core
 {
@@ -62,7 +63,7 @@ namespace SpaceShooter.Core
                  true
             );
 
-
+            AudioManager.PlaySfx(SpaceShooter.Properties.Resources.shot);
             activeBullets.Add(newBullet);
         }
     }

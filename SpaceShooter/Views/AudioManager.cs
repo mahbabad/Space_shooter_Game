@@ -121,7 +121,7 @@ namespace SpaceShooter.Views
         {
             if (IsSfxMuted)
                 return;
-
+            
             soundplayer.Stream = sfx;
             soundplayer.Play();
         }
