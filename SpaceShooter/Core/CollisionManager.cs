@@ -2,6 +2,7 @@
 using SpaceShooter.Models;
 using SpaceShooter.Views;
 using System.Collections.Generic;
+using System.Windows.Media;
 
 namespace SpaceShooter.Core
 {
@@ -149,6 +150,7 @@ namespace SpaceShooter.Core
 
                 if (CheckCollision(player, shield))
                 {
+                    AudioManager.PlayShieldMusic(Properties.Resources.ShieldSound, "shieldMusic.wav");
                     player.ShieldDuration = 5f;
                     shield.Collect();
                 }
