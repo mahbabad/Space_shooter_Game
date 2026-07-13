@@ -18,7 +18,7 @@ namespace SpaceShooter.Core
         public const float EnemyHeigth = 50f;
 
 
-        public const float HeavyTankScale = 140f;
+        public const float HeavyTankScale = 200f;
 
 
         public const float MIN_SPAWN_COOLDOWN = 0.4f;
