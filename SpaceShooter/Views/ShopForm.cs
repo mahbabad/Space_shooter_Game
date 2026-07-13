@@ -17,6 +17,9 @@ namespace SpaceShooter.Views
         private DatabaseConnection _Db;
         private GameStatsRepository _gameStats;
         private ShopItemsRepository _shopItems;
+        private BuyManager _buyManager;
+
+
         int currentIndexShip = 0;
         int coins;
         public ShopForm()
@@ -26,8 +29,10 @@ namespace SpaceShooter.Views
             _Db = new DatabaseConnection();
             _gameStats = new GameStatsRepository(_Db);
             _shopItems = new ShopItemsRepository(_Db);
+            _buyManager = new BuyManager();
 
             coins = _gameStats.GetTotalCoins();
+           
 
             MaximizeBox = false;
             FormBorderStyle = FormBorderStyle.FixedSingle;
@@ -127,14 +132,13 @@ namespace SpaceShooter.Views
             SpaceShipData spaceShip = spaceShips[currentIndexShip];
             if (!spaceShip.IsOwned)
             {
-                if (coins >= spaceShip.Price)
+                if (_buyManager.Buy(currentIndexShip+1 , coins))
                 {
-                    _gameStats.UpdateTotalCoins(-spaceShip.Price);
-
                     AudioManager.CoinPlayer(Properties.Resources.CoinMusic, "coinMusic.wav");
                     spaceShip.IsOwned = true;
-                    _shopItems.SetPurchased(currentIndexShip + 1);
+
                     coins = _gameStats.GetTotalCoins();
+                   
                     UpdateShop();
                     MessageBox.Show($"Buy spaceShip {spaceShip.Name} was succusfully! ");
                 }
