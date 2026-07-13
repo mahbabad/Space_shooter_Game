@@ -433,6 +433,7 @@ namespace SpaceShooter.Views
 
         private void button1_Click(object sender, EventArgs e)
         {
+            AudioManager.PlaySfx(Properties.Resources.gameClick);
             pausePanel.Visible = true;
         }
 
@@ -443,17 +444,20 @@ namespace SpaceShooter.Views
 
         private void resumeButton_Click(object sender, EventArgs e)
         {
+            AudioManager.PlaySfx(Properties.Resources.gameClick);
             pausePanel.Visible = false;
             this.ActiveControl = null;
         }
 
         private void menuButton_Click(object sender, EventArgs e)
         {
+            AudioManager.PlaySfx(Properties.Resources.gameClick);
             Close();
         }
 
         private void exitButton_Click(object sender, EventArgs e)
         {
+            AudioManager.PlaySfx(Properties.Resources.gameClick);
             DialogResult = DialogResult.Abort;
             Close();
         }
@@ -489,6 +493,7 @@ namespace SpaceShooter.Views
         private void button1_Click_1(object sender, EventArgs e)
         {
             AudioManager.StopBackMusic();
+            AudioManager.PlaySfx(Properties.Resources.gameClick);
             DialogResult = DialogResult.Abort;
             Close();
         }
@@ -496,6 +501,7 @@ namespace SpaceShooter.Views
         private void button2_Click(object sender, EventArgs e)
         {
             AudioManager.StopBackMusic();
+            AudioManager.PlaySfx(Properties.Resources.gameClick);
             Close();
         }
 
@@ -505,6 +511,7 @@ namespace SpaceShooter.Views
             GameData.Health = 12;
             FirstPanel.Visible = false;
             pictureHeart4.Visible = true;
+            AudioManager.PlaySfx(Properties.Resources.gameClick);
             UpdateUI();
         }
 
@@ -513,22 +520,26 @@ namespace SpaceShooter.Views
             _gameEngine.Session.Player.Health = 9;
             GameData.Health = 9;
             FirstPanel.Visible = false;
+            AudioManager.PlaySfx(Properties.Resources.gameClick);
             UpdateUI();
         }
 
         private void button7_Click(object sender, EventArgs e)
         {
+            AudioManager.PlaySfx(Properties.Resources.gameClick);
             DialogResult = DialogResult.Abort;
             Close();
         }
 
         private void button6_Click(object sender, EventArgs e)
         {
+            AudioManager.PlaySfx(Properties.Resources.gameClick);
             Close();
         }
 
         private void button5_Click(object sender, EventArgs e)
         {
+            AudioManager.PlaySfx(Properties.Resources.gameClick);
             Hide();
             
             GameForm newGame = new GameForm();
