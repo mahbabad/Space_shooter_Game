@@ -255,7 +255,7 @@
             EndPanel.Controls.Add(sLabel);
             EndPanel.Controls.Add(HighAmountScoreabel);
             EndPanel.Controls.Add(HighScoreLabel);
-            EndPanel.Location = new Point(36, 166);
+            EndPanel.Location = new Point(44, 166);
             EndPanel.Name = "EndPanel";
             EndPanel.Size = new Size(326, 262);
             EndPanel.TabIndex = 9;
@@ -380,7 +380,7 @@
             FirstPanel.Controls.Add(pictureBox1);
             FirstPanel.Controls.Add(button4);
             FirstPanel.Controls.Add(button3);
-            FirstPanel.Location = new Point(30, 246);
+            FirstPanel.Location = new Point(36, 196);
             FirstPanel.Name = "FirstPanel";
             FirstPanel.Size = new Size(343, 229);
             FirstPanel.TabIndex = 9;
@@ -391,9 +391,9 @@
             label2.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label2.Location = new Point(50, 119);
             label2.Name = "label2";
-            label2.Size = new Size(235, 25);
+            label2.Size = new Size(235, 50);
             label2.TabIndex = 3;
-            label2.Text = "Do you need an extra heart?";
+            label2.Text = "Do you need an extra heart?\r\n   you must pay 50 coins!";
             // 
             // pictureBox1
             // 
@@ -414,7 +414,7 @@
             button4.FlatAppearance.MouseOverBackColor = Color.FromArgb(128, 128, 255);
             button4.FlatStyle = FlatStyle.Flat;
             button4.Font = new Font("Snap ITC", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            button4.Location = new Point(188, 163);
+            button4.Location = new Point(188, 172);
             button4.Name = "button4";
             button4.Size = new Size(94, 29);
             button4.TabIndex = 1;
@@ -430,7 +430,7 @@
             button3.FlatStyle = FlatStyle.Flat;
             button3.Font = new Font("Snap ITC", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             button3.ForeColor = SystemColors.ActiveCaptionText;
-            button3.Location = new Point(41, 163);
+            button3.Location = new Point(40, 172);
             button3.Name = "button3";
             button3.Size = new Size(94, 29);
             button3.TabIndex = 0;
@@ -451,7 +451,7 @@
             LostPanel.Controls.Add(button7);
             LostPanel.Controls.Add(button6);
             LostPanel.Controls.Add(button5);
-            LostPanel.Location = new Point(33, 166);
+            LostPanel.Location = new Point(36, 166);
             LostPanel.Name = "LostPanel";
             LostPanel.Size = new Size(343, 285);
             LostPanel.TabIndex = 4;

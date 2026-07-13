@@ -202,6 +202,7 @@ namespace SpaceShooter.Views
                     label4.Text = GameData.Score.ToString();
                     label6.Text = GameData.Coin.ToString();
                     AudioManager.StopBackMusic();
+                    AudioManager.PlayBackMusic(Properties.Resources.gameover, "gameOver.wav");
                     LostPanel.Visible = true;
                     return;
                 }
@@ -213,6 +214,7 @@ namespace SpaceShooter.Views
                     HighAmountScoreabel.Text = _gamestats.GetHighScore().ToString();
                     coinAmoutLabel.Text = GameData.Coin.ToString();
                     AudioManager.StopBackMusic();
+                    AudioManager.PlayBackMusic(Properties.Resources.win, "win.wav");
                     EndPanel.Visible = true;
                     return;
                 }
@@ -486,12 +488,14 @@ namespace SpaceShooter.Views
 
         private void button1_Click_1(object sender, EventArgs e)
         {
+            AudioManager.StopBackMusic();
             DialogResult = DialogResult.Abort;
             Close();
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
+            AudioManager.StopBackMusic();
             Close();
         }
 
