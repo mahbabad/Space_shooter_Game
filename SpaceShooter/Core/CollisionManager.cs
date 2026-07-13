@@ -20,17 +20,19 @@ namespace SpaceShooter.Core
             List<BaseEnemy> enemies,
             List<Bullet> activeBullets,
             List<Coin> coins,
-            List<ExplosionEffect> ExplosionFx)
+            List<ExplosionEffect> ExplosionFx,
+            List<Shield> shields)
         {
             if (player == null || player.Health <= 0) return;
 
-            HandleBulletCollisions(player, enemies, activeBullets, coins , ExplosionFx);
+            HandleBulletCollisions(player, enemies, activeBullets, coins , ExplosionFx, shields);
             HandlePlayerEnemyCollisions(player, enemies , ExplosionFx);
             HandleCoinCollections(player, coins);
             HandleBulletBulletCollision(activeBullets);
+            HandleShieldCollections(player, shields);
         }
 
-        private void HandleBulletCollisions(PlayerShip player, List<BaseEnemy> enemies, List<Bullet> activeBullets, List<Coin> coins , List<ExplosionEffect> ExplosionFx)
+        private void HandleBulletCollisions(PlayerShip player, List<BaseEnemy> enemies, List<Bullet> activeBullets, List<Coin> coins , List<ExplosionEffect> ExplosionFx, List<Shield> shields)
         {
             for (int i = activeBullets.Count - 1; i >= 0; i--)
             {
@@ -58,11 +60,23 @@ namespace SpaceShooter.Core
                                 enemy.IsActive = false;
                                 _scoreManager.AddScore(enemy.ScoreValue);
 
+                                Random rand = new Random();
+                                bool flag = false;
+                                var droppedShield = enemy.TryDropShield(rand);
+                                if (droppedShield != null)
+                                {
+                                    shields.Add(droppedShield);
+                                    flag = true;
+                                }
+
+
                                 var droppedCoins = _coinManager.CheckAndDropCoins(enemy);
-                                if (droppedCoins != null && droppedCoins.Count > 0)
+                                if (droppedCoins != null && droppedCoins.Count > 0&& flag)
                                 {
                                     coins.AddRange(droppedCoins);
                                 }
+
+                                
                             }
 
                             bullet.IsActive = false;
@@ -118,6 +132,21 @@ namespace SpaceShooter.Core
             }
         }
 
+        private void HandleShieldCollections(PlayerShip player, List<Shield> shields)
+        {
+            for (int i = shields.Count - 1; i >= 0; i--)
+            {
+                Shield shield = shields[i];
+
+                if (!shield.IsActive)
+                    continue;
+
+                if (CheckCollision(player, shield))
+                {
+                    shield.Collect();
+                }
+            }
+        }
         private void HandleBulletBulletCollision(List<Bullet> activeBullets)
         {
             for(int i =activeBullets.Count-1; i>=0; i--)
