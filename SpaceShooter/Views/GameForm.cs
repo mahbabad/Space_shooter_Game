@@ -33,6 +33,8 @@ namespace SpaceShooter.Views
         Image PLayerF35 = Properties.Resources.spaceShip2;
         Image PLayerIranianm = Properties.Resources.spaceship3;
         Image PlayerSokho = Properties.Resources.spaceShip5;
+        Image Shield = Properties.Resources.Shield;
+        Image Hale = Properties.Resources.HaleShield;
         Image _playerImg;
 
 
@@ -71,6 +73,14 @@ namespace SpaceShooter.Views
             if (ImageAnimator.CanAnimate(PLayerIranianm)) ImageAnimator.Animate(PLayerIranianm, OnFrameChanged);
             if (ImageAnimator.CanAnimate(PlayerShahed)) ImageAnimator.Animate(PlayerShahed, OnFrameChanged);
             if(ImageAnimator.CanAnimate(CoinSilverImg)) ImageAnimator.Animate(CoinSilverImg , OnFrameChanged);
+            if (ImageAnimator.CanAnimate(Shield))
+            {
+                ImageAnimator.Animate(Shield, OnFrameChanged);
+            }
+            if (ImageAnimator.CanAnimate(Hale))
+            {
+                ImageAnimator.Animate(Hale, OnFrameChanged);
+            }
             pictureHeart4.Visible = false;
 
             pausePanel.Visible = false;
@@ -226,11 +236,21 @@ namespace SpaceShooter.Views
             ImageAnimator.UpdateFrames();
 
             if (_gameEngine != null && _gameEngine.Session != null)
-
-
             {
                 e.Graphics.DrawImage(_playerImg, _gameEngine.Session.Player.GetBounds());
+                if (_gameEngine.Session.Player.ShieldDuration > 0)
+                {
+                    float playerX = _gameEngine.Session.Player.Width;
+                    float playerY = _gameEngine.Session.Player.Height;
 
+                    float shieldScale = 1.5f;
+                    float shieldWidth = playerX * shieldScale;
+                    float shieldHeight = playerY * shieldScale;
+
+                    float drawX = _gameEngine.Session.Player.X - ((shieldWidth - playerX) / 2);
+                    float drawY = _gameEngine.Session.Player.Y - ((shieldHeight - playerY) / 2);
+                    e.Graphics.DrawImage(Hale,drawX, drawY, shieldWidth, shieldHeight);
+                }
 
 
                 foreach (var enemy in _gameEngine.Session.ActiveEnemies)
@@ -274,6 +294,11 @@ namespace SpaceShooter.Views
                     e.Graphics.DrawImage(CoinSilverImg, coin .X , coin.Y , coin.Width-20f , coin.Height-20f);
                 }
 
+                foreach (var shield in _gameEngine.Session.ActiveShields)
+                {
+                    e.Graphics.DrawImage(Shield, shield.GetBounds());
+                   
+                }
 
             }
         }

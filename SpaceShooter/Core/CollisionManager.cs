@@ -71,7 +71,7 @@ namespace SpaceShooter.Core
 
 
                                 var droppedCoins = _coinManager.CheckAndDropCoins(enemy);
-                                if (droppedCoins != null && droppedCoins.Count > 0&& flag)
+                                if (droppedCoins != null && droppedCoins.Count > 0&& !flag)
                                 {
                                     coins.AddRange(droppedCoins);
                                 }
@@ -143,6 +143,7 @@ namespace SpaceShooter.Core
 
                 if (CheckCollision(player, shield))
                 {
+                    player.ShieldDuration = 5f;
                     shield.Collect();
                 }
             }

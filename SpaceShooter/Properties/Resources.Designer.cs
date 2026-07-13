@@ -355,6 +355,16 @@ namespace SpaceShooter.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap HaleShield {
+            get {
+                object obj = ResourceManager.GetObject("HaleShield", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap hot_bullet {
             get {
                 object obj = ResourceManager.GetObject("hot_bullet", resourceCulture);
@@ -557,6 +567,16 @@ namespace SpaceShooter.Properties {
         internal static System.Drawing.Bitmap Shelik_golooleh_enumy {
             get {
                 object obj = ResourceManager.GetObject("Shelik_golooleh_enumy", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Shield {
+            get {
+                object obj = ResourceManager.GetObject("Shield", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
