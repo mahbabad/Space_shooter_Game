@@ -21,6 +21,7 @@ namespace SpaceShooter.Views
             buttonShop.Visible = false;
             buttonOption.Visible = false;
             buttonAbout.Visible = false;
+            quitBtn.Visible = false;
             SayWelcome();
             MenuButten();
 
@@ -48,12 +49,14 @@ namespace SpaceShooter.Views
             buttonShop.Visible = true;
             buttonOption.Visible = true;
             buttonAbout.Visible = true;
+            quitBtn.Visible =true;
         }
 
         void MenuButten()
         {
             buttonPlay.Click += (s, e) =>
             {
+                AudioManager.PlaySfx(Properties.Resources.gameClick);
                 Hide();
                 GameForm gameForm = new GameForm();
                 gameForm.ShowIcon = false;
@@ -70,6 +73,7 @@ namespace SpaceShooter.Views
 
             buttonOption.Click += (s, e) =>
             {
+                AudioManager.PlaySfx(Properties.Resources.gameClick);
                 Hide();
                 OptionForm optionForm = new OptionForm();
                 optionForm.ShowIcon = false;
@@ -81,6 +85,7 @@ namespace SpaceShooter.Views
 
             buttonShop.Click += (s, e) =>
             {
+                AudioManager.PlaySfx(Properties.Resources.gameClick);
                 Hide();
                 ShopForm shopForm = new ShopForm();
                 shopForm.ShowIcon = false;
@@ -93,6 +98,7 @@ namespace SpaceShooter.Views
 
             buttonAbout.Click += (s, e) =>
             {
+                AudioManager.PlaySfx(Properties.Resources.gameClick);
                 Hide();
                 AboutForm aboutForm = new AboutForm();
                 aboutForm.ShowIcon = false;
@@ -100,6 +106,12 @@ namespace SpaceShooter.Views
                 aboutForm.ShowDialog();
                 Show();
                 StartMusic();
+            };
+
+            quitBtn.Click += (s, e) => 
+            {
+                AudioManager.PlaySfx(Properties.Resources.gameClick);
+                Close();
             };
         }
 

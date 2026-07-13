@@ -37,6 +37,7 @@ namespace SpaceShooter.Views
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
+            AudioManager.PlaySfx(Properties.Resources.gameClick);
             AudioManager.IsMusicMuted = !AudioManager.IsMusicMuted;
             if (AudioManager.IsMusicMuted)
             {
@@ -51,6 +52,7 @@ namespace SpaceShooter.Views
         private void pictureBox2_Click(object sender, EventArgs e)
         {
             AudioManager.IsSfxMuted = !AudioManager.IsSfxMuted;
+            AudioManager.PlaySfx(Properties.Resources.gameClick);
 
             if (AudioManager.IsSfxMuted)
             {

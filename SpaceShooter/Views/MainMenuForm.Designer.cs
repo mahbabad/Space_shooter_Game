@@ -33,6 +33,7 @@
             buttonShop = new Button();
             buttonOption = new Button();
             buttonAbout = new Button();
+            quitBtn = new Button();
             SuspendLayout();
             // 
             // labelWelcome
@@ -94,11 +95,24 @@
             buttonAbout.Text = "About";
             buttonAbout.UseVisualStyleBackColor = false;
             // 
+            // quitBtn
+            // 
+            quitBtn.BackColor = Color.SaddleBrown;
+            quitBtn.Font = new Font("Showcard Gothic", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            quitBtn.ForeColor = Color.Black;
+            quitBtn.Location = new Point(99, 546);
+            quitBtn.Name = "quitBtn";
+            quitBtn.Size = new Size(220, 80);
+            quitBtn.TabIndex = 5;
+            quitBtn.Text = "Quit";
+            quitBtn.UseVisualStyleBackColor = false;
+            // 
             // MainMenuForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(398, 710);
+            Controls.Add(quitBtn);
             Controls.Add(buttonAbout);
             Controls.Add(buttonOption);
             Controls.Add(buttonShop);
@@ -118,5 +132,6 @@
         private Button buttonShop;
         private Button buttonOption;
         private Button buttonAbout;
+        private Button quitBtn;
     }
 }
