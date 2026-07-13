@@ -21,6 +21,7 @@ namespace SpaceShooter.Views
         int scrollSpeed = 4;
         Image backgroundGame = Properties.Resources.background1;
         Image CoinImg = Properties.Resources.Coin;
+        Image CoinSilverImg = Properties.Resources.silverCoin;
         Image playerShooterImg = Properties.Resources.spaceShip1;
         Image standardImg = Properties.Resources.estandardEnumy;
         Image zigzagImg = Properties.Resources.zigzagEnumy;
@@ -67,7 +68,7 @@ namespace SpaceShooter.Views
             if (ImageAnimator.CanAnimate(PlayerSokho)) ImageAnimator.Animate(PlayerSokho, OnFrameChanged);
             if (ImageAnimator.CanAnimate(PLayerIranianm)) ImageAnimator.Animate(PLayerIranianm, OnFrameChanged);
             if (ImageAnimator.CanAnimate(PlayerShahed)) ImageAnimator.Animate(PlayerShahed, OnFrameChanged);
-
+            if(ImageAnimator.CanAnimate(CoinSilverImg)) ImageAnimator.Animate(CoinSilverImg , OnFrameChanged);
             pictureHeart4.Visible = false;
 
             pausePanel.Visible = false;
@@ -253,7 +254,10 @@ namespace SpaceShooter.Views
 
                 foreach (var coin in _gameEngine.Session.ActiveCoins)
                 {
+                    if(coin.type == Enums.CoinType.Gold )
                     e.Graphics.DrawImage(CoinImg, coin.GetBounds());
+                    else
+                    e.Graphics.DrawImage(CoinSilverImg, coin .X , coin.Y , coin.Width-20f , coin.Height-20f);
                 }
 
 
