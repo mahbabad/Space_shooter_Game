@@ -28,7 +28,7 @@ namespace SpaceShooter.Core
             Session = new GameSession(GameArea);
             _movementController = new MovementController();
             _enemySpawner = new EnemySpawner(GameArea ,Session);
-            _shooterController = new ShootingController();
+            _shooterController = new ShootingController(Session);
             _coinManager = new CoinManager(Session);
             _scoreManager = new ScoreManager(Session);
             _collisionManager = new CollisionManager(_scoreManager, _coinManager);

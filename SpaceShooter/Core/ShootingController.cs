@@ -1,11 +1,17 @@
-﻿using System.Collections.Generic;
-using SpaceShooter.Models;
+﻿using SpaceShooter.Models;
+using System.Collections.Generic;
 
 namespace SpaceShooter.Core
 {
     public class ShootingController
     {
         private float _playerFireCooldown = 0f;
+        private GameSession _session;
+
+        public ShootingController(GameSession session) 
+        {
+            _session = session;
+        }
 
         public void UpdatePlayerShooting(PlayerShip player, InputState input, List<Bullet> activeBullets, float deltaTime)
         {
@@ -16,9 +22,18 @@ namespace SpaceShooter.Core
 
             if (input.IsShooting && _playerFireCooldown <= 0f)
             {
-                Shoot(player, activeBullets);
+                if(_session.CurrentWave >= 5)
+                {
+                    trippleShoot(player, activeBullets);
+                    _playerFireCooldown = GameRules.PlayerFireRate;
+                }
+                else
+                {
+                    Shoot(player, activeBullets);
 
-                _playerFireCooldown = GameRules.PlayerFireRate;
+                    _playerFireCooldown = GameRules.PlayerFireRate;
+                }
+
             }
         }
 
@@ -64,6 +79,32 @@ namespace SpaceShooter.Core
 
 
             activeBullets.Add(newBullet);
+        }
+
+        private void trippleShoot(PlayerShip player , List<Bullet> activeBullets)
+        {
+            float spawnX = player.X + (player.Width / 2f) - (GameRules.BulletWidth / 2f);
+            float spawnY = player.Y;
+            float zarib = 5;
+            for (int i = 1; i<4 ; i++)
+            {
+             
+                float angle = zarib * (float)(Math.PI /12 );
+
+                Bullet newBullet = new Bullet
+                    (
+                        spawnX,
+                        spawnY,
+                        velocityX: GameRules.PlayerBulletSpeed * (float) Math.Cos(angle),
+                        velocityY: -GameRules.PlayerBulletSpeed * (float)Math.Sin(angle),
+                        damage : player.BulletDamage,
+                        isPlayerBullet: true);
+
+                activeBullets.Add(newBullet);
+                zarib += 1f;
+            }
+
+            
         }
     }
 }
