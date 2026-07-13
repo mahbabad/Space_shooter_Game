@@ -11,7 +11,8 @@ namespace SpaceShooter.Models
         public float Speed { get; set; }          
         public int BulletDamage { get; set; }
         public bool IsDestroyed { get { return Health <= 0; } }
-
+        public float ShieldDuration { get; set; } = 0f;
+        public bool IsShielded => ShieldDuration > 0f;
         public PlayerShip(float startX, float startY,
                           float width = 100f, float height = 100f)
             : base(startX, startY, width, height)
@@ -26,7 +27,8 @@ namespace SpaceShooter.Models
         {
             if (amount < 0)
                 return;
-
+            if (IsShielded)
+                return;
             Health -= amount;
         }
     }

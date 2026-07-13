@@ -25,6 +25,7 @@ namespace SpaceShooter.Core
         public List<BaseEnemy> ActiveEnemies { get; private set; }
         public List<Bullet> ActiveBullets { get; private set; }
         public List<Coin> ActiveCoins { get; private set; }
+        public List<Shield> ActiveShields { get; private set; } = new List<Shield>();
 
         public GameSession(RectangleF gameArea) 
         {
@@ -49,6 +50,7 @@ namespace SpaceShooter.Core
             ActiveEnemies.Clear();
             ActiveBullets.Clear();
             ActiveCoins.Clear();
+            ActiveShields.Clear();
 
             Player = new PlayerShip(
             GameArea.Width / 2 - 50f,          
