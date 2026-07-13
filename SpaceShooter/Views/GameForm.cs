@@ -199,9 +199,9 @@ namespace SpaceShooter.Views
                 if (_gameEngine.Session.Status == Enums.GameStatus.finish)
                 {
                     timer.Stop();
-                    label8.Text = _gamestats.GetHighScore().ToString();
-                    label4.Text = GameData.Score.ToString();
-                    label6.Text = GameData.Coin.ToString();
+                    labelscore.Text = GameData.Score.ToString();
+                    HighAmountScoreabel.Text = _gamestats.GetHighScore().ToString();
+                    coinAmoutLabel.Text = GameData.Coin.ToString();
                     AudioManager.StopBackMusic();
                     EndPanel.Visible = true;
                     return;
