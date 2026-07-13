@@ -243,7 +243,7 @@ namespace SpaceShooter.Views
                     float playerX = _gameEngine.Session.Player.Width;
                     float playerY = _gameEngine.Session.Player.Height;
 
-                    float shieldScale = 1.5f;
+                    float shieldScale = 1.2f;
                     float shieldWidth = playerX * shieldScale;
                     float shieldHeight = playerY * shieldScale;
 

@@ -1,4 +1,5 @@
 ﻿using SpaceShooter.Models;
+using SpaceShooter.Views;
 using System.Collections.Generic;
 
 namespace SpaceShooter.Core
@@ -76,6 +77,7 @@ namespace SpaceShooter.Core
                  player.BulletDamage,
                  true
             );
+            AudioManager.PlaySfx(Properties.Resources.shot);
 
 
             activeBullets.Add(newBullet);

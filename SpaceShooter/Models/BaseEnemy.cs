@@ -19,7 +19,7 @@ namespace SpaceShooter.Models
         public int ScoreValue { get; protected set; }
 
         public float CoinDropChance { get; protected set; }
-        public float ShieldDropChance { get; protected set; } = 0.15f;
+        public float ShieldDropChance { get; protected set; } = 0.2f;
 
         public float GoldCoinChance { get; protected set; }
 
@@ -56,7 +56,7 @@ namespace SpaceShooter.Models
             return new Coin(X + Width / 2f, Y + Height / 2f, type);
         }
 
-        public Shield TryDropShield(Random random)
+        public Shield? TryDropShield(Random random)
         {
             if (random.NextDouble() < ShieldDropChance)
             {

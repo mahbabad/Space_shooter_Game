@@ -1,6 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using SpaceShooter.Interfaces;
 using SpaceShooter.Models;
-using SpaceShooter.Interfaces;
+using SpaceShooter.Views;
+using System.Collections.Generic;
 
 namespace SpaceShooter.Core
 {
@@ -48,13 +49,14 @@ namespace SpaceShooter.Core
 
                         if (!enemy.IsActive) continue;
 
-                        if (CheckCollision(bullet, enemy))
+                        if (CheckCollision(bullet, enemy))  
                         {
                             enemy.TakeDamage(bullet.Damage);
 
                             if (enemy.Health <= 0)
                             {
                                 ExplosionEffect fx = new ExplosionEffect(enemy.X , enemy.Y , enemy.Width , enemy.Height);
+                                AudioManager.PlayBoombMusic(Properties.Resources.bomb, "boomb.wav");
                                 ExplosionFx.Add(fx);
                             
                                 enemy.IsActive = false;
@@ -62,21 +64,23 @@ namespace SpaceShooter.Core
 
                                 Random rand = new Random();
                                 bool flag = false;
-                                var droppedShield = enemy.TryDropShield(rand);
-                                if (droppedShield != null)
-                                {
-                                    shields.Add(droppedShield);
-                                    flag = true;
-                                }
+                                
 
 
                                 var droppedCoins = _coinManager.CheckAndDropCoins(enemy);
-                                if (droppedCoins != null && droppedCoins.Count > 0&& !flag)
+                                if (droppedCoins != null && droppedCoins.Count > 0)
                                 {
                                     coins.AddRange(droppedCoins);
+                                    flag = true;
                                 }
 
-                                
+                                var droppedShield = enemy.TryDropShield(rand);
+                                if (droppedShield != null && !flag)
+                                {
+                                    shields.Add(droppedShield);
+                                    
+                                }
+
                             }
 
                             bullet.IsActive = false;
@@ -110,6 +114,7 @@ namespace SpaceShooter.Core
                     if (enemy.Health <= 0)
                     {
                         ExplosionEffect fx = new ExplosionEffect(enemy.X, enemy.Y, enemy.Width, enemy.Height);
+                        AudioManager.PlayBoombMusic(Properties.Resources.bomb, "boomb.wav");
                         ExplosionFx.Add(fx);
                         enemy.IsActive = false;   
                     }
@@ -126,6 +131,7 @@ namespace SpaceShooter.Core
 
                 if (CheckCollision(player, coin))
                 {
+                    AudioManager.CoinPlayer(Properties.Resources.CoinMusic, "coin.wav");
                     _coinManager.CollectCoin(coin);
 
                 }

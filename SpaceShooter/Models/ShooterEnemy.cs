@@ -1,5 +1,6 @@
 ﻿using SpaceShooter.Core;
 using SpaceShooter.Enums;
+using SpaceShooter.Views;
 using System;
 using System.Collections.Generic;
 
