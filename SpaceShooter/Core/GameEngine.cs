@@ -52,6 +52,15 @@ namespace SpaceShooter.Core
                 _shooterController.UpdatePlayerShooting(Session.Player, inputState, Session.ActiveBullets, deltatime);
             }
 
+            if (Session.Player != null && Session.Player.ShieldDuration > 0f)
+            {
+                Session.Player.ShieldDuration -= deltatime;
+                if (Session.Player.ShieldDuration < 0f)
+                {
+                    Session.Player.ShieldDuration = 0f;
+                }
+            }
+
             List<BaseEnemy> newlySpawned = new List<BaseEnemy>();
             _enemySpawner.Update(deltatime, Session.ActiveEnemies, newlySpawned);
 
@@ -64,8 +73,9 @@ namespace SpaceShooter.Core
             _shooterController.UpdateEnemyShooting(Session.ActiveEnemies, Session.ActiveBullets, deltatime);
             _movementController.UpdateBullets(Session.ActiveBullets, GameArea, deltatime);
             _movementController.UpdateCoins(Session.ActiveCoins, GameArea, deltatime);
+            _movementController.UpdateShields(Session.ActiveShields, GameArea, deltatime);
 
-            _collisionManager.HandleAllCollisions(Session.Player, Session.ActiveEnemies, Session.ActiveBullets, Session.ActiveCoins , Session.Effects);
+            _collisionManager.HandleAllCollisions(Session.Player, Session.ActiveEnemies, Session.ActiveBullets, Session.ActiveCoins , Session.Effects, Session.ActiveShields);
 
             foreach (var fx in Session.Effects)
             {
@@ -85,6 +95,7 @@ namespace SpaceShooter.Core
             Session.Effects.RemoveAll(e => !e.IsActive);
             Session.ActiveBullets.RemoveAll(b => !b.IsActive || b.Y > GameArea.Bottom + 100 || b.Y < GameArea.Top - 100 );
             Session.ActiveCoins.RemoveAll(c => !c.IsActive);
+            Session.ActiveShields.RemoveAll(s => !s.IsActive);
         }
 
         private void CheckGameOver()
