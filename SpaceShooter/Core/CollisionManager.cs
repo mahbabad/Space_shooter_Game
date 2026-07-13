@@ -19,17 +19,18 @@ namespace SpaceShooter.Core
             PlayerShip player,
             List<BaseEnemy> enemies,
             List<Bullet> activeBullets,
-            List<Coin> coins)
+            List<Coin> coins,
+            List<ExplosionEffect> ExplosionFx)
         {
             if (player == null || player.Health <= 0) return;
 
-            HandleBulletCollisions(player, enemies, activeBullets, coins);
-            HandlePlayerEnemyCollisions(player, enemies);
+            HandleBulletCollisions(player, enemies, activeBullets, coins , ExplosionFx);
+            HandlePlayerEnemyCollisions(player, enemies , ExplosionFx);
             HandleCoinCollections(player, coins);
             HandleBulletBulletCollision(activeBullets);
         }
 
-        private void HandleBulletCollisions(PlayerShip player, List<BaseEnemy> enemies, List<Bullet> activeBullets, List<Coin> coins)
+        private void HandleBulletCollisions(PlayerShip player, List<BaseEnemy> enemies, List<Bullet> activeBullets, List<Coin> coins , List<ExplosionEffect> ExplosionFx)
         {
             for (int i = activeBullets.Count - 1; i >= 0; i--)
             {
@@ -51,6 +52,9 @@ namespace SpaceShooter.Core
 
                             if (enemy.Health <= 0)
                             {
+                                ExplosionEffect fx = new ExplosionEffect(enemy.X , enemy.Y , enemy.Width , enemy.Height);
+                                ExplosionFx.Add(fx);
+                            
                                 enemy.IsActive = false;
                                 _scoreManager.AddScore(enemy.ScoreValue);
 
@@ -77,7 +81,7 @@ namespace SpaceShooter.Core
             }
         }
 
-        private void HandlePlayerEnemyCollisions(PlayerShip player, List<BaseEnemy> enemies)
+        private void HandlePlayerEnemyCollisions(PlayerShip player, List<BaseEnemy> enemies , List<ExplosionEffect> ExplosionFx)
         {
             for (int i = enemies.Count - 1; i >= 0; i--)
             {
@@ -91,6 +95,8 @@ namespace SpaceShooter.Core
 
                     if (enemy.Health <= 0)
                     {
+                        ExplosionEffect fx = new ExplosionEffect(enemy.X, enemy.Y, enemy.Width, enemy.Height);
+                        ExplosionFx.Add(fx);
                         enemy.IsActive = false;   
                     }
                 }

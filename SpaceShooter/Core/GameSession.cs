@@ -17,6 +17,8 @@ namespace SpaceShooter.Core
         private readonly ShipInfo _equippedShip;
         public RectangleF GameArea { get; set; }
 
+        public List<ExplosionEffect> Effects { get; set; }
+
 
 
 
@@ -30,6 +32,7 @@ namespace SpaceShooter.Core
             ActiveEnemies = new List<BaseEnemy>();
             ActiveCoins = new List<Coin>();
             ActiveBullets = new List<Bullet>();
+            Effects = new List<ExplosionEffect> ();
             var repo = new Data.ShopItemsRepository(new Data.DatabaseConnection());
             _equippedShip = repo.GetEquippedShip();
 

@@ -261,6 +261,10 @@ namespace SpaceShooter.Views
                         e.Graphics.DrawImage(Properties.Resources.Shelik_golooleh_enumy, bullet.GetBounds());
                     }
                 }
+                foreach(var fx in _gameEngine.Session.Effects)
+                {
+                    e.Graphics.DrawImage(destroyImage, fx.GetBounds());
+                }
 
                 foreach (var coin in _gameEngine.Session.ActiveCoins)
                 {

@@ -65,9 +65,12 @@ namespace SpaceShooter.Core
             _movementController.UpdateBullets(Session.ActiveBullets, GameArea, deltatime);
             _movementController.UpdateCoins(Session.ActiveCoins, GameArea, deltatime);
 
-            _collisionManager.HandleAllCollisions(Session.Player, Session.ActiveEnemies, Session.ActiveBullets, Session.ActiveCoins);
+            _collisionManager.HandleAllCollisions(Session.Player, Session.ActiveEnemies, Session.ActiveBullets, Session.ActiveCoins , Session.Effects);
 
-
+            foreach (var fx in Session.Effects)
+            {
+                fx.UpdateState(deltatime);
+            }
 
 
             CleanupInactiveEntities();
@@ -79,6 +82,7 @@ namespace SpaceShooter.Core
         private void CleanupInactiveEntities()
         {
             Session.ActiveEnemies.RemoveAll(e => e.Health <= 0 || !e.IsActive || e.Y > GameArea.Bottom + 100 );
+            Session.Effects.RemoveAll(e => !e.IsActive);
             Session.ActiveBullets.RemoveAll(b => !b.IsActive || b.Y > GameArea.Bottom + 100 || b.Y < GameArea.Top - 100 );
             Session.ActiveCoins.RemoveAll(c => !c.IsActive);
         }
