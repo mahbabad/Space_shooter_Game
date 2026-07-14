@@ -41,7 +41,7 @@ namespace SpaceShooter.Models
 
                 for (int i = 0; i < 8; i++)
                 {
-                    float angle = i * (float)(Math.PI / 8);
+                    float angle = i * (float)(Math.PI / 5);
                     bullets.Add(new Bullet(
                         x: centerX,
                         y: centerY,
