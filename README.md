@@ -41,6 +41,15 @@
 
 </p>
 
+<p align = center>
+
+<img width="403" height="796" alt="Screenshot 2026-07-14 054314" src="https://github.com/user-attachments/assets/b1460ac7-48c9-4629-858f-bfb937a39605" />
+
+<P>Shield</P>
+
+  
+</p>
+
 
 <h2> Implemented features : </h2>
 
@@ -49,13 +58,17 @@
 
 - Supports dynamic collision detection between projectiles, enemies, and the player.
 
--Separates responsibilities across entity, logic, data, and UI layers.
+- Separates responsibilities across entity, logic, data, and UI layers.
 
 - Provides multi-directional shooting mechanics for both player and boss enemies.
 
 - Integrates an SQLite-based shop system using the Repository pattern.
 
 - Includes custom-designed visual elements and environments.
+
+- Shield pickup triggers a time-limited invulnerability state, bypassing damage registration until the timer expires.”
+
+- “Creative sound design across diverse in-game environments.”
 
 <h2>Architecture and Folder Structure :</h2>
 
