@@ -23,7 +23,7 @@ namespace SpaceShooter.Core
 
             if (input.IsShooting && _playerFireCooldown <= 0f)
             {
-                if(_session.CurrentWave >= 5)
+                if(_session.CurrentWave >= 7)
                 {
                     trippleShoot(player, activeBullets);
                     _playerFireCooldown = GameRules.PlayerFireRate;

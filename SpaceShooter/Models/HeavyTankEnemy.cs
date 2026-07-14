@@ -8,14 +8,14 @@ namespace SpaceShooter.Models
 {
     public class HeavyTankEnemy : BaseEnemy
     {
-        private const float ShootInterval = 3f;     
-        private const float BulletSpeed = 200f;     
+        private const float ShootInterval = 1f;     
+        private const float BulletSpeed = 500f;     
         private float _timeSinceLastShot;
 
         public HeavyTankEnemy(float x, float y)
             : base(x, y,
                    width:GameRules.HeavyTankScale , height:GameRules.HeavyTankScale ,
-                   maxHealth: 400,
+                   maxHealth: 1000,
                    scoreValue: 150,
                    coinDropChance: 0.90f,
                    goldCoinChance : 0.80f)

@@ -5,7 +5,7 @@ namespace SpaceShooter.Models
 {
     public class TeroristEnemy : BaseEnemy
     {
-        private const float ChaseSpeed = 80f;        
+        private const float ChaseSpeed = 160f;        
         public const int ExplosionDamage = 35;          
 
         private float _targetX;
