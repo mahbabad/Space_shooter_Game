@@ -28,7 +28,7 @@ namespace SpaceShooter.Data
 
             if (_selectedship.Price <= amount)
             {
-                _gameStatsRepository.UpdateTotalCoins(-amount);
+                _gameStatsRepository.UpdateTotalCoins(-_selectedship.Price);
                 _shopitemrepo.SetPurchased(id);
                 return true;
 

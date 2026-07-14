@@ -109,8 +109,12 @@ namespace SpaceShooter.Data
             return new ShipInfo
             {
                 Id = Convert.ToInt32(reader["Id"]),
+                Name = reader["DisplayName"].ToString() ?? string.Empty,
+                Price = Convert.ToInt32(reader["Price"]),
+                Speed = Convert.ToSingle(reader["Speed"]),
+                BulletDamage = Convert.ToInt32(reader["BulletDamage"]),
                 IsPurchased = Convert.ToBoolean(reader["IsPurchased"]),
-                 IsActive= Convert.ToBoolean(reader["IsEquipped"])
+                IsActive = Convert.ToBoolean(reader["IsEquipped"])
             };
         }
 
