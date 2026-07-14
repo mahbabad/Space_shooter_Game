@@ -15,7 +15,7 @@ namespace SpaceShooter.Models
         :base(x, y,
                 width:40f,
                 height:40f,
-                maxHealth: 100,
+                maxHealth: 35,
                 scoreValue : 100,
                 coinDropChance: 0.50f,
                 goldCoinChance:0.30f
