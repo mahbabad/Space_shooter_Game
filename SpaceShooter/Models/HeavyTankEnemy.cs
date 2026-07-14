@@ -15,7 +15,7 @@ namespace SpaceShooter.Models
         public HeavyTankEnemy(float x, float y)
             : base(x, y,
                    width:GameRules.HeavyTankScale , height:GameRules.HeavyTankScale ,
-                   maxHealth: 1000,
+                   maxHealth: 2500,
                    scoreValue: 150,
                    coinDropChance: 0.90f,
                    goldCoinChance : 0.80f)

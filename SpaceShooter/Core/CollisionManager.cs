@@ -168,16 +168,21 @@ namespace SpaceShooter.Core
                     for(int j = activeBullets.Count-1 ; j>= 0 ; j--)
                     {
                         var enemyBullet = activeBullets[j];
-                        if (!enemyBullet.IsActive) continue;
-                        if (enemyBullet.IsPlayerBullet) continue;
 
-                     
-                        if( CheckCollision(bullet, enemyBullet))
+                        if (!enemyBullet.IsHeavyTankBullet)
                         {
-                            bullet.IsActive = false;
-                            enemyBullet.IsActive = false;
-                            break;
+                            if (!enemyBullet.IsActive) continue;
+                            if (enemyBullet.IsPlayerBullet) continue;
+
+
+                            if (CheckCollision(bullet, enemyBullet))
+                            {
+                                bullet.IsActive = false;
+                                enemyBullet.IsActive = false;
+                                break;
+                            }
                         }
+                      
                     }
                 }
             }
