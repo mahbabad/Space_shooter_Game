@@ -40,6 +40,7 @@
             // pictureBox1
             // 
             pictureBox1.BackColor = Color.LightSteelBlue;
+            pictureBox1.Cursor = Cursors.Hand;
             pictureBox1.Image = Properties.Resources.sound1;
             pictureBox1.Location = new Point(107, 176);
             pictureBox1.Name = "pictureBox1";
@@ -52,6 +53,7 @@
             // pictureBox2
             // 
             pictureBox2.BackColor = SystemColors.ActiveCaption;
+            pictureBox2.Cursor = Cursors.Hand;
             pictureBox2.Image = Properties.Resources.sound1;
             pictureBox2.Location = new Point(107, 445);
             pictureBox2.Name = "pictureBox2";
@@ -64,6 +66,7 @@
             // button1
             // 
             button1.BackColor = Color.Transparent;
+            button1.Cursor = Cursors.Hand;
             button1.FlatAppearance.BorderSize = 0;
             button1.FlatStyle = FlatStyle.Flat;
             button1.Font = new Font("B Nazanin", 18F, FontStyle.Bold, GraphicsUnit.Point, 178);

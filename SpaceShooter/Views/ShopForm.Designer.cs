@@ -40,11 +40,11 @@
             progressBarDamage = new ProgressBar();
             amountLabel = new Label();
             button1 = new Button();
-            panel1 = new Panel();
+            ShopPanel = new Panel();
             button2 = new Button();
-            label1 = new Label();
+            notificationLabel = new Label();
             ((System.ComponentModel.ISupportInitialize)pictureShip).BeginInit();
-            panel1.SuspendLayout();
+            ShopPanel.SuspendLayout();
             SuspendLayout();
             // 
             // nameLabel
@@ -63,7 +63,10 @@
             // PreviosButton
             // 
             PreviosButton.BackColor = Color.Transparent;
+            PreviosButton.Cursor = Cursors.Hand;
             PreviosButton.FlatAppearance.BorderSize = 0;
+            PreviosButton.FlatAppearance.MouseDownBackColor = Color.DimGray;
+            PreviosButton.FlatAppearance.MouseOverBackColor = Color.Gray;
             PreviosButton.FlatStyle = FlatStyle.Flat;
             PreviosButton.Font = new Font("Showcard Gothic", 72F, FontStyle.Bold, GraphicsUnit.Point, 0);
             PreviosButton.ForeColor = Color.Lime;
@@ -78,8 +81,11 @@
             // NextButton
             // 
             NextButton.BackColor = Color.Transparent;
+            NextButton.Cursor = Cursors.Hand;
             NextButton.FlatAppearance.BorderColor = Color.FromArgb(255, 192, 192);
             NextButton.FlatAppearance.BorderSize = 0;
+            NextButton.FlatAppearance.MouseDownBackColor = Color.DimGray;
+            NextButton.FlatAppearance.MouseOverBackColor = Color.Gray;
             NextButton.FlatStyle = FlatStyle.Flat;
             NextButton.Font = new Font("Showcard Gothic", 72F, FontStyle.Bold, GraphicsUnit.Point, 0);
             NextButton.ForeColor = Color.Lime;
@@ -138,6 +144,7 @@
             // buyOrSelectButton
             // 
             buyOrSelectButton.BackColor = Color.Black;
+            buyOrSelectButton.Cursor = Cursors.Hand;
             buyOrSelectButton.Font = new Font("Stencil", 31.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             buyOrSelectButton.ForeColor = Color.Gold;
             buyOrSelectButton.Location = new Point(37, 599);
@@ -184,6 +191,7 @@
             // button1
             // 
             button1.BackColor = Color.Transparent;
+            button1.Cursor = Cursors.Hand;
             button1.FlatAppearance.BorderSize = 0;
             button1.FlatStyle = FlatStyle.Flat;
             button1.Font = new Font("Stencil", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
@@ -196,35 +204,44 @@
             button1.UseVisualStyleBackColor = false;
             button1.Click += button1_Click;
             // 
-            // panel1
+            // ShopPanel
             // 
-            panel1.BackColor = Color.Indigo;
-            panel1.Controls.Add(button2);
-            panel1.Controls.Add(label1);
-            panel1.Location = new Point(79, 124);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(248, 176);
-            panel1.TabIndex = 15;
+            ShopPanel.BackColor = Color.Indigo;
+            ShopPanel.Controls.Add(button2);
+            ShopPanel.Controls.Add(notificationLabel);
+            ShopPanel.Location = new Point(58, 236);
+            ShopPanel.Name = "ShopPanel";
+            ShopPanel.Size = new Size(300, 229);
+            ShopPanel.TabIndex = 15;
             // 
             // button2
             // 
-            button2.Location = new Point(77, 125);
+            button2.BackColor = Color.MidnightBlue;
+            button2.BackgroundImageLayout = ImageLayout.Stretch;
+            button2.Cursor = Cursors.Hand;
+            button2.FlatAppearance.BorderSize = 0;
+            button2.FlatAppearance.MouseDownBackColor = Color.Gray;
+            button2.FlatAppearance.MouseOverBackColor = Color.Silver;
+            button2.FlatStyle = FlatStyle.Flat;
+            button2.Font = new Font("Stencil", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            button2.Location = new Point(93, 161);
             button2.Name = "button2";
-            button2.Size = new Size(94, 29);
+            button2.Size = new Size(106, 43);
             button2.TabIndex = 0;
             button2.Text = "OK";
-            button2.UseVisualStyleBackColor = true;
+            button2.UseVisualStyleBackColor = false;
             button2.Click += button2_Click_1;
             // 
-            // label1
+            // notificationLabel
             // 
-            label1.AutoSize = true;
-            label1.BackColor = Color.Transparent;
-            label1.Location = new Point(93, 31);
-            label1.Name = "label1";
-            label1.Size = new Size(50, 20);
-            label1.TabIndex = 0;
-            label1.Text = "label1";
+            notificationLabel.BackColor = Color.Transparent;
+            notificationLabel.Font = new Font("Tahoma", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            notificationLabel.Location = new Point(36, 18);
+            notificationLabel.Name = "notificationLabel";
+            notificationLabel.Size = new Size(227, 109);
+            notificationLabel.TabIndex = 0;
+            notificationLabel.Text = "label1";
+            notificationLabel.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // ShopForm
             // 
@@ -232,7 +249,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = Properties.Resources.backgroundShop1;
             ClientSize = new Size(428, 923);
-            Controls.Add(panel1);
+            Controls.Add(ShopPanel);
             Controls.Add(button1);
             Controls.Add(amountLabel);
             Controls.Add(progressBarDamage);
@@ -249,8 +266,7 @@
             Text = "ShopForm";
             Load += ShopForm_Load;
             ((System.ComponentModel.ISupportInitialize)pictureShip).EndInit();
-            panel1.ResumeLayout(false);
-            panel1.PerformLayout();
+            ShopPanel.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();
         }
@@ -279,8 +295,8 @@
         }
         private Label amountLabel;
         private Button button1;
-        private Panel panel1;
+        private Panel ShopPanel;
         private Button button2;
-        private Label label1;
+        private Label notificationLabel;
     }
 }

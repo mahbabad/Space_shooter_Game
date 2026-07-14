@@ -33,7 +33,7 @@ namespace SpaceShooter.Views
 
             coins = _gameStats.GetTotalCoins();
 
-
+            ShopPanel.Visible = false;
             MaximizeBox = false;
             FormBorderStyle = FormBorderStyle.FixedSingle;
             StartPosition = FormStartPosition.CenterScreen;
@@ -140,12 +140,16 @@ namespace SpaceShooter.Views
                     coins = _gameStats.GetTotalCoins();
 
                     UpdateShop();
-                    MessageBox.Show($"Buy spaceShip {spaceShip.Name} was succusfully! ");
+                    //MessageBox.Show($"Buy spaceShip {spaceShip.Name} was succusfully! ");
+                    ShopPanel.Visible = true;
+                    notificationLabel.Text = $"Buy spaceShip {spaceShip.Name} was succusfully! ";
                 }
                 else
                 {
                     AudioManager.PlaySfx(Properties.Resources.error1);
-                    MessageBox.Show($"You don't have enough coin! ");
+                    //MessageBox.Show($"You don't have enough coin! ");
+                    ShopPanel.Visible = true;
+                    notificationLabel.Text = $"You don't have enough coin for buy {spaceShip.Name}! ";
                 }
             }
             else
@@ -154,12 +158,16 @@ namespace SpaceShooter.Views
                 if (currentIndexShip == SpaceShipData.EquipedShipIndex)
                 {
                     AudioManager.PlaySfx(Properties.Resources.errorShop);
-                    MessageBox.Show($"{spaceShip.Name} had been equipped! ");
+                    //MessageBox.Show($"{spaceShip.Name} had been equipped! ");
+                    ShopPanel.Visible = true;
+                    notificationLabel.Text = $"{spaceShip.Name} had been equipped! ";
                 }
                 else
                 {
                     AudioManager.PlaySfx(Properties.Resources.equipedClick);
-                    MessageBox.Show($"Equip spaceShip {spaceShip.Name} was succusfully! ");
+                    //MessageBox.Show($"Equip spaceShip {spaceShip.Name} was succusfully! ");
+                    ShopPanel.Visible = true;
+                    notificationLabel.Text = $"Equip spaceShip {spaceShip.Name} was succusfully! ";
                     SpaceShipData.EquipedShipIndex = currentIndexShip;
                     _shopItems.SetEquipped(currentIndexShip + 1);
                 }
@@ -196,7 +204,8 @@ namespace SpaceShooter.Views
 
         private void button2_Click_1(object sender, EventArgs e)
         {
-
+            AudioManager.PlaySfx(Properties.Resources.click);
+            ShopPanel.Visible = false;
         }
     }
     public class SpaceShipData

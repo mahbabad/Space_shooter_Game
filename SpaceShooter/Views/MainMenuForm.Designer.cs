@@ -52,6 +52,8 @@
             // buttonPlay
             // 
             buttonPlay.BackColor = Color.DarkOliveGreen;
+            buttonPlay.Cursor = Cursors.Hand;
+            buttonPlay.FlatStyle = FlatStyle.Flat;
             buttonPlay.Font = new Font("Showcard Gothic", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point, 0);
             buttonPlay.ForeColor = Color.Black;
             buttonPlay.Location = new Point(99, 33);
@@ -64,6 +66,8 @@
             // buttonShop
             // 
             buttonShop.BackColor = Color.Gold;
+            buttonShop.Cursor = Cursors.Hand;
+            buttonShop.FlatStyle = FlatStyle.Flat;
             buttonShop.Font = new Font("Showcard Gothic", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point, 0);
             buttonShop.Location = new Point(99, 168);
             buttonShop.Name = "buttonShop";
@@ -75,6 +79,8 @@
             // buttonOption
             // 
             buttonOption.BackColor = Color.CadetBlue;
+            buttonOption.Cursor = Cursors.Hand;
+            buttonOption.FlatStyle = FlatStyle.Flat;
             buttonOption.Font = new Font("Showcard Gothic", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point, 0);
             buttonOption.Location = new Point(99, 294);
             buttonOption.Name = "buttonOption";
@@ -87,6 +93,8 @@
             // 
             buttonAbout.AllowDrop = true;
             buttonAbout.BackColor = Color.IndianRed;
+            buttonAbout.Cursor = Cursors.Hand;
+            buttonAbout.FlatStyle = FlatStyle.Flat;
             buttonAbout.Font = new Font("Showcard Gothic", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point, 0);
             buttonAbout.Location = new Point(99, 422);
             buttonAbout.Name = "buttonAbout";
@@ -98,6 +106,8 @@
             // quitBtn
             // 
             quitBtn.BackColor = Color.SaddleBrown;
+            quitBtn.Cursor = Cursors.Hand;
+            quitBtn.FlatStyle = FlatStyle.Flat;
             quitBtn.Font = new Font("Showcard Gothic", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point, 0);
             quitBtn.ForeColor = Color.Black;
             quitBtn.Location = new Point(99, 546);
