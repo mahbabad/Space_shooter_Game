@@ -74,7 +74,7 @@ namespace SpaceShooter.Data
 
             string insertDefaultGameStats = @"
                 INSERT INTO GameStats (Id, HighScore, TotalCoins)
-                SELECT 1, 0, 0
+                SELECT 1, 0, 500
                 WHERE NOT EXISTS (
                     SELECT 1 FROM GameStats WHERE Id = 1
                 );
