@@ -105,8 +105,9 @@ namespace SpaceShooter.Core
                 activeBullets.Add(newBullet);
                 zarib += 1f;
             }
+            AudioManager.PlaySfx(Properties.Resources.shot);
 
-            
+
         }
     }
 }
