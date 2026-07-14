@@ -507,12 +507,25 @@ namespace SpaceShooter.Views
 
         private void button3_Click(object sender, EventArgs e)
         {
-            _gameEngine.Session.Player.Health = 12;
-            GameData.Health = 12;
-            FirstPanel.Visible = false;
-            pictureHeart4.Visible = true;
-            AudioManager.PlaySfx(Properties.Resources.gameClick);
-            UpdateUI();
+            if(_gamestats.GetTotalCoins() >= 50)
+            {
+                _gamestats.UpdateTotalCoins(-50);
+                _gameEngine.Session.Player.Health = 12;
+                GameData.Health = 12;
+                FirstPanel.Visible = false;
+                pictureHeart4.Visible = true;
+                AudioManager.PlaySfx(Properties.Resources.gameClick);
+                UpdateUI();
+            }
+            else
+            {
+                MessageBox.Show("You have fewer than 50 coins.");
+                _gameEngine.Session.Player.Health = 9;
+                GameData.Health = 9;
+                FirstPanel.Visible = false;
+                UpdateUI();
+            }
+            
         }
 
         private void button4_Click(object sender, EventArgs e)
