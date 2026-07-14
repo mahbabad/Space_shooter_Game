@@ -19,7 +19,7 @@ namespace SpaceShooter.Models
         public int ScoreValue { get; protected set; }
 
         public float CoinDropChance { get; protected set; }
-        public float ShieldDropChance { get; protected set; } = 0.1f;
+        public float ShieldDropChance { get; protected set; } = 0.05f;
 
         public float GoldCoinChance { get; protected set; }
 

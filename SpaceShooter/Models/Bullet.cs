@@ -11,6 +11,7 @@ namespace SpaceShooter.Models
 
         public bool IsHeavyTankBullet { get; set; }
 
+        public int ImageIndex { get; set; } = 1;
         public Bullet(float x, float y, float velocityX, float velocityY,
                       int damage, bool isPlayerBullet , bool isHeavyTank =false ):base(x, y , Core.GameRules.BulletWidth , Core.GameRules.BulletHeight)
         {

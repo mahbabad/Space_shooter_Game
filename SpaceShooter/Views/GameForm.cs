@@ -38,6 +38,20 @@ namespace SpaceShooter.Views
         Image _playerImg;
 
 
+        private Image[] enemyBulletImages = new Image[]
+            {
+                Properties.Resources.red_bullet,
+                Properties.Resources.rangarang_bullet,
+                Properties.Resources.pink_bullet,
+                Properties.Resources.perple_bullet,
+                Properties.Resources.newPink_bullet,
+                Properties.Resources.hot_bullet,
+                Properties.Resources.green_bullet,
+                Properties.Resources.veryLightBlue_bullet,
+                Properties.Resources.darkgreen_bullet,
+                Properties.Resources.darkyellow_bullet,
+                Properties.Resources.darkblue_bullet
+            };
 
         System.Windows.Forms.Timer timer;
 
@@ -58,6 +72,7 @@ namespace SpaceShooter.Views
             GameData.Health = 9;
             GameData.CurrentLevel = 1;
 
+            
 
 
             if (ImageAnimator.CanAnimate(playerShooterImg)) ImageAnimator.Animate(playerShooterImg, OnFrameChanged);
@@ -280,7 +295,11 @@ namespace SpaceShooter.Views
                     }
                     else
                     {
-                        e.Graphics.DrawImage(Properties.Resources.Shelik_golooleh_enumy, bullet.GetBounds());
+                        int idx = bullet.ImageIndex - 1;
+                        if (idx >= 0 && idx < enemyBulletImages.Length)
+                            e.Graphics.DrawImage(enemyBulletImages[idx], bullet.X, bullet.Y, 10f, 10f);
+                        else
+                            e.Graphics.DrawImage(Properties.Resources.Shelik_golooleh_enumy, bullet.GetBounds());
                     }
                 }
                 foreach (var fx in _gameEngine.Session.Effects)

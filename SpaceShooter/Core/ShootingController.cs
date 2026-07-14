@@ -8,7 +8,7 @@ namespace SpaceShooter.Core
     {
         private float _playerFireCooldown = 0f;
         private GameSession _session;
-
+        private static readonly Random _random = new Random();
         public ShootingController(GameSession session) 
         {
             _session = session;
@@ -50,6 +50,14 @@ namespace SpaceShooter.Core
                 if (newBullets.Count > 0)
                 {
                     pendingBullets.AddRange(newBullets);
+                }
+            }
+
+            foreach (var bullet in pendingBullets)
+            {
+                if (!bullet.IsPlayerBullet)  
+                {
+                    bullet.ImageIndex = _random.Next(1, 12); 
                 }
             }
 
