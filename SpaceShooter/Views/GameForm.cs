@@ -72,7 +72,7 @@ namespace SpaceShooter.Views
             GameData.Health = 9;
             GameData.CurrentLevel = 1;
 
-            
+
 
 
             if (ImageAnimator.CanAnimate(playerShooterImg)) ImageAnimator.Animate(playerShooterImg, OnFrameChanged);
@@ -214,8 +214,8 @@ namespace SpaceShooter.Views
                 {
                     timer.Stop();
                     label8.Text = _gamestats.GetHighScore().ToString();
-                    label4.Text = GameData.Score.ToString();
-                    label6.Text = GameData.Coin.ToString();
+                    label4.Text = GameData.Coin.ToString();
+                    label6.Text = GameData.Score.ToString();
                     AudioManager.StopBackMusic();
                     AudioManager.PlayBackMusic(Properties.Resources.gameover, "gameOver.wav");
                     LostPanel.Visible = true;
@@ -526,7 +526,7 @@ namespace SpaceShooter.Views
 
         private void button3_Click(object sender, EventArgs e)
         {
-            if(_gamestats.GetTotalCoins() >= 50)
+            if (_gamestats.GetTotalCoins() >= 50)
             {
                 _gamestats.UpdateTotalCoins(-50);
                 _gameEngine.Session.Player.Health = 12;
@@ -589,6 +589,11 @@ namespace SpaceShooter.Views
         }
 
         private void GameForm_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label6_Click(object sender, EventArgs e)
         {
 
         }

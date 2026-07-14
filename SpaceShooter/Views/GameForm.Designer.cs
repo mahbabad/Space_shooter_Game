@@ -502,6 +502,7 @@
             label6.Size = new Size(58, 28);
             label6.TabIndex = 12;
             label6.Text = "score";
+            label6.Click += label6_Click;
             // 
             // label7
             // 
