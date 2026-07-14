@@ -55,10 +55,10 @@ namespace SpaceShooter.Views
 
             GameData.Coin = 0;
             GameData.Score = 0;
-                GameData.Health = 9;
+            GameData.Health = 9;
             GameData.CurrentLevel = 1;
 
-           
+
 
             if (ImageAnimator.CanAnimate(playerShooterImg)) ImageAnimator.Animate(playerShooterImg, OnFrameChanged);
             if (ImageAnimator.CanAnimate(standardImg)) ImageAnimator.Animate(standardImg, OnFrameChanged);
@@ -72,7 +72,7 @@ namespace SpaceShooter.Views
             if (ImageAnimator.CanAnimate(PlayerSokho)) ImageAnimator.Animate(PlayerSokho, OnFrameChanged);
             if (ImageAnimator.CanAnimate(PLayerIranianm)) ImageAnimator.Animate(PLayerIranianm, OnFrameChanged);
             if (ImageAnimator.CanAnimate(PlayerShahed)) ImageAnimator.Animate(PlayerShahed, OnFrameChanged);
-            if(ImageAnimator.CanAnimate(CoinSilverImg)) ImageAnimator.Animate(CoinSilverImg , OnFrameChanged);
+            if (ImageAnimator.CanAnimate(CoinSilverImg)) ImageAnimator.Animate(CoinSilverImg, OnFrameChanged);
             if (ImageAnimator.CanAnimate(Shield))
             {
                 ImageAnimator.Animate(Shield, OnFrameChanged);
@@ -251,7 +251,7 @@ namespace SpaceShooter.Views
 
                     float drawX = _gameEngine.Session.Player.X - ((shieldWidth - playerX) / 2);
                     float drawY = _gameEngine.Session.Player.Y - ((shieldHeight - playerY) / 2);
-                    e.Graphics.DrawImage(Hale,drawX, drawY, shieldWidth, shieldHeight);
+                    e.Graphics.DrawImage(Hale, drawX, drawY, shieldWidth, shieldHeight);
                 }
 
 
@@ -283,23 +283,23 @@ namespace SpaceShooter.Views
                         e.Graphics.DrawImage(Properties.Resources.Shelik_golooleh_enumy, bullet.GetBounds());
                     }
                 }
-                foreach(var fx in _gameEngine.Session.Effects)
+                foreach (var fx in _gameEngine.Session.Effects)
                 {
                     e.Graphics.DrawImage(destroyImage, fx.GetBounds());
                 }
 
                 foreach (var coin in _gameEngine.Session.ActiveCoins)
                 {
-                    if(coin.type == Enums.CoinType.Gold )
-                    e.Graphics.DrawImage(CoinImg, coin.GetBounds());
+                    if (coin.type == Enums.CoinType.Gold)
+                        e.Graphics.DrawImage(CoinImg, coin.GetBounds());
                     else
-                    e.Graphics.DrawImage(CoinSilverImg, coin .X , coin.Y , coin.Width-20f , coin.Height-20f);
+                        e.Graphics.DrawImage(CoinSilverImg, coin.X, coin.Y, coin.Width - 20f, coin.Height - 20f);
                 }
 
                 foreach (var shield in _gameEngine.Session.ActiveShields)
                 {
                     e.Graphics.DrawImage(Shield, shield.GetBounds());
-                   
+
                 }
 
             }
@@ -525,7 +525,7 @@ namespace SpaceShooter.Views
                 FirstPanel.Visible = false;
                 UpdateUI();
             }
-            
+
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -554,7 +554,7 @@ namespace SpaceShooter.Views
         {
             AudioManager.PlaySfx(Properties.Resources.gameClick);
             Hide();
-            
+
             GameForm newGame = new GameForm();
             newGame.ShowIcon = false;
             newGame.ShowInTaskbar = false;
@@ -565,7 +565,12 @@ namespace SpaceShooter.Views
                 return;
             }
             this.Close();
-            
+
+
+        }
+
+        private void GameForm_Load(object sender, EventArgs e)
+        {
 
         }
     }

@@ -32,7 +32,7 @@ namespace SpaceShooter.Views
             _buyManager = new BuyManager();
 
             coins = _gameStats.GetTotalCoins();
-           
+
 
             MaximizeBox = false;
             FormBorderStyle = FormBorderStyle.FixedSingle;
@@ -67,7 +67,7 @@ namespace SpaceShooter.Views
         {
             for (int i = 0; i < spaceShips.Count; i++)
             {
-                var ship = _shopItems.GetShipById(i + 1); 
+                var ship = _shopItems.GetShipById(i + 1);
                 if (ship != null)
                     spaceShips[i].IsOwned = ship.IsPurchased;
             }
@@ -132,13 +132,13 @@ namespace SpaceShooter.Views
             SpaceShipData spaceShip = spaceShips[currentIndexShip];
             if (!spaceShip.IsOwned)
             {
-                if (_buyManager.Buy(currentIndexShip+1 , coins))
+                if (_buyManager.Buy(currentIndexShip + 1, coins))
                 {
                     AudioManager.CoinPlayer(Properties.Resources.CoinMusic, "coinMusic.wav");
                     spaceShip.IsOwned = true;
 
                     coins = _gameStats.GetTotalCoins();
-                   
+
                     UpdateShop();
                     MessageBox.Show($"Buy spaceShip {spaceShip.Name} was succusfully! ");
                 }
@@ -187,6 +187,16 @@ namespace SpaceShooter.Views
         {
             AudioManager.PlaySfx(Properties.Resources.click);
             Close();
+        }
+
+        private void pictureShip_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button2_Click_1(object sender, EventArgs e)
+        {
+
         }
     }
     public class SpaceShipData

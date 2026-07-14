@@ -151,7 +151,7 @@ namespace SpaceShooter.Core
                 if (CheckCollision(player, shield))
                 {
                     AudioManager.PlayShieldMusic(Properties.Resources.ShieldSound, "shieldMusic.wav");
-                    player.ShieldDuration = 5f;
+                    player.ShieldDuration = 2.5f;
                     shield.Collect();
                 }
             }

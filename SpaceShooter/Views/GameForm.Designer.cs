@@ -255,7 +255,7 @@
             EndPanel.Controls.Add(sLabel);
             EndPanel.Controls.Add(HighAmountScoreabel);
             EndPanel.Controls.Add(HighScoreLabel);
-            EndPanel.Location = new Point(44, 166);
+            EndPanel.Location = new Point(38, 138);
             EndPanel.Name = "EndPanel";
             EndPanel.Size = new Size(326, 262);
             EndPanel.TabIndex = 9;
@@ -380,7 +380,7 @@
             FirstPanel.Controls.Add(pictureBox1);
             FirstPanel.Controls.Add(button4);
             FirstPanel.Controls.Add(button3);
-            FirstPanel.Location = new Point(36, 196);
+            FirstPanel.Location = new Point(30, 204);
             FirstPanel.Name = "FirstPanel";
             FirstPanel.Size = new Size(343, 229);
             FirstPanel.TabIndex = 9;
@@ -451,7 +451,7 @@
             LostPanel.Controls.Add(button7);
             LostPanel.Controls.Add(button6);
             LostPanel.Controls.Add(button5);
-            LostPanel.Location = new Point(36, 166);
+            LostPanel.Location = new Point(33, 148);
             LostPanel.Name = "LostPanel";
             LostPanel.Size = new Size(343, 285);
             LostPanel.TabIndex = 4;
@@ -462,7 +462,7 @@
             label3.BackColor = Color.Transparent;
             label3.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label3.ForeColor = Color.Red;
-            label3.Location = new Point(68, 8);
+            label3.Location = new Point(70, 8);
             label3.Name = "label3";
             label3.Size = new Size(205, 41);
             label3.TabIndex = 15;

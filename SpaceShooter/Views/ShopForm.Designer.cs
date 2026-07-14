@@ -40,7 +40,11 @@
             progressBarDamage = new ProgressBar();
             amountLabel = new Label();
             button1 = new Button();
+            panel1 = new Panel();
+            button2 = new Button();
+            label1 = new Label();
             ((System.ComponentModel.ISupportInitialize)pictureShip).BeginInit();
+            panel1.SuspendLayout();
             SuspendLayout();
             // 
             // nameLabel
@@ -96,6 +100,7 @@
             pictureShip.SizeMode = PictureBoxSizeMode.Zoom;
             pictureShip.TabIndex = 3;
             pictureShip.TabStop = false;
+            pictureShip.Click += pictureShip_Click;
             // 
             // Speedlabel
             // 
@@ -191,12 +196,43 @@
             button1.UseVisualStyleBackColor = false;
             button1.Click += button1_Click;
             // 
+            // panel1
+            // 
+            panel1.BackColor = Color.Indigo;
+            panel1.Controls.Add(button2);
+            panel1.Controls.Add(label1);
+            panel1.Location = new Point(79, 124);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(248, 176);
+            panel1.TabIndex = 15;
+            // 
+            // button2
+            // 
+            button2.Location = new Point(77, 125);
+            button2.Name = "button2";
+            button2.Size = new Size(94, 29);
+            button2.TabIndex = 0;
+            button2.Text = "OK";
+            button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click_1;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.BackColor = Color.Transparent;
+            label1.Location = new Point(93, 31);
+            label1.Name = "label1";
+            label1.Size = new Size(50, 20);
+            label1.TabIndex = 0;
+            label1.Text = "label1";
+            // 
             // ShopForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = Properties.Resources.backgroundShop1;
             ClientSize = new Size(428, 923);
+            Controls.Add(panel1);
             Controls.Add(button1);
             Controls.Add(amountLabel);
             Controls.Add(progressBarDamage);
@@ -213,6 +249,8 @@
             Text = "ShopForm";
             Load += ShopForm_Load;
             ((System.ComponentModel.ISupportInitialize)pictureShip).EndInit();
+            panel1.ResumeLayout(false);
+            panel1.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -241,5 +279,8 @@
         }
         private Label amountLabel;
         private Button button1;
+        private Panel panel1;
+        private Button button2;
+        private Label label1;
     }
 }
